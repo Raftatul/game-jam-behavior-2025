@@ -68,5 +68,6 @@ func apply_root_motion(vel: Vector3, duration: float) -> void:
 	velocity = vel
 	root_motion_tween.tween_interval(duration)
 	root_motion_tween.tween_callback(func(): velocity = Vector3.ZERO)
+	root_motion_tween.tween_callback(func(): global_position.x = snappedi(global_position.x, GRID_SIZE))
 	
 	orient_character(vel.normalized(), duration)

@@ -1,8 +1,8 @@
 [gd_scene load_steps=7 format=3 uid="uid://c6k6haam1kgbk"]
 
-[ext_resource type="PackedScene" uid="uid://l6t2l73wo01p" path="res://src/ldos/rotator.tscn" id="1_il7l4"]
-[ext_resource type="PackedScene" uid="uid://2vxwbtdextyx" path="res://src/ldos/translator.tscn" id="2_c5uyr"]
-[ext_resource type="PackedScene" uid="uid://deew70tfogvw5" path="res://src/ldos/SwitchingMesh.tscn" id="3_gigd5"]
+[ext_resource type="PackedScene" uid="uid://l6t2l73wo01p" path="res://src/ldos/movement/rotator.tscn" id="1_il7l4"]
+[ext_resource type="PackedScene" uid="uid://2vxwbtdextyx" path="res://src/ldos/movement/translator.tscn" id="2_c5uyr"]
+[ext_resource type="PackedScene" uid="uid://deew70tfogvw5" path="res://src/ldos/visibility_switcher/SwitchingMesh.tscn" id="3_gigd5"]
 
 [sub_resource type="CylinderMesh" id="CylinderMesh_il7l4"]
 

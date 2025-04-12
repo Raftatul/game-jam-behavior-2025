@@ -1,9 +1,9 @@
 [gd_scene load_steps=8 format=3 uid="uid://buse55bn08t6f"]
 
-[ext_resource type="PackedScene" path="res://src/character/character.tscn" id="1_4uxyq"]
+[ext_resource type="PackedScene" uid="uid://stq6yyadeyjn" path="res://src/character/character.tscn" id="1_4uxyq"]
 [ext_resource type="Script" path="res://src/levels/world.gd" id="1_qgv8x"]
 [ext_resource type="MeshLibrary" uid="uid://dnhjeo6e3yltg" path="res://assets/modular_kit/modular_kit.tres" id="3_xbmv0"]
-[ext_resource type="PackedScene" uid="uid://deew70tfogvw5" path="res://src/ldos/SwitchingMesh.tscn" id="4_a4ppy"]
+[ext_resource type="PackedScene" uid="uid://deew70tfogvw5" path="res://src/ldos/visibility_switcher/SwitchingMesh.tscn" id="4_a4ppy"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_4uxyq"]
 

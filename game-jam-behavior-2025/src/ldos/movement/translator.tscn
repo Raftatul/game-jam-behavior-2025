@@ -1,6 +1,6 @@
 [gd_scene load_steps=2 format=3 uid="uid://2vxwbtdextyx"]
 
-[ext_resource type="Script" uid="uid://c758pw3j558rb" path="res://src/ldos/translator.gd" id="1_t16te"]
+[ext_resource type="Script" uid="uid://c758pw3j558rb" path="res://src/ldos/movement/translator.gd" id="1_t16te"]
 
 [node name="Translator" type="PathFollow3D"]
 loop = false

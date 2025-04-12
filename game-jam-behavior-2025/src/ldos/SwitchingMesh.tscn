@@ -7,7 +7,8 @@ size = Vector3(1, 1, 0.2)
 
 [node name="SwitchingMesh" type="AnimatableBody3D"]
 
-[node name="SwitchableCollisionShape3D" parent="." instance=ExtResource("1_msfys")]
+[node name="SwitchableCollisionShape3D" parent="." node_paths=PackedStringArray("toggle_meshes") instance=ExtResource("1_msfys")]
+toggle_meshes = NodePath("../MeshInstance3D")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="."]
 mesh = SubResource("BoxMesh_x4ahr")

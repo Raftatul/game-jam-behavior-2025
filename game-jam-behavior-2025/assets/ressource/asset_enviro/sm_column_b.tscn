@@ -1,0 +1,15 @@
+[gd_scene load_steps=3 format=3 uid="uid://dssri783u1cjk"]
+
+[ext_resource type="PackedScene" uid="uid://vt14yhv8brv" path="res://assets/enviro/SM_column_B.fbx" id="1_u0owv"]
+
+[sub_resource type="CylinderShape3D" id="CylinderShape3D_u0owv"]
+height = 16.0903
+radius = 0.558594
+
+[node name="SM_column_B" instance=ExtResource("1_u0owv")]
+
+[node name="StaticBody3D" type="StaticBody3D" parent="SM_column_B_01" index="0"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="SM_column_B_01/StaticBody3D" index="0"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 8.04517, 0)
+shape = SubResource("CylinderShape3D_u0owv")

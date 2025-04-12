@@ -29,23 +29,18 @@ shape = SubResource("BoxShape3D_yny20")
 transform = Transform3D(0.9, 0, 0, 0, 0.9, 0, 0, 0, 0.9, 0, 0, 0)
 
 [node name="Skeleton3D" parent="character_v1/metarig" index="0"]
-bones/4/position = Vector3(-2.34982e-10, 0.772495, -0.0552)
-bones/4/rotation = Quaternion(0.0851639, 1.18776e-07, 1.01523e-08, 0.996367)
-bones/5/rotation = Quaternion(-0.0474388, 0.00400976, -0.0205408, 0.998655)
-bones/6/rotation = Quaternion(-0.0525227, -0.000449882, -0.0184733, 0.998449)
-bones/6/scale = Vector3(1, 1, 1)
-bones/7/rotation = Quaternion(0.0018179, -1.18802e-07, 2.17452e-10, 0.999998)
-bones/8/rotation = Quaternion(0.103174, 9.06654e-10, -8.42276e-10, 0.994663)
-bones/9/rotation = Quaternion(-0.0513563, 0.000142839, 0.00517193, 0.998667)
-bones/10/rotation = Quaternion(0.997138, 0.0246701, 0.0206385, -0.0684258)
-bones/11/rotation = Quaternion(-0.0450834, 0.00205975, -0.010133, 0.99893)
-bones/12/rotation = Quaternion(0.149722, 0.00360843, -0.0458405, 0.987658)
-bones/13/position = Vector3(0.102042, 0.2376, -0.0338422)
-bones/14/position = Vector3(-0.101, 0.228153, 0.0270768)
-bones/16/rotation = Quaternion(0.97769, -0.0187892, 0.0136086, 0.208766)
-bones/17/rotation = Quaternion(0.259915, 0.000500658, -0.0403199, 0.964789)
-bones/19/rotation = Quaternion(0.97769, 0.0187891, -0.0136083, 0.208767)
-bones/20/rotation = Quaternion(0.259916, -0.000500656, 0.0403198, 0.964789)
+bones/4/position = Vector3(-4.19842e-10, 0.779275, -0.0552)
+bones/5/rotation = Quaternion(-0.0473398, 0.0139871, -0.0319224, 0.998271)
+bones/6/rotation = Quaternion(-0.0525213, -0.000484612, -0.0198995, 0.998421)
+bones/10/rotation = Quaternion(0.995706, 0.0446223, 0.0222911, -0.0779787)
+bones/11/rotation = Quaternion(-0.0461373, 0.00775387, -0.0179535, 0.998744)
+bones/12/rotation = Quaternion(0.158733, -5.56144e-05, -0.0868867, 0.983491)
+bones/13/position = Vector3(0.104715, 0.225086, -0.0341954)
+bones/14/position = Vector3(-0.0983276, 0.215638, 0.0267237)
+bones/16/rotation = Quaternion(0.9808, -0.0162695, 0.0134207, 0.193872)
+bones/17/rotation = Quaternion(0.229109, 0.000504769, -0.0355411, 0.972752)
+bones/19/rotation = Quaternion(0.9808, 0.0162694, -0.0134203, 0.193872)
+bones/20/rotation = Quaternion(0.22911, -0.000504766, 0.035541, 0.972751)
 
 [node name="Pivot" type="Marker3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
@@ -78,7 +73,6 @@ metadata/_custom_type_script = "uid://cwho3wtapiyg4"
 
 [node name="VisibilityComponent" parent="." instance=ExtResource("13_omsti")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.888874, 0)
-aabb = AABB(-0.297219, -0.871872, -0.302801, 0.594438, 1.74374, 0.605602)
 
 [connection signal="on_screen_visibility_changed" from="VisibilityComponent" to="." method="_on_visibility_component_on_screen_visibility_changed"]
 

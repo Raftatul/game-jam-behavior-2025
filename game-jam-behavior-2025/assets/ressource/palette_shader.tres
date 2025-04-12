@@ -1,0 +1,15 @@
+[gd_resource type="ShaderMaterial" load_steps=4 format=3 uid="uid://dpy1hjcdi6biy"]
+
+[ext_resource type="Shader" uid="uid://w1fd4k4im640" path="res://assets/ressource/palette_shader.gdshader" id="1_7h6y5"]
+
+[sub_resource type="Gradient" id="Gradient_7h6y5"]
+offsets = PackedFloat32Array(0, 0.491803, 1)
+colors = PackedColorArray(0.231373, 0.192157, 0.235294, 1, 0.545098, 0.341176, 0.376471, 1, 0.929412, 0.847059, 0.741176, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_1h74f"]
+gradient = SubResource("Gradient_7h6y5")
+
+[resource]
+shader = ExtResource("1_7h6y5")
+shader_parameter/flip = false
+shader_parameter/gradient = SubResource("GradientTexture2D_1h74f")

@@ -1,6 +1,6 @@
 [gd_scene load_steps=3 format=3 uid="uid://l6t2l73wo01p"]
 
-[ext_resource type="Script" uid="uid://s7ix1gci5kfj" path="res://src/ldos/rotator.gd" id="1_v1ihd"]
+[ext_resource type="Script" uid="uid://s7ix1gci5kfj" path="res://src/ldos/movement/rotator.gd" id="1_v1ihd"]
 [ext_resource type="Texture2D" uid="uid://bept7xb8ik2qj" path="res://src/modules/finite_state_machine/state_node.svg" id="2_aealr"]
 
 [node name="Rotator" type="Node3D"]

@@ -1,17 +1,17 @@
 [gd_scene load_steps=7 format=3 uid="uid://c6k6haam1kgbk"]
 
-[ext_resource type="PackedScene" uid="uid://l6t2l73wo01p" path="res://src/ldos/rotator.tscn" id="1_il7l4"]
-[ext_resource type="PackedScene" uid="uid://2vxwbtdextyx" path="res://src/ldos/translator.tscn" id="2_c5uyr"]
-[ext_resource type="PackedScene" uid="uid://deew70tfogvw5" path="res://src/ldos/SwitchingMesh.tscn" id="3_gigd5"]
+[ext_resource type="PackedScene" uid="uid://l6t2l73wo01p" path="res://src/ldos/movement/rotator.tscn" id="1_il7l4"]
+[ext_resource type="PackedScene" uid="uid://2vxwbtdextyx" path="res://src/ldos/movement/translator.tscn" id="2_c5uyr"]
+[ext_resource type="PackedScene" uid="uid://deew70tfogvw5" path="res://src/ldos/visibility_switcher/SwitchingMesh.tscn" id="3_gigd5"]
 
 [sub_resource type="CylinderMesh" id="CylinderMesh_il7l4"]
 
 [sub_resource type="Curve3D" id="Curve3D_c5uyr"]
 _data = {
-"points": PackedVector3Array(0, 0, 0, 0, 0, 0, -2.02598, -0.0277371, -0.0400491, 0, 0, 0, 0, 0, 0, 1.97723, 0.0495431, 0.0327878),
-"tilts": PackedFloat32Array(0, 0)
+"points": PackedVector3Array(0, 0, 0, 0, 0, 0, -2.02598, -0.0277371, -0.0400491, 0, 0, 0, 0, 0, 0, 1.82032, 0.0465136, 0.0299329, 0, 0, 0, 0, 0, 0, 1.97723, 0.0495431, 0.0327878),
+"tilts": PackedFloat32Array(0, 0, 0)
 }
-point_count = 2
+point_count = 3
 
 [sub_resource type="BoxMesh" id="BoxMesh_oggrv"]
 
@@ -24,7 +24,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 16)
 transform = Transform3D(0.982734, 0.0960158, 0.158159, -3.72529e-09, 0.854809, -0.518942, -0.185022, 0.509982, 0.840051, -1.40317, 0.699995, -0.169579)
 
 [node name="Rotator" parent="." instance=ExtResource("1_il7l4")]
-transform = Transform3D(1, 0, 0, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, 0, 5, 0)
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, 0, 7, 0)
 showInGame = false
 rotating_angle = 1
 rotating_speed = 1.0
@@ -38,17 +38,15 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.99432, 0.000307798, -1.345
 mesh = SubResource("CylinderMesh_il7l4")
 
 [node name="Path3D" type="Path3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.20927, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5.00694, 4.22639, -0.000558853)
 curve = SubResource("Curve3D_c5uyr")
 
 [node name="Translator" parent="Path3D" instance=ExtResource("2_c5uyr")]
-transform = Transform3D(-0.0181913, -0.0192943, -0.999632, 0, 0.999798, -0.0192975, 0.999818, -0.000351051, -0.0181879, -2.02598, -0.0277371, -0.0400491)
+transform = Transform3D(-0.0181912, -0.0192942, -0.999633, 1.86261e-09, 0.999798, -0.0192974, 0.999818, -0.000351049, -0.0181878, -2.02598, -0.0277371, -0.0400491)
 pause_at_extrimity = true
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="Path3D/Translator"]
 mesh = SubResource("BoxMesh_oggrv")
 
 [node name="SwitchingMesh" parent="." instance=ExtResource("3_gigd5")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
-
-[editable path="SwitchingMesh"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 3, 0)

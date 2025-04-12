@@ -21,8 +21,6 @@ func _ready() -> void:
 		timer.start()
 
 func switch():
-	print("Test")
-	
 	toggle_state = !toggle_state
 	
 	if (owner is PhysicsBody3D):

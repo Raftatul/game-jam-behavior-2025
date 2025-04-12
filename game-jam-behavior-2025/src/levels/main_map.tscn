@@ -26,18 +26,17 @@ transform = Transform3D(0.962289, -0.235583, 0.136014, 2.78059e-08, 0.5, 0.86602
 shadow_enabled = true
 
 [node name="CSGBox3D" type="CSGBox3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -1, 1)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -1, 0)
 use_collision = true
-size = Vector3(100, 2, 2)
+size = Vector3(100, 2, 6)
 
 [node name="Character" parent="." instance=ExtResource("1_4uxyq")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 1)
 floor_constant_speed = true
 
 [node name="GridMap" type="GridMap" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1, 0, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1, 0, -1)
 mesh_library = ExtResource("3_xbmv0")
 data = {
-"cells": PackedInt32Array(65532, 1, 1245184, 0, 1, 1245184, 4, 1, 1245184, 8, 1, 1245184, 65542, 0, 196608, 65538, 0, 196608, 131070, 0, 196608)
+"cells": PackedInt32Array(65534, 2, 1114112, 2, 2, 1114112, 6, 2, 1048576, 4, 0, 1179648, 65536, 1, 524288, 65540, 65535, 524288, 65537, 0, 524288)
 }
-metadata/_editor_floor_ = Vector3(0, 1, 0)
+metadata/_editor_floor_ = Vector3(0, 0, 0)

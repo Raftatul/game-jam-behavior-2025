@@ -5,7 +5,7 @@ var jump_buffered: bool = false
 
 
 func check_relevance() -> StringName:
-	if player.input_direction == 0.0 and not player.root_motion_tween.is_running():
+	if player.input_direction.x == 0.0 and not player.root_motion_tween.is_running():
 		return &"Idle"
 	elif jump_buffered and not player.root_motion_tween.is_running():
 		return &"Jump"
@@ -26,10 +26,10 @@ func update(machine: FiniteStateMachine, delta: float) -> void:
 
 
 func _move_character() -> void:
-	if player.input_direction == 0.0 or jump_buffered or player.finite_state_machine.current_state_name == &"Death":
+	if player.input_direction.x == 0.0 or jump_buffered or player.finite_state_machine.current_state_name == &"Death":
 		return
 	
-	var vel: Vector3 = Vector3.RIGHT * (player.GRID_SIZE / player.move_duration) * player.input_direction
+	var vel: Vector3 = Vector3.RIGHT * (player.GRID_SIZE / player.move_duration) * player.input_direction.x
 	
 	player.anime_state_machine.travel(player.run_animation)
 	player.apply_root_motion(vel, player.move_duration)

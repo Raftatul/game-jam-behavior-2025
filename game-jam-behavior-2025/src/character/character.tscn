@@ -1,9 +1,10 @@
-[gd_scene load_steps=10 format=3 uid="uid://stq6yyadeyjn"]
+[gd_scene load_steps=11 format=3 uid="uid://stq6yyadeyjn"]
 
 [ext_resource type="Script" uid="uid://cfvy05lnoj7uv" path="res://src/character/player_character.gd" id="1_yny20"]
 [ext_resource type="PackedScene" uid="uid://drknuc7u7hx5e" path="res://assets/character/character_v_1.tscn" id="2_1irux"]
 [ext_resource type="Script" uid="uid://bdji4l0bh2re2" path="res://src/modules/finite_state_machine/state_machine.gd" id="2_2p3op"]
 [ext_resource type="PackedScene" uid="uid://o2g31154jd7r" path="res://src/character/character_state_machine.tscn" id="3_a5pac"]
+[ext_resource type="PackedScene" uid="uid://c1dwc3kx6ba8c" path="res://src/character/character_top_down_state_machine.tscn" id="4_m366t"]
 [ext_resource type="Script" uid="uid://dmtt0c2xadp2d" path="res://src/character/camera/camera_pivot.gd" id="10_8cpw0"]
 [ext_resource type="Script" uid="uid://0sl55afsirix" path="res://src/character/camera/states/camera_2d_state.gd" id="11_1irux"]
 [ext_resource type="Script" uid="uid://cew1815m2eqft" path="res://src/character/camera/states/camera_topdown_state.gd" id="12_1irux"]
@@ -14,6 +15,7 @@ size = Vector3(0.6, 1.85303, 0.6)
 
 [node name="Character" type="CharacterBody3D"]
 script = ExtResource("1_yny20")
+move_duration = 0.25
 jump_force = 27.0
 gravity_influence = 10.0
 metadata/_custom_type_script = "uid://cfvy05lnoj7uv"
@@ -25,30 +27,33 @@ shape = SubResource("BoxShape3D_yny20")
 [node name="character_v1" parent="." instance=ExtResource("2_1irux")]
 
 [node name="Skeleton3D" parent="character_v1/metarig" index="0"]
-bones/4/position = Vector3(4.6854e-10, 0.768018, -0.0552)
-bones/5/rotation = Quaternion(-0.0475021, -0.00301587, -0.0125241, 0.998788)
+bones/4/position = Vector3(-4.09163e-10, 0.7768, -0.0552)
+bones/5/rotation = Quaternion(-0.047723, -0.0352359, 0.0242642, 0.997944)
 bones/5/scale = Vector3(1, 1, 1)
-bones/6/rotation = Quaternion(-0.0525238, -0.000423177, -0.0173768, 0.998468)
+bones/6/rotation = Quaternion(-0.0525277, -0.000299729, -0.0123077, 0.998544)
 bones/6/scale = Vector3(1, 1, 1)
 bones/7/rotation = Quaternion(0.0018179, -1.18802e-07, 2.17452e-10, 0.999998)
 bones/8/rotation = Quaternion(0.103174, 9.06654e-10, -8.42276e-10, 0.994663)
 bones/9/rotation = Quaternion(-0.0513563, 0.000142839, 0.00517193, 0.998667)
-bones/10/rotation = Quaternion(0.99785, 0.0106047, 0.019468, -0.0616747)
-bones/11/rotation = Quaternion(-0.024294, 0.00834617, 0.0580103, 0.997985)
-bones/12/rotation = Quaternion(0.0427218, 0.0268243, -0.0124713, 0.998649)
-bones/13/position = Vector3(0.100162, 0.246406, -0.0335938)
-bones/14/position = Vector3(-0.102881, 0.236959, 0.0273253)
-bones/16/rotation = Quaternion(0.975713, -0.0202978, 0.0137185, 0.217678)
-bones/17/rotation = Quaternion(0.27828, 0.000497943, -0.0431689, 0.959529)
-bones/19/rotation = Quaternion(0.975713, 0.0202977, -0.0137182, 0.217678)
-bones/20/rotation = Quaternion(0.278281, -0.00049794, 0.0431687, 0.959529)
+bones/10/rotation = Quaternion(0.99798, -0.0539098, 0.0140409, -0.0305312)
+bones/11/rotation = Quaternion(0.0223969, 0.00562131, -0.0175074, 0.99958)
+bones/12/rotation = Quaternion(0.0761132, 0.0409161, 0.07656, 0.993313)
+bones/13/position = Vector3(0.0915332, 0.286808, -0.0324539)
+bones/14/position = Vector3(-0.111509, 0.27736, 0.0284652)
+bones/16/rotation = Quaternion(0.979633, -0.0172381, 0.0134936, 0.199599)
+bones/17/rotation = Quaternion(0.24097, 0.000503251, -0.0373811, 0.969812)
+bones/19/rotation = Quaternion(0.979633, 0.017238, -0.0134933, 0.1996)
+bones/20/rotation = Quaternion(0.240971, -0.000503249, 0.037381, 0.969812)
 
 [node name="Pivot" type="Marker3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
 
 [node name="FiniteStateMachine" parent="." instance=ExtResource("3_a5pac")]
 
+[node name="TopDownStateMachine" parent="." instance=ExtResource("4_m366t")]
+
 [node name="CameraPivot" type="Marker3D" parent="." node_paths=PackedStringArray("player")]
+transform = Transform3D(1, 0, 0, 0, 0.984808, 0.173648, 0, -0.173648, 0.984808, 0, 0, 0)
 script = ExtResource("10_8cpw0")
 player = NodePath("..")
 

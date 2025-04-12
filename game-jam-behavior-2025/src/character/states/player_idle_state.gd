@@ -2,7 +2,7 @@ extends PlayerState
 
 
 func check_relevance() -> StringName:
-	if player.input_direction != 0.0:
+	if player.input_direction.x != 0.0:
 		return &"Walk"
 	elif player.request_jump:
 		return &"Jump"

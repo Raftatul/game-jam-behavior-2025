@@ -25,7 +25,7 @@ func _physics_process(delta: float) -> void:
 func switch_to_2d() -> void:
 	switch_tween = create_tween()
 	
-	switch_tween.tween_property(self, "rotation:x", 0.0, switch_duration)
+	switch_tween.tween_property(self, "rotation:x", deg_to_rad(-10.0), switch_duration)
 
 
 func switch_to_topdown() -> void:

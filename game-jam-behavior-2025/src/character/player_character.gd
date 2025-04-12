@@ -58,8 +58,8 @@ func _physics_process(delta: float) -> void:
 	move_and_slide()
 
 
-func set_rot(ang: float) -> void:
-	character_mesh.rotation.y = lerp_angle(character_mesh.rotation.y, ang, 1.0)
+func set_rot(alpha: float, start_ang: float, target_ang: float) -> void:
+	character_mesh.rotation.y = lerp_angle(start_ang, target_ang, alpha)
 
 
 func orient_character(direction: Vector3, duration: float) -> void:
@@ -70,7 +70,7 @@ func orient_character(direction: Vector3, duration: float) -> void:
 		orient_tween.kill()
 	orient_tween = create_tween()
 	
-	orient_tween.tween_method(set_rot, current_ang, target_ang, duration)
+	orient_tween.tween_method(set_rot.bind(current_ang, target_ang), 0.0, 1.0, duration)
 	#orient_tween.tween_property(character_mesh, "rotation:y", target_ang, duration)
 
 

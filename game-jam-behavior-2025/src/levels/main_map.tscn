@@ -4,7 +4,7 @@
 [ext_resource type="Script" uid="uid://dcexpw07mj5rk" path="res://src/levels/world.gd" id="1_qgv8x"]
 [ext_resource type="Script" uid="uid://x2sgtrr65ci7" path="res://src/ldos/kill_zone.gd" id="4_a4ppy"]
 [ext_resource type="PackedScene" uid="uid://b56g4e8vw0hk5" path="res://assets/ressource/palette_filter.tscn" id="5_aqj3v"]
-[ext_resource type="PackedScene" uid="uid://bm1ss72ovvwpt" path="res://src/ldos/PushableBlock.tscn" id="5_rvsp0"]
+[ext_resource type="PackedScene" uid="uid://duila407wy3vr" path="res://assets/ressource/asset_enviro/sm_bridge_a_stairs_a.tscn" id="6_rvsp0"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_aqj3v"]
 
@@ -32,12 +32,8 @@ transform = Transform3D(0.962289, -0.235583, 0.136014, 2.78059e-08, 0.5, 0.86602
 light_energy = 0.5
 shadow_enabled = true
 
-[node name="Ground" type="CSGBox3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -1, -2)
-use_collision = true
-size = Vector3(100, 2, 10)
-
 [node name="Character" parent="." instance=ExtResource("1_4uxyq")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4, 4, 0)
 floor_constant_speed = true
 
 [node name="PaletteFilter" parent="." instance=ExtResource("5_aqj3v")]
@@ -49,7 +45,10 @@ script = ExtResource("4_a4ppy")
 [node name="CollisionShape3D" type="CollisionShape3D" parent="KillZone"]
 shape = SubResource("BoxShape3D_xbmv0")
 
-[node name="PushableBlock" parent="." instance=ExtResource("5_rvsp0")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4, 2, 0)
+[node name="SM_bridge_A_stairs_A" parent="." instance=ExtResource("6_rvsp0")]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 3.91343, -10, 0)
+
+[node name="SM_bridge_A_stairs_A2" parent="." instance=ExtResource("6_rvsp0")]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 7.913, -9, 0)
 
 [connection signal="body_entered" from="KillZone" to="KillZone" method="_on_body_entered"]

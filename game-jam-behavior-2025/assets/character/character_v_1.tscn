@@ -1,0 +1,32 @@
+[gd_scene load_steps=8 format=3 uid="uid://drknuc7u7hx5e"]
+
+[ext_resource type="PackedScene" uid="uid://b5oxqocb4k0na" path="res://assets/character/character_v1.glb" id="1_b6wgb"]
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_b6wgb"]
+animation = &"Idle"
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_echuh"]
+animation = &"RunCycle"
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_dg8b8"]
+advance_mode = 2
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_bgihf"]
+xfade_time = 0.25
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_xdgjd"]
+xfade_time = 0.25
+
+[sub_resource type="AnimationNodeStateMachine" id="AnimationNodeStateMachine_b6wgb"]
+states/Idle/node = SubResource("AnimationNodeAnimation_b6wgb")
+states/Idle/position = Vector2(369, 100)
+states/RunCycle/node = SubResource("AnimationNodeAnimation_echuh")
+states/RunCycle/position = Vector2(526, 100)
+states/Start/position = Vector2(195, 100)
+transitions = ["Start", "Idle", SubResource("AnimationNodeStateMachineTransition_dg8b8"), "Idle", "RunCycle", SubResource("AnimationNodeStateMachineTransition_bgihf"), "RunCycle", "Idle", SubResource("AnimationNodeStateMachineTransition_xdgjd")]
+
+[node name="character_v1" instance=ExtResource("1_b6wgb")]
+
+[node name="AnimationTree" type="AnimationTree" parent="." index="2"]
+tree_root = SubResource("AnimationNodeStateMachine_b6wgb")
+anim_player = NodePath("../AnimationPlayer")

@@ -1,8 +1,8 @@
 [gd_scene load_steps=14 format=3 uid="uid://stq6yyadeyjn"]
 
 [ext_resource type="Script" uid="uid://cfvy05lnoj7uv" path="res://src/character/player_character.gd" id="1_yny20"]
+[ext_resource type="PackedScene" uid="uid://drknuc7u7hx5e" path="res://assets/character/character_v_1.tscn" id="2_1irux"]
 [ext_resource type="Script" uid="uid://bdji4l0bh2re2" path="res://src/modules/finite_state_machine/state_machine.gd" id="2_2p3op"]
-[ext_resource type="PackedScene" uid="uid://b5oxqocb4k0na" path="res://assets/character/character_v1.glb" id="2_m366t"]
 [ext_resource type="Script" uid="uid://dqf2dv04wdo3i" path="res://src/character/states/player_idle_state.gd" id="3_8mo58"]
 [ext_resource type="Script" uid="uid://cmnib6pvh2w8i" path="res://src/character/states/player_walk_state.gd" id="4_k8eue"]
 [ext_resource type="Script" uid="uid://dkvn5imuc6ehs" path="res://src/character/states/player_death_state.gd" id="5_tntuy"]
@@ -27,7 +27,24 @@ metadata/_custom_type_script = "uid://cfvy05lnoj7uv"
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
 shape = SubResource("BoxShape3D_yny20")
 
-[node name="character_v1" parent="." instance=ExtResource("2_m366t")]
+[node name="character_v1" parent="." instance=ExtResource("2_1irux")]
+
+[node name="Skeleton3D" parent="character_v1/metarig" index="0"]
+bones/4/position = Vector3(-1.36196e-11, 0.77819, -0.0552)
+bones/4/rotation = Quaternion(0.0851639, 1.18776e-07, 1.01523e-08, 0.996367)
+bones/5/rotation = Quaternion(-0.0473462, 0.0133728, -0.0312217, 0.998301)
+bones/6/rotation = Quaternion(-0.0525218, -0.000471861, -0.0193759, 0.998432)
+bones/7/rotation = Quaternion(0.0018179, -1.18802e-07, 2.17452e-10, 0.999998)
+bones/8/rotation = Quaternion(0.103174, 9.06654e-10, -8.42276e-10, 0.994663)
+bones/10/rotation = Quaternion(0.995809, 0.0433948, 0.0221897, -0.0773918)
+bones/11/rotation = Quaternion(-0.0451083, 0.0132735, -0.0156661, 0.998771)
+bones/12/rotation = Quaternion(0.14129, 1.53407e-05, -0.0895114, 0.985913)
+bones/13/position = Vector3(0.10455, 0.225857, -0.0341736)
+bones/14/position = Vector3(-0.0984923, 0.216409, 0.0267455)
+bones/16/rotation = Quaternion(0.980474, -0.0165431, 0.0134413, 0.19549)
+bones/17/rotation = Quaternion(0.232462, 0.000504348, -0.0360611, 0.971937)
+bones/19/rotation = Quaternion(0.980474, 0.016543, -0.013441, 0.19549)
+bones/20/rotation = Quaternion(0.232462, -0.000504346, 0.0360611, 0.971937)
 
 [node name="FiniteStateMachine" type="Node" parent="." node_paths=PackedStringArray("initial_state")]
 script = ExtResource("2_2p3op")
@@ -77,3 +94,5 @@ metadata/_custom_type_script = "uid://cwho3wtapiyg4"
 [node name="TopDown" type="Node" parent="CameraPivot/CameraStateMachine"]
 script = ExtResource("12_1irux")
 metadata/_custom_type_script = "uid://cwho3wtapiyg4"
+
+[editable path="character_v1"]

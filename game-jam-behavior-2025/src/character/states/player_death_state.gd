@@ -15,4 +15,3 @@ func update(machine: FiniteStateMachine, delta: float) -> void:
 
 func exit(machine: FiniteStateMachine) -> void:
 	pass
-

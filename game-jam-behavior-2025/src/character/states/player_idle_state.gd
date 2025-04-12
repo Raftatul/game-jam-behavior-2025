@@ -10,6 +10,7 @@ func check_relevance() -> StringName:
 
 
 func enter(machine: FiniteStateMachine) -> void:
+	player.anime_state_machine.travel(player.idle_animation)
 	player.apply_gravity = true
 
 

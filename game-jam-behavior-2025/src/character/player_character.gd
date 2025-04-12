@@ -3,6 +3,9 @@ class_name PlayerCharacter extends CharacterBody3D
 
 const GRID_SIZE: int = 2.0
 
+const  idle_animation: StringName = &"Idle"
+const run_animation: StringName = &"RunCycle"
+
 @export var move_duration: float = 0.5
 @export var jump_force: float = 10.0
 @export var gravity_influence: float = 1.0
@@ -19,6 +22,8 @@ var request_jump: bool = false
 @onready var character_mesh: Node3D = $character_v1
 @onready var camera_pivot: Marker3D = $CameraPivot
 @onready var camera: Camera3D = $CameraPivot/Camera3D
+@onready var animation_tree: AnimationTree = $character_v1/AnimationTree
+@onready var anime_state_machine: AnimationNodeStateMachinePlayback = animation_tree.get("parameters/playback")
 
 
 func _ready() -> void:

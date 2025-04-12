@@ -29,18 +29,18 @@ shape = SubResource("BoxShape3D_yny20")
 transform = Transform3D(0.9, 0, 0, 0, 0.9, 0, 0, 0, 0.9, 0, 0, 0)
 
 [node name="Skeleton3D" parent="character_v1/metarig" index="0"]
-bones/4/position = Vector3(-5.53485e-11, 0.768055, -0.0552)
-bones/5/rotation = Quaternion(-0.0476232, -0.0186177, 0.00528496, 0.998678)
-bones/6/rotation = Quaternion(-0.0525259, -0.000362812, -0.014898, 0.998508)
-bones/10/rotation = Quaternion(0.998557, -0.0206489, 0.0168509, -0.0466239)
-bones/11/rotation = Quaternion(0.0185637, 0.00495531, 0.0662603, 0.997617)
-bones/12/rotation = Quaternion(0.0558591, 0.0369869, 0.0370876, 0.997064)
-bones/13/position = Vector3(0.095986, 0.265958, -0.0330422)
-bones/14/position = Vector3(-0.107056, 0.25651, 0.0278769)
-bones/16/rotation = Quaternion(0.975735, -0.0202818, 0.0137173, 0.217583)
-bones/17/rotation = Quaternion(0.278085, 0.000497973, -0.0431386, 0.959587)
-bones/19/rotation = Quaternion(0.975735, 0.0202816, -0.013717, 0.217584)
-bones/20/rotation = Quaternion(0.278086, -0.000497972, 0.0431385, 0.959587)
+bones/4/position = Vector3(1.7149e-10, 0.775595, -0.0552)
+bones/5/rotation = Quaternion(-0.0473811, 0.00995863, -0.0273274, 0.998453)
+bones/6/rotation = Quaternion(-0.0525222, -0.000462987, -0.0190115, 0.998439)
+bones/10/rotation = Quaternion(0.996343, 0.0365705, 0.0216253, -0.074127)
+bones/11/rotation = Quaternion(-0.045008, 0.0155634, -0.00521938, 0.998852)
+bones/12/rotation = Quaternion(0.103552, 0.00132477, -0.0797059, 0.991424)
+bones/13/position = Vector3(0.103635, 0.23014, -0.0340528)
+bones/14/position = Vector3(-0.0994072, 0.220693, 0.0268664)
+bones/16/rotation = Quaternion(0.979078, -0.0176891, 0.0135273, 0.202265)
+bones/17/rotation = Quaternion(0.246483, 0.000502516, -0.0382362, 0.968392)
+bones/19/rotation = Quaternion(0.979078, 0.0176889, -0.0135269, 0.202265)
+bones/20/rotation = Quaternion(0.246483, -0.000502514, 0.0382361, 0.968392)
 
 [node name="Pivot" type="Marker3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
@@ -50,12 +50,12 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
 [node name="TopDownStateMachine" parent="." instance=ExtResource("4_m366t")]
 
 [node name="CameraPivot" type="Marker3D" parent="." node_paths=PackedStringArray("player")]
-transform = Transform3D(1, 0, 0, 0, 0.984808, 0.173648, 0, -0.173648, 0.984808, 0, 0, 0)
+transform = Transform3D(1, 0, 0, 0, 0.984808, 0.173648, 0, -0.173648, 0.984808, 0, 4, 0)
 script = ExtResource("10_8cpw0")
 player = NodePath("..")
 
 [node name="Camera3D" type="Camera3D" parent="CameraPivot"]
-transform = Transform3D(1, 0, 0, 0, 1, 2.98023e-08, 0, -2.98023e-08, 1, 0, 1.39159, 25.3842)
+transform = Transform3D(1, 0, 0, 0, 1, 2.98023e-08, 0, -2.98023e-08, 1, 0, 0, 25.384)
 fov = 50.0
 
 [node name="CameraStateMachine" type="Node" parent="CameraPivot" node_paths=PackedStringArray("initial_state")]

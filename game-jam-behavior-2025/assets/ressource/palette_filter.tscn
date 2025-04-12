@@ -1,0 +1,14 @@
+[gd_scene load_steps=3 format=3 uid="uid://b56g4e8vw0hk5"]
+
+[ext_resource type="Material" uid="uid://dpy1hjcdi6biy" path="res://assets/ressource/palette_shader.tres" id="1_efoyd"]
+[ext_resource type="Texture2D" uid="uid://g8wx7jk11okl" path="res://assets/icon.svg" id="2_4hf5n"]
+
+[node name="PaletteFilter" type="CanvasLayer"]
+layer = 2
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+z_index = 1
+material = ExtResource("1_efoyd")
+position = Vector2(2822.5, 1599)
+scale = Vector2(44.2266, 25.1563)
+texture = ExtResource("2_4hf5n")

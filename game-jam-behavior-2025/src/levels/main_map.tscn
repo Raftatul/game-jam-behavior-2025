@@ -59,17 +59,4 @@ transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -1.036
 [node name="SM_bridge_A_stairs_A2" parent="." instance=ExtResource("6_rvsp0")]
 transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 2.9628, -9, 0)
 
-[node name="Checkpoint" parent="."]
-_import_path = NodePath("")
-unique_name_in_owner = false
-process_mode = 0
-process_priority = 0
-process_physics_priority = 0
-process_thread_group = 0
-physics_interpolation_mode = 0
-auto_translate_mode = 0
-editor_description = ""
-transform = Transform3D(13.5248, 0, 0, 0, 13.5248, 0, 0, 0, 13.5248, 11.9793, -5.94913, 0)
-script = null
-
 [connection signal="body_entered" from="KillZone" to="KillZone" method="_on_body_entered"]

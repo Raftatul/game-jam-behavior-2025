@@ -4,6 +4,7 @@ class_name PlayerCharacter extends MoveableBody
 const  idle_animation: StringName = &"Idle"
 const run_animation: StringName = &"RunCycle"
 const fall_animation: StringName = &"FallCycle"
+const dash_animation: StringName = &"Dash"
 
 @export var move_duration: float = 0.5
 @export var jump_force: float = 10.0

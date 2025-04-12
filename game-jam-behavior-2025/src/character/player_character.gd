@@ -10,14 +10,19 @@ const fall_animation: StringName = &"FallCycle"
 @export var move_duration: float = 0.5
 @export var jump_force: float = 10.0
 @export var gravity_influence: float = 1.0
+@export var dash_duration: float = 0.5
+@export var dash_distance: float = 6.0
 
 var input_direction: Vector2 = Vector2.ZERO
+var las_valid_input: Vector2 = Vector2.RIGHT
+
 var apply_gravity: bool = false
 
 var root_motion_tween: Tween
 var orient_tween: Tween
 
 var request_jump: bool = false
+var request_dash: bool = false
 
 @onready var finite_state_machine: FiniteStateMachine = $FiniteStateMachine
 @onready var top_down_state_machine: FiniteStateMachine = $TopDownStateMachine
@@ -45,7 +50,12 @@ func _physics_process(delta: float) -> void:
 			top_down_state_machine.switch_state(&"Death")
 	
 	input_direction = Vector2(sign(Input.get_axis("ui_left", "ui_right")), sign(Input.get_axis("ui_up", "ui_down")))
+	
+	if input_direction:
+		las_valid_input = input_direction
+	
 	request_jump = Input.is_action_just_pressed("ui_accept")
+	request_dash = Input.is_action_just_pressed("dash")
 	
 	if camera_pivot.camera_state_machine.current_state_name == &"2D":
 		finite_state_machine.update(delta)

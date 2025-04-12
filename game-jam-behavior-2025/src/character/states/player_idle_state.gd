@@ -6,6 +6,8 @@ func check_relevance() -> StringName:
 		return &"Walk"
 	elif player.request_jump:
 		return &"Jump"
+	elif player.request_dash:
+		return &"Dash"
 	return ""
 
 

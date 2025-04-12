@@ -9,6 +9,8 @@ func check_relevance() -> StringName:
 		return &"Idle"
 	elif jump_buffered and not player.root_motion_tween.is_running():
 		return &"Jump"
+	elif player.request_dash:
+		return &"Dash"
 	return ""
 
 

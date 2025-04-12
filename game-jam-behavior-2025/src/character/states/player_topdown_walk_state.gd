@@ -4,6 +4,8 @@ extends PlayerState
 func check_relevance() -> StringName:
 	if player.input_direction.x == 0.0 and not player.root_motion_tween.is_running():
 		return &"Idle"
+	elif player.request_dash:
+		return &"Dash"
 	return ""
 
 

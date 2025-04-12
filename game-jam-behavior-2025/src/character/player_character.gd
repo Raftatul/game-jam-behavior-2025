@@ -5,6 +5,7 @@ const GRID_SIZE: int = 2.0
 
 const  idle_animation: StringName = &"Idle"
 const run_animation: StringName = &"RunCycle"
+const fall_animation: StringName = &"FallCycle"
 
 @export var move_duration: float = 0.5
 @export var jump_force: float = 10.0
@@ -42,13 +43,13 @@ func _physics_process(delta: float) -> void:
 	finite_state_machine.update(delta)
 	
 	if apply_gravity:
-		velocity += get_gravity() * gravity_influence
+		velocity += get_gravity() * gravity_influence * delta
 	
 	move_and_slide()
 
 
-func orient_character(direction: float, duration: float) -> void:
-	var target_rot: float = deg_to_rad(90.0 * direction)
+func orient_character(direction: Vector3, duration: float) -> void:
+	var target_rot: float = direction.angle_to(Vector3.LEFT) - deg_to_rad(90.0)
 	
 	if orient_tween:
 		orient_tween.kill()
@@ -57,32 +58,15 @@ func orient_character(direction: float, duration: float) -> void:
 	orient_tween.tween_property(character_mesh, "rotation:y", target_rot, duration)
 
 
-#func apply_root_motion(target_pos: Vector3, duration: float) -> void:
-	#if root_motion_tween:
-		#root_motion_tween.kill()
-	#
-	#root_motion_tween = create_tween()
-	#root_motion_tween.set_process_mode(Tween.TWEEN_PROCESS_PHYSICS)
-	#
-	#root_motion_tween.tween_property(self, "global_position", target_pos, duration)
-
-
-func apply_horizontal_motion(x_destination: float, duration: float) -> void:
+func apply_root_motion(vel: Vector3, duration: float) -> void:
 	if root_motion_tween:
 		root_motion_tween.kill()
+	
 	root_motion_tween = create_tween()
+	root_motion_tween.set_process_mode(Tween.TWEEN_PROCESS_PHYSICS)
 	
-	root_motion_tween.tween_property(self, "global_position:x", x_destination, duration)
+	velocity = vel
+	root_motion_tween.tween_interval(duration)
+	root_motion_tween.tween_callback(func(): velocity = Vector3.ZERO)
 	
-	orient_character(input_direction, duration)
-
-
-func _check_if_player_behind_wall() -> bool:
-	var space_state = get_world_3d().direct_space_state
-	var query = PhysicsRayQueryParameters3D.create(camera.global_position, pivot.global_position)
-	var result = space_state.intersect_ray(query)
-	
-	if result:
-		if result["collider"] != self:
-			return true
-	return false
+	orient_character(vel.normalized(), duration)

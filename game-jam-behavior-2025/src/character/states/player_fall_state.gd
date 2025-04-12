@@ -7,8 +7,6 @@ func check_relevance() -> StringName:
 			return &"Idle"
 		else:
 			return &"Walk"
-	elif player.input_direction != 0.0:
-		return &"WalkAir"
 	return ""
 
 

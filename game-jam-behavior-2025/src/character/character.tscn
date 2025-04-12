@@ -1,4 +1,4 @@
-[gd_scene load_steps=15 format=3 uid="uid://stq6yyadeyjn"]
+[gd_scene load_steps=14 format=3 uid="uid://stq6yyadeyjn"]
 
 [ext_resource type="Script" uid="uid://cfvy05lnoj7uv" path="res://src/character/player_character.gd" id="1_yny20"]
 [ext_resource type="PackedScene" uid="uid://drknuc7u7hx5e" path="res://assets/character/character_v_1.tscn" id="2_1irux"]
@@ -7,7 +7,6 @@
 [ext_resource type="Script" uid="uid://cmnib6pvh2w8i" path="res://src/character/states/player_walk_state.gd" id="4_k8eue"]
 [ext_resource type="Script" uid="uid://dkvn5imuc6ehs" path="res://src/character/states/player_death_state.gd" id="5_tntuy"]
 [ext_resource type="Script" uid="uid://co7fdiqk0u4sk" path="res://src/character/states/player_jump_state.gd" id="6_56uj1"]
-[ext_resource type="Script" uid="uid://c65pm7xm5i42n" path="res://src/character/states/player_walk_air.gd" id="7_fi36g"]
 [ext_resource type="Script" uid="uid://bmknk64fxjomu" path="res://src/character/states/player_fall_state.gd" id="8_a5pac"]
 [ext_resource type="Script" uid="uid://dmtt0c2xadp2d" path="res://src/character/camera/camera_pivot.gd" id="10_8cpw0"]
 [ext_resource type="Script" uid="uid://0sl55afsirix" path="res://src/character/camera/states/camera_2d_state.gd" id="11_1irux"]
@@ -20,8 +19,8 @@ size = Vector3(0.6, 2, 0.6)
 [node name="Character" type="CharacterBody3D"]
 script = ExtResource("1_yny20")
 move_duration = 0.1
-jump_force = 35.0
-gravity_influence = 0.25
+jump_force = 27.0
+gravity_influence = 10.0
 metadata/_custom_type_script = "uid://cfvy05lnoj7uv"
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
@@ -31,18 +30,18 @@ shape = SubResource("BoxShape3D_yny20")
 [node name="character_v1" parent="." instance=ExtResource("2_1irux")]
 
 [node name="Skeleton3D" parent="character_v1/metarig" index="0"]
-bones/4/position = Vector3(-3.15012e-10, 0.774473, -0.0552)
-bones/5/rotation = Quaternion(-0.0474073, 0.0073084, -0.0243041, 0.998553)
-bones/6/rotation = Quaternion(-0.0525222, -0.00046206, -0.0189734, 0.998439)
-bones/10/rotation = Quaternion(0.996719, 0.0312702, 0.0211862, -0.071589)
-bones/11/rotation = Quaternion(-0.048552, 0.00250831, -0.0146164, 0.998711)
-bones/12/rotation = Quaternion(0.156214, 0.00183772, -0.0555241, 0.98616)
-bones/13/position = Vector3(0.102925, 0.233464, -0.033959)
-bones/14/position = Vector3(-0.100117, 0.224017, 0.0269602)
-bones/16/rotation = Quaternion(0.978571, -0.0180948, 0.0135574, 0.204662)
-bones/17/rotation = Quaternion(0.25144, 0.000501842, -0.0390051, 0.967087)
-bones/19/rotation = Quaternion(0.978571, 0.0180946, -0.0135571, 0.204663)
-bones/20/rotation = Quaternion(0.25144, -0.000501841, 0.039005, 0.967086)
+bones/4/position = Vector3(2.49539e-10, 0.773666, -0.0552)
+bones/5/rotation = Quaternion(-0.0474059, 0.00745523, -0.0244716, 0.998548)
+bones/6/rotation = Quaternion(-0.0525224, -0.000458475, -0.0188262, 0.998442)
+bones/10/rotation = Quaternion(0.996699, 0.031564, 0.0212106, -0.0717297)
+bones/11/rotation = Quaternion(-0.044773, 0.0157982, 0.00555741, 0.998857)
+bones/12/rotation = Quaternion(0.0838475, 0.0029846, -0.069892, 0.99402)
+bones/13/position = Vector3(0.102965, 0.23328, -0.0339642)
+bones/14/position = Vector3(-0.100078, 0.223833, 0.026955)
+bones/16/rotation = Quaternion(0.978208, -0.0183828, 0.0135787, 0.206364)
+bones/17/rotation = Quaternion(0.254956, 0.000501356, -0.0395506, 0.966143)
+bones/19/rotation = Quaternion(0.978208, 0.0183826, -0.0135784, 0.206365)
+bones/20/rotation = Quaternion(0.254956, -0.000501354, 0.0395505, 0.966143)
 
 [node name="Pivot" type="Marker3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
@@ -66,10 +65,6 @@ metadata/_custom_type_script = "uid://c0w66x5j564rh"
 
 [node name="Jump" type="Node" parent="FiniteStateMachine"]
 script = ExtResource("6_56uj1")
-metadata/_custom_type_script = "uid://c0w66x5j564rh"
-
-[node name="WalkAir" type="Node" parent="FiniteStateMachine"]
-script = ExtResource("7_fi36g")
 metadata/_custom_type_script = "uid://c0w66x5j564rh"
 
 [node name="Fall" type="Node" parent="FiniteStateMachine"]

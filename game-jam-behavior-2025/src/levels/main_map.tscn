@@ -46,9 +46,12 @@ script = ExtResource("4_a4ppy")
 shape = SubResource("BoxShape3D_xbmv0")
 
 [node name="SM_bridge_A_stairs_A" parent="." instance=ExtResource("6_rvsp0")]
-transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 3.91343, -10, 0)
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -1.03677, -10, 0)
+
+[node name="SM_bridge_A_stairs_A3" parent="." instance=ExtResource("6_rvsp0")]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -1.03677, -1.23796, 11.5223)
 
 [node name="SM_bridge_A_stairs_A2" parent="." instance=ExtResource("6_rvsp0")]
-transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 7.913, -9, 0)
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 2.9628, -9, 0)
 
 [connection signal="body_entered" from="KillZone" to="KillZone" method="_on_body_entered"]

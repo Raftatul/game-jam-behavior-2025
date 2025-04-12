@@ -1,7 +1,8 @@
-[gd_scene load_steps=6 format=3 uid="uid://c6k6haam1kgbk"]
+[gd_scene load_steps=7 format=3 uid="uid://c6k6haam1kgbk"]
 
 [ext_resource type="PackedScene" uid="uid://l6t2l73wo01p" path="res://src/ldos/rotator.tscn" id="1_il7l4"]
 [ext_resource type="PackedScene" uid="uid://2vxwbtdextyx" path="res://src/ldos/translator.tscn" id="2_c5uyr"]
+[ext_resource type="PackedScene" uid="uid://deew70tfogvw5" path="res://src/ldos/SwitchingMesh.tscn" id="3_gigd5"]
 
 [sub_resource type="CylinderMesh" id="CylinderMesh_il7l4"]
 
@@ -37,11 +38,17 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.99432, 0.000307798, -1.345
 mesh = SubResource("CylinderMesh_il7l4")
 
 [node name="Path3D" type="Path3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.20927, 0)
 curve = SubResource("Curve3D_c5uyr")
 
 [node name="Translator" parent="Path3D" instance=ExtResource("2_c5uyr")]
-transform = Transform3D(-0.0181913, -0.0192943, -0.999631, 0, 0.999798, -0.0192974, 0.999818, -0.000351051, -0.0181879, -2.02598, -0.0277371, -0.0400491)
+transform = Transform3D(-0.0181913, -0.0192943, -0.999632, 0, 0.999798, -0.0192975, 0.999818, -0.000351051, -0.0181879, -2.02598, -0.0277371, -0.0400491)
 pause_at_extrimity = true
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="Path3D/Translator"]
 mesh = SubResource("BoxMesh_oggrv")
+
+[node name="SwitchingMesh" parent="." instance=ExtResource("3_gigd5")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
+
+[editable path="SwitchingMesh"]

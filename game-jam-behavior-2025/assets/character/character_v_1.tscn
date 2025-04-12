@@ -27,6 +27,23 @@ transitions = ["Start", "Idle", SubResource("AnimationNodeStateMachineTransition
 
 [node name="character_v1" instance=ExtResource("1_b6wgb")]
 
+[node name="Skeleton3D" parent="metarig" index="0"]
+bones/4/position = Vector3(4.09286e-10, 0.769718, -0.0552)
+bones/4/rotation = Quaternion(0.0851639, 1.18776e-07, 1.01523e-08, 0.996367)
+bones/5/rotation = Quaternion(-0.0476688, -0.0255893, 0.0132458, 0.998448)
+bones/6/rotation = Quaternion(-0.0525267, -0.000336339, -0.013811, 0.998524)
+bones/7/rotation = Quaternion(0.0018179, -1.18802e-07, 2.17452e-10, 0.999998)
+bones/8/rotation = Quaternion(0.103174, 9.06654e-10, -8.42276e-10, 0.994663)
+bones/10/rotation = Quaternion(0.998482, -0.03461, 0.0156745, -0.0398785)
+bones/11/rotation = Quaternion(0.0258251, -0.00210061, 0.0471716, 0.998551)
+bones/12/rotation = Quaternion(0.0735876, 0.0307169, 0.0294388, 0.996381)
+bones/13/position = Vector3(0.0941192, 0.274699, -0.0327955)
+bones/14/position = Vector3(-0.108923, 0.265252, 0.0281236)
+bones/16/rotation = Quaternion(0.976459, -0.0197367, 0.0136779, 0.214364)
+bones/17/rotation = Quaternion(0.271457, 0.000498976, -0.0421103, 0.961529)
+bones/19/rotation = Quaternion(0.976459, 0.0197366, -0.0136776, 0.214364)
+bones/20/rotation = Quaternion(0.271457, -0.000498972, 0.0421102, 0.961529)
+
 [node name="AnimationTree" type="AnimationTree" parent="." index="2"]
 tree_root = SubResource("AnimationNodeStateMachine_b6wgb")
 anim_player = NodePath("../AnimationPlayer")

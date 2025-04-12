@@ -24,6 +24,8 @@ var request_jump: bool = false
 @onready var camera: Camera3D = $CameraPivot/Camera3D
 @onready var animation_tree: AnimationTree = $character_v1/AnimationTree
 @onready var anime_state_machine: AnimationNodeStateMachinePlayback = animation_tree.get("parameters/playback")
+@onready var pivot: Marker3D = $Pivot
+@onready var visibility_component: Node3D = $VisibilityComponent
 
 
 func _ready() -> void:
@@ -31,14 +33,8 @@ func _ready() -> void:
 
 
 func _physics_process(delta: float) -> void:
-	var space_state = get_world_3d().direct_space_state
-	var query = PhysicsRayQueryParameters3D.create(camera.global_position, global_position)
-	var result = space_state.intersect_ray(query)
-	
-	if result:
-		if result["collider"] != self:
-			finite_state_machine.switch_state(&"Death")
-	
+	if not visibility_component.is_visible_on_screen():
+		finite_state_machine.switch_state(&"Death")
 	
 	input_direction = sign(Input.get_axis("ui_left", "ui_right"))
 	request_jump = Input.is_action_just_pressed("ui_accept")
@@ -79,3 +75,14 @@ func apply_horizontal_motion(x_destination: float, duration: float) -> void:
 	root_motion_tween.tween_property(self, "global_position:x", x_destination, duration)
 	
 	orient_character(input_direction, duration)
+
+
+func _check_if_player_behind_wall() -> bool:
+	var space_state = get_world_3d().direct_space_state
+	var query = PhysicsRayQueryParameters3D.create(camera.global_position, pivot.global_position)
+	var result = space_state.intersect_ray(query)
+	
+	if result:
+		if result["collider"] != self:
+			return true
+	return false

@@ -1,4 +1,4 @@
-[gd_scene load_steps=14 format=3 uid="uid://stq6yyadeyjn"]
+[gd_scene load_steps=15 format=3 uid="uid://stq6yyadeyjn"]
 
 [ext_resource type="Script" uid="uid://cfvy05lnoj7uv" path="res://src/character/player_character.gd" id="1_yny20"]
 [ext_resource type="PackedScene" uid="uid://drknuc7u7hx5e" path="res://assets/character/character_v_1.tscn" id="2_1irux"]
@@ -12,6 +12,7 @@
 [ext_resource type="Script" uid="uid://dmtt0c2xadp2d" path="res://src/character/camera/camera_pivot.gd" id="10_8cpw0"]
 [ext_resource type="Script" uid="uid://0sl55afsirix" path="res://src/character/camera/states/camera_2d_state.gd" id="11_1irux"]
 [ext_resource type="Script" uid="uid://cew1815m2eqft" path="res://src/character/camera/states/camera_topdown_state.gd" id="12_1irux"]
+[ext_resource type="PackedScene" uid="uid://c3g55casshl06" path="res://src/components/visibility_component.tscn" id="13_omsti"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_yny20"]
 size = Vector3(0.6, 2, 0.6)
@@ -30,21 +31,21 @@ shape = SubResource("BoxShape3D_yny20")
 [node name="character_v1" parent="." instance=ExtResource("2_1irux")]
 
 [node name="Skeleton3D" parent="character_v1/metarig" index="0"]
-bones/4/position = Vector3(-1.36196e-11, 0.77819, -0.0552)
-bones/4/rotation = Quaternion(0.0851639, 1.18776e-07, 1.01523e-08, 0.996367)
-bones/5/rotation = Quaternion(-0.0473462, 0.0133728, -0.0312217, 0.998301)
-bones/6/rotation = Quaternion(-0.0525218, -0.000471861, -0.0193759, 0.998432)
-bones/7/rotation = Quaternion(0.0018179, -1.18802e-07, 2.17452e-10, 0.999998)
-bones/8/rotation = Quaternion(0.103174, 9.06654e-10, -8.42276e-10, 0.994663)
-bones/10/rotation = Quaternion(0.995809, 0.0433948, 0.0221897, -0.0773918)
-bones/11/rotation = Quaternion(-0.0451083, 0.0132735, -0.0156661, 0.998771)
-bones/12/rotation = Quaternion(0.14129, 1.53407e-05, -0.0895114, 0.985913)
-bones/13/position = Vector3(0.10455, 0.225857, -0.0341736)
-bones/14/position = Vector3(-0.0984923, 0.216409, 0.0267455)
-bones/16/rotation = Quaternion(0.980474, -0.0165431, 0.0134413, 0.19549)
-bones/17/rotation = Quaternion(0.232462, 0.000504348, -0.0360611, 0.971937)
-bones/19/rotation = Quaternion(0.980474, 0.016543, -0.013441, 0.19549)
-bones/20/rotation = Quaternion(0.232462, -0.000504346, 0.0360611, 0.971937)
+bones/4/position = Vector3(-3.15012e-10, 0.774473, -0.0552)
+bones/5/rotation = Quaternion(-0.0474073, 0.0073084, -0.0243041, 0.998553)
+bones/6/rotation = Quaternion(-0.0525222, -0.00046206, -0.0189734, 0.998439)
+bones/10/rotation = Quaternion(0.996719, 0.0312702, 0.0211862, -0.071589)
+bones/11/rotation = Quaternion(-0.048552, 0.00250831, -0.0146164, 0.998711)
+bones/12/rotation = Quaternion(0.156214, 0.00183772, -0.0555241, 0.98616)
+bones/13/position = Vector3(0.102925, 0.233464, -0.033959)
+bones/14/position = Vector3(-0.100117, 0.224017, 0.0269602)
+bones/16/rotation = Quaternion(0.978571, -0.0180948, 0.0135574, 0.204662)
+bones/17/rotation = Quaternion(0.25144, 0.000501842, -0.0390051, 0.967087)
+bones/19/rotation = Quaternion(0.978571, 0.0180946, -0.0135571, 0.204663)
+bones/20/rotation = Quaternion(0.25144, -0.000501841, 0.039005, 0.967086)
+
+[node name="Pivot" type="Marker3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
 
 [node name="FiniteStateMachine" type="Node" parent="." node_paths=PackedStringArray("initial_state")]
 script = ExtResource("2_2p3op")
@@ -95,4 +96,26 @@ metadata/_custom_type_script = "uid://cwho3wtapiyg4"
 script = ExtResource("12_1irux")
 metadata/_custom_type_script = "uid://cwho3wtapiyg4"
 
+[node name="RemoteTransform3D" type="RemoteTransform3D" parent="."]
+remote_path = NodePath("../VisibilityComponent")
+update_rotation = false
+update_scale = false
+
+[node name="VisibilityComponent" parent="." instance=ExtResource("13_omsti")]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 0, 0, 0)
+top_level = true
+
+[node name="Marker3D" parent="VisibilityComponent" index="0"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2, 0.5)
+
+[node name="Marker3D2" parent="VisibilityComponent" index="1"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2, -0.5)
+
+[node name="Marker3D3" parent="VisibilityComponent" index="2"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0.5)
+
+[node name="Marker3D4" parent="VisibilityComponent" index="3"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -0.5)
+
 [editable path="character_v1"]
+[editable path="VisibilityComponent"]

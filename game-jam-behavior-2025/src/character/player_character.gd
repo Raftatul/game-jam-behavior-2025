@@ -1,7 +1,5 @@
-class_name PlayerCharacter extends CharacterBody3D
+class_name PlayerCharacter extends MoveableBody
 
-
-const GRID_SIZE: int = 2.0
 
 const  idle_animation: StringName = &"Idle"
 const run_animation: StringName = &"RunCycle"
@@ -9,16 +7,12 @@ const fall_animation: StringName = &"FallCycle"
 
 @export var move_duration: float = 0.5
 @export var jump_force: float = 10.0
-@export var gravity_influence: float = 1.0
 @export var dash_duration: float = 0.5
 @export var dash_distance: float = 6.0
 
 var input_direction: Vector2 = Vector2.ZERO
-var las_valid_input: Vector2 = Vector2.RIGHT
+var last_valid_input: Vector2 = Vector2.RIGHT
 
-var apply_gravity: bool = false
-
-var root_motion_tween: Tween
 var orient_tween: Tween
 
 var request_jump: bool = false
@@ -49,7 +43,7 @@ func _physics_process(delta: float) -> void:
 	input_direction = Vector2(sign(Input.get_axis("ui_left", "ui_right")), sign(Input.get_axis("ui_up", "ui_down")))
 	
 	if input_direction:
-		las_valid_input = input_direction
+		last_valid_input = input_direction
 	
 	request_jump = Input.is_action_just_pressed("ui_accept")
 	request_dash = Input.is_action_just_pressed("dash")
@@ -59,10 +53,15 @@ func _physics_process(delta: float) -> void:
 	else:
 		top_down_state_machine.update(delta)
 	
-	if apply_gravity:
-		velocity += get_gravity() * gravity_influence * delta
-	
-	move_and_slide()
+	#for i in range(get_slide_collision_count()):
+		#if not get_slide_collision(i).get_collider() is MoveableBody:
+			#continue
+		#
+		#var moveable_body: MoveableBody = get_slide_collision(i).get_collider()
+		#if moveable_body:
+			#moveable_body.apply_root_motion((Vector3(last_valid_input.x, 0.0, last_valid_input.y) * 2.0) / move_duration, move_duration)
+	#
+	super(delta)
 
 
 func kill() -> void:
@@ -89,16 +88,5 @@ func orient_character(direction: Vector3, duration: float) -> void:
 
 
 func apply_root_motion(vel: Vector3, duration: float) -> void:
-	if root_motion_tween:
-		root_motion_tween.kill()
-	
-	root_motion_tween = create_tween()
-	root_motion_tween.set_process_mode(Tween.TWEEN_PROCESS_PHYSICS)
-	
-	velocity = vel
-	root_motion_tween.tween_interval(duration)
-	root_motion_tween.tween_callback(func(): velocity = Vector3.ZERO)
-	root_motion_tween.tween_callback(func(): global_position.x = snappedi(global_position.x, GRID_SIZE))
-	root_motion_tween.tween_callback(func(): global_position.z = snappedi(global_position.z, GRID_SIZE))
-	
+	super(vel, duration)
 	orient_character(vel.normalized(), duration)

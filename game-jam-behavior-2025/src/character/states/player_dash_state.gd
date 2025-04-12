@@ -14,5 +14,5 @@ func check_relevance() -> StringName:
 
 
 func enter(machine: FiniteStateMachine) -> void:
-	var vel: Vector2 = (player.dash_distance * player.las_valid_input) / player.dash_duration
+	var vel: Vector2 = (player.dash_distance * player.last_valid_input) / player.dash_duration
 	player.apply_root_motion(Vector3(vel.x, 0.0, vel.y if use_depth else 0.0), player.dash_duration)

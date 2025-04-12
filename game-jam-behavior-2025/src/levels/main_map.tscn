@@ -1,9 +1,10 @@
-[gd_scene load_steps=9 format=3 uid="uid://buse55bn08t6f"]
+[gd_scene load_steps=10 format=3 uid="uid://buse55bn08t6f"]
 
 [ext_resource type="PackedScene" uid="uid://stq6yyadeyjn" path="res://src/character/character.tscn" id="1_4uxyq"]
 [ext_resource type="Script" uid="uid://dcexpw07mj5rk" path="res://src/levels/world.gd" id="1_qgv8x"]
 [ext_resource type="Script" uid="uid://x2sgtrr65ci7" path="res://src/ldos/kill_zone.gd" id="4_a4ppy"]
 [ext_resource type="PackedScene" uid="uid://b56g4e8vw0hk5" path="res://assets/ressource/palette_filter.tscn" id="5_aqj3v"]
+[ext_resource type="PackedScene" uid="uid://bm1ss72ovvwpt" path="res://src/ldos/PushableBlock.tscn" id="5_rvsp0"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_aqj3v"]
 
@@ -47,5 +48,8 @@ script = ExtResource("4_a4ppy")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="KillZone"]
 shape = SubResource("BoxShape3D_xbmv0")
+
+[node name="PushableBlock" parent="." instance=ExtResource("5_rvsp0")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4, 2, 0)
 
 [connection signal="body_entered" from="KillZone" to="KillZone" method="_on_body_entered"]

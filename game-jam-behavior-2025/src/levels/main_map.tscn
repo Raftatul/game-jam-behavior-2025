@@ -1,17 +1,19 @@
-[gd_scene load_steps=8 format=3 uid="uid://buse55bn08t6f"]
+[gd_scene load_steps=9 format=3 uid="uid://buse55bn08t6f"]
 
 [ext_resource type="PackedScene" uid="uid://stq6yyadeyjn" path="res://src/character/character.tscn" id="1_4uxyq"]
 [ext_resource type="Script" uid="uid://dcexpw07mj5rk" path="res://src/levels/world.gd" id="1_qgv8x"]
 [ext_resource type="MeshLibrary" uid="uid://dnhjeo6e3yltg" path="res://assets/modular_kit/modular_kit.tres" id="3_xbmv0"]
 [ext_resource type="PackedScene" uid="uid://deew70tfogvw5" path="res://src/ldos/visibility_switcher/SwitchingMesh.tscn" id="4_a4ppy"]
+[ext_resource type="PackedScene" uid="uid://b56g4e8vw0hk5" path="res://assets/ressource/palette_filter.tscn" id="5_aqj3v"]
 
-[sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_4uxyq"]
+[sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_aqj3v"]
 
 [sub_resource type="Sky" id="Sky_qgv8x"]
-sky_material = SubResource("ProceduralSkyMaterial_4uxyq")
+sky_material = SubResource("ProceduralSkyMaterial_aqj3v")
 
-[sub_resource type="Environment" id="Environment_xbmv0"]
+[sub_resource type="Environment" id="Environment_rvsp0"]
 background_mode = 2
+background_energy_multiplier = 0.2
 sky = SubResource("Sky_qgv8x")
 tonemap_mode = 2
 glow_enabled = true
@@ -20,10 +22,11 @@ glow_enabled = true
 script = ExtResource("1_qgv8x")
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]
-environment = SubResource("Environment_xbmv0")
+environment = SubResource("Environment_rvsp0")
 
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
 transform = Transform3D(0.962289, -0.235583, 0.136014, 2.78059e-08, 0.5, 0.866025, -0.272028, -0.833367, 0.481145, 0, 0, 0)
+light_energy = 0.5
 shadow_enabled = true
 
 [node name="CSGBox3D" type="CSGBox3D" parent="."]
@@ -38,9 +41,11 @@ floor_constant_speed = true
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1, 0, -1)
 mesh_library = ExtResource("3_xbmv0")
 data = {
-"cells": PackedInt32Array(65534, 2, 1114112, 2, 2, 1114112, 6, 2, 1048576, 4, 0, 1179648, 65536, 1, 524288, 65540, 65535, 524288, 65537, 0, 524288)
+"cells": PackedInt32Array(65534, 2, 1114112, 2, 2, 1114112, 6, 2, 1048576, 4, 0, 1179648, 65536, 1, 524288, 65540, 65535, 524288, 65537, 0, 524288, 65542, 1, 1179648)
 }
-metadata/_editor_floor_ = Vector3(0, 0, 0)
+metadata/_editor_floor_ = Vector3(0, 1, 0)
 
 [node name="SwitchingMesh" parent="." instance=ExtResource("4_a4ppy")]
 transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, -4, 1, 3)
+
+[node name="PaletteFilter" parent="." instance=ExtResource("5_aqj3v")]

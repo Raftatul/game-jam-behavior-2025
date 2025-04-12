@@ -16,7 +16,7 @@ func _ready() -> void:
 
 
 func _physics_process(delta: float) -> void:
-	if player.finite_state_machine.current_state_name != &"Death":
+	if player.finite_state_machine.current_state_name != &"Death" and player.top_down_state_machine.current_state_name != &"Death":
 		request_switch = Input.is_action_just_pressed("switch_camera")
 	
 	camera_state_machine.update(delta)

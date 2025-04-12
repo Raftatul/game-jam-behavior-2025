@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://b308uv2ty8grh"
+path="res://.godot/imported/SalmonLikeTheFish - Glacier.mp3-1fa077953ddbb8640aff39d703f64003.mp3str"
+
+[deps]
+
+source_file="res://assets/audio/music/SalmonLikeTheFish - Glacier.mp3"
+dest_files=["res://.godot/imported/SalmonLikeTheFish - Glacier.mp3-1fa077953ddbb8640aff39d703f64003.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0.0
+bpm=0.0
+beat_count=0
+bar_beats=4

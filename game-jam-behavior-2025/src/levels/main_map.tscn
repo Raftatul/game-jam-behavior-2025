@@ -1,10 +1,10 @@
 [gd_scene load_steps=11 format=3 uid="uid://buse55bn08t6f"]
 
 [ext_resource type="PackedScene" uid="uid://stq6yyadeyjn" path="res://src/character/character.tscn" id="1_4uxyq"]
-[ext_resource type="Script" uid="uid://dcexpw07mj5rk" path="res://src/levels/world.gd" id="1_qgv8x"]
-[ext_resource type="Script" uid="uid://x2sgtrr65ci7" path="res://src/ldos/kill_zone.gd" id="4_a4ppy"]
+[ext_resource type="Script" path="res://src/levels/world.gd" id="1_qgv8x"]
+[ext_resource type="Script" path="res://src/ldos/kill_zone.gd" id="4_a4ppy"]
 [ext_resource type="PackedScene" uid="uid://b56g4e8vw0hk5" path="res://assets/ressource/palette_filter.tscn" id="5_aqj3v"]
-[ext_resource type="PackedScene" uid="uid://djuqwkjv8jilm" path="res://src/ldos/checkpoint.tscn" id="6_g4bww"]
+[ext_resource type="AudioStream" uid="uid://b308uv2ty8grh" path="res://assets/audio/music/SalmonLikeTheFish - Glacier.mp3" id="6_g4bww"]
 [ext_resource type="PackedScene" uid="uid://duila407wy3vr" path="res://assets/ressource/asset_enviro/sm_bridge_a_stairs_a.tscn" id="6_rvsp0"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_aqj3v"]
@@ -27,6 +27,10 @@ script = ExtResource("1_qgv8x")
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]
 environment = SubResource("Environment_rvsp0")
+
+[node name="SalmonLikeTheFish-Glacier" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("6_g4bww")
+autoplay = true
 
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
 transform = Transform3D(0.962289, -0.235583, 0.136014, 2.78059e-08, 0.5, 0.866025, -0.272028, -0.833367, 0.481145, 0, 0, 0)

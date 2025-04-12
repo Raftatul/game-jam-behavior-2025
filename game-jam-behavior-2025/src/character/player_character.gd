@@ -61,6 +61,8 @@ func _physics_process(delta: float) -> void:
 
 
 func kill() -> void:
+	camera_pivot.switch_tween.kill()
+	
 	if camera_pivot.camera_state_machine.current_state_name == &"2D":
 		finite_state_machine.switch_state(&"Death")
 	else:

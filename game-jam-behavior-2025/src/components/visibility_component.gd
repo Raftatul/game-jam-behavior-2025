@@ -14,7 +14,7 @@ func is_visible_on_screen() -> bool:
 	var space_state = get_world_3d().direct_space_state
 	
 	for point in points:
-		var query = PhysicsRayQueryParameters3D.create(camera.global_position, point.global_position)
+		var query = PhysicsRayQueryParameters3D.create(camera.global_position, point.global_position, 1)
 		var result = space_state.intersect_ray(query)
 		
 		if result:

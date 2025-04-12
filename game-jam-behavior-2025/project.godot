@@ -14,3 +14,10 @@ config/name="game-jam-behavior-2025"
 run/main_scene="uid://brt3hq53f47u5"
 config/features=PackedStringArray("4.4", "Forward Plus")
 config/icon="res://icon.svg"
+
+[file_customization]
+
+folder_colors={
+"res://assets/": "purple",
+"res://src/": "red"
+}

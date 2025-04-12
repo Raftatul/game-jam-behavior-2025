@@ -36,7 +36,6 @@ func _physics_process(delta: float) -> void:
 
 func rotate_camera(alpha: float, start_angle: float, angle: float,) -> void:
 	rotation.x = lerpf(start_angle, angle, curve.sample(alpha))
-	print(rad_to_deg(rotation.x))
 
 
 func switch_to_2d() -> void:

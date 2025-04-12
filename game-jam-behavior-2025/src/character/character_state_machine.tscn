@@ -1,0 +1,33 @@
+[gd_scene load_steps=7 format=3 uid="uid://o2g31154jd7r"]
+
+[ext_resource type="Script" uid="uid://bdji4l0bh2re2" path="res://src/modules/finite_state_machine/state_machine.gd" id="1_6eyk4"]
+[ext_resource type="Script" uid="uid://dqf2dv04wdo3i" path="res://src/character/states/player_idle_state.gd" id="2_1i3f2"]
+[ext_resource type="Script" uid="uid://cmnib6pvh2w8i" path="res://src/character/states/player_walk_state.gd" id="3_vqbov"]
+[ext_resource type="Script" uid="uid://dkvn5imuc6ehs" path="res://src/character/states/player_death_state.gd" id="4_2e8rx"]
+[ext_resource type="Script" uid="uid://co7fdiqk0u4sk" path="res://src/character/states/player_jump_state.gd" id="5_yuanm"]
+[ext_resource type="Script" uid="uid://bmknk64fxjomu" path="res://src/character/states/player_fall_state.gd" id="6_6t8m0"]
+
+[node name="FiniteStateMachine" type="Node" node_paths=PackedStringArray("initial_state")]
+script = ExtResource("1_6eyk4")
+initial_state = NodePath("Idle")
+metadata/_custom_type_script = "uid://bdji4l0bh2re2"
+
+[node name="Idle" type="Node" parent="."]
+script = ExtResource("2_1i3f2")
+metadata/_custom_type_script = "uid://c0w66x5j564rh"
+
+[node name="Walk" type="Node" parent="."]
+script = ExtResource("3_vqbov")
+metadata/_custom_type_script = "uid://c0w66x5j564rh"
+
+[node name="Death" type="Node" parent="."]
+script = ExtResource("4_2e8rx")
+metadata/_custom_type_script = "uid://c0w66x5j564rh"
+
+[node name="Jump" type="Node" parent="."]
+script = ExtResource("5_yuanm")
+metadata/_custom_type_script = "uid://c0w66x5j564rh"
+
+[node name="Fall" type="Node" parent="."]
+script = ExtResource("6_6t8m0")
+metadata/_custom_type_script = "uid://c0w66x5j564rh"

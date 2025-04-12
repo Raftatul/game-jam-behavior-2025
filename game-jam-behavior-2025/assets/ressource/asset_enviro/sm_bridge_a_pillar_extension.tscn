@@ -1,0 +1,14 @@
+[gd_scene load_steps=3 format=3 uid="uid://65r8lwa2ne3g"]
+
+[ext_resource type="PackedScene" uid="uid://dk3l37p85gpo0" path="res://assets/enviro/SM_bridge_A_pillar_extension.fbx" id="1_c5706"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_c5706"]
+size = Vector3(2.00415, 4.00781, 1)
+
+[node name="SM_bridge_A_pillar_extension" instance=ExtResource("1_c5706")]
+
+[node name="StaticBody3D" type="StaticBody3D" parent="GRP_Export_lvl_1/SM_bridge_A_pillar_extension_01" index="0"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="GRP_Export_lvl_1/SM_bridge_A_pillar_extension_01/StaticBody3D" index="0"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.98828, 0)
+shape = SubResource("BoxShape3D_c5706")

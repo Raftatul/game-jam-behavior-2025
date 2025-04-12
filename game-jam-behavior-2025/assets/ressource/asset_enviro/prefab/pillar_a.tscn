@@ -1,0 +1,15 @@
+[gd_scene load_steps=3 format=3 uid="uid://ymcwvgeqfka"]
+
+[ext_resource type="PackedScene" uid="uid://cav26mm1r7lm0" path="res://assets/ressource/asset_enviro/sm_arch_a.tscn" id="1_6omgv"]
+[ext_resource type="PackedScene" uid="uid://dssri783u1cjk" path="res://assets/ressource/asset_enviro/sm_column_b.tscn" id="2_u3dy8"]
+
+[node name="pillar_a" type="Node3D"]
+
+[node name="SM_arch_A" parent="." instance=ExtResource("1_6omgv")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 24, 0)
+
+[node name="SM_arch_A2" parent="." instance=ExtResource("1_6omgv")]
+transform = Transform3D(-1, 8.74228e-08, 0, -8.74228e-08, -1, 0, 0, 0, 1, 0, 0, 0)
+
+[node name="SM_column_B" parent="." instance=ExtResource("2_u3dy8")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 4, 0)

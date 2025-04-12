@@ -30,6 +30,11 @@ switch_camera={
 ]
 }
 
+[layer_names]
+
+3d_physics/layer_1="BlockingLayer"
+3d_physics/layer_2="SeethroughLayer"
+
 [rendering]
 
 occlusion_culling/use_occlusion_culling=true

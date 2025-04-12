@@ -1,0 +1,14 @@
+[gd_scene load_steps=3 format=3 uid="uid://deew70tfogvw5"]
+
+[ext_resource type="PackedScene" uid="uid://cuxkeeygt4rw1" path="res://src/ldos/switchable_collision.tscn" id="1_msfys"]
+
+[sub_resource type="BoxMesh" id="BoxMesh_x4ahr"]
+size = Vector3(1, 1, 0.2)
+
+[node name="SwitchingMesh" type="AnimatableBody3D"]
+
+[node name="SwitchableCollisionShape3D" parent="." instance=ExtResource("1_msfys")]
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+mesh = SubResource("BoxMesh_x4ahr")
+skeleton = NodePath("../SwitchableCollisionShape3D")

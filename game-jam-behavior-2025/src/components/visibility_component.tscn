@@ -5,7 +5,7 @@
 [sub_resource type="BoxMesh" id="BoxMesh_c7wis"]
 size = Vector3(0.25, 0.25, 0.25)
 
-[node name="VisibilityComponent" type="Node3D" node_paths=PackedStringArray("points")]
+[node name="VisibilityComponent" type="VisibleOnScreenNotifier3D" node_paths=PackedStringArray("points")]
 script = ExtResource("1_c7wis")
 points = [NodePath("Marker3D"), NodePath("Marker3D2"), NodePath("Marker3D3"), NodePath("Marker3D4")]
 

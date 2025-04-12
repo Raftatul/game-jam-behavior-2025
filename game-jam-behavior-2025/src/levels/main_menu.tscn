@@ -1,3 +1,159 @@
-[gd_scene format=3 uid="uid://brt3hq53f47u5"]
+[gd_scene load_steps=17 format=3 uid="uid://b7jkon6s4pmwt"]
 
-[node name="MainMenu" type="CanvasLayer"]
+[ext_resource type="PackedScene" uid="uid://b56g4e8vw0hk5" path="res://assets/ressource/palette_filter.tscn" id="1_0ukkc"]
+[ext_resource type="Script" uid="uid://h3slrky8kkk3" path="res://src/levels/main_menu.gd" id="1_fldhf"]
+[ext_resource type="PackedScene" uid="uid://stq6yyadeyjn" path="res://src/character/character.tscn" id="2_4hslj"]
+[ext_resource type="PackedScene" uid="uid://c3g55casshl06" path="res://src/components/visibility_component.tscn" id="3_fxx5w"]
+[ext_resource type="PackedScene" uid="uid://bm1ss72ovvwpt" path="res://src/ldos/PushableBlock.tscn" id="3_mwphm"]
+
+[sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_fxx5w"]
+
+[sub_resource type="Sky" id="Sky_qgv8x"]
+sky_material = SubResource("ProceduralSkyMaterial_fxx5w")
+
+[sub_resource type="Environment" id="Environment_mwphm"]
+background_mode = 2
+background_energy_multiplier = 0.2
+sky = SubResource("Sky_qgv8x")
+tonemap_mode = 2
+glow_enabled = true
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_0ukkc"]
+emission_enabled = true
+emission = Color(1, 1, 1, 1)
+
+[sub_resource type="TextMesh" id="TextMesh_fldhf"]
+material = SubResource("StandardMaterial3D_0ukkc")
+text = "Play"
+font_size = 84
+depth = 2.0
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_0ukkc"]
+resource_local_to_scene = true
+size = Vector3(4, 2, 2)
+
+[sub_resource type="BoxMesh" id="BoxMesh_fxx5w"]
+resource_local_to_scene = true
+size = Vector3(4, 2, 2)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_fxx5w"]
+resource_local_to_scene = true
+size = Vector3(5, 1, 1)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_mwphm"]
+resource_local_to_scene = true
+size = Vector3(3, 1, 1)
+
+[sub_resource type="TextMesh" id="TextMesh_0ukkc"]
+material = SubResource("StandardMaterial3D_0ukkc")
+text = "Credits"
+font_size = 84
+depth = 2.0
+
+[sub_resource type="TextMesh" id="TextMesh_fxx5w"]
+material = SubResource("StandardMaterial3D_0ukkc")
+text = "Quit"
+font_size = 84
+depth = 2.0
+
+[node name="MainMenu" type="Node3D"]
+script = ExtResource("1_fldhf")
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = SubResource("Environment_mwphm")
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
+transform = Transform3D(0.962289, -0.235583, 0.136014, 2.78059e-08, 0.5, 0.866025, -0.272028, -0.833367, 0.481145, 0, 0, 0)
+light_energy = 0.5
+shadow_enabled = true
+
+[node name="PaletteFilter" parent="." instance=ExtResource("1_0ukkc")]
+
+[node name="PushableBlock" parent="." instance=ExtResource("3_mwphm")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -4)
+
+[node name="MeshInstance3D2" type="MeshInstance3D" parent="PushableBlock"]
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, 0, 0.32464, 0)
+mesh = SubResource("TextMesh_fldhf")
+skeleton = NodePath("../..")
+
+[node name="Play" parent="PushableBlock" instance=ExtResource("3_fxx5w")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.243782, 0)
+aabb = AABB(-1.14724, -1.18918, -1, 2.29449, 2.37835, 2)
+
+[node name="PushableBlock2" parent="." instance=ExtResource("3_mwphm")]
+
+[node name="CollisionShape3D" parent="PushableBlock2" index="0"]
+shape = SubResource("BoxShape3D_0ukkc")
+
+[node name="MeshInstance3D" parent="PushableBlock2" index="1"]
+mesh = SubResource("BoxMesh_fxx5w")
+
+[node name="CollisionShape3D" parent="PushableBlock2/Area3D" index="0"]
+shape = SubResource("BoxShape3D_fxx5w")
+
+[node name="CollisionShape3D2" parent="PushableBlock2/Area3D" index="1"]
+shape = SubResource("BoxShape3D_mwphm")
+
+[node name="MeshInstance3D2" type="MeshInstance3D" parent="PushableBlock2"]
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, 0, 0.32464, 0)
+mesh = SubResource("TextMesh_0ukkc")
+skeleton = NodePath("../..")
+
+[node name="Credits" parent="PushableBlock2" instance=ExtResource("3_fxx5w")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.166554, 0)
+aabb = AABB(-2.19007, -1, -1, 4.38013, 2, 2)
+
+[node name="PushableBlock3" parent="." instance=ExtResource("3_mwphm")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 4)
+
+[node name="MeshInstance3D2" type="MeshInstance3D" parent="PushableBlock3"]
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, 0, 0.32464, 0)
+mesh = SubResource("TextMesh_fxx5w")
+skeleton = NodePath("../..")
+
+[node name="Quit" parent="PushableBlock3" instance=ExtResource("3_fxx5w")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.22697, 0)
+aabb = AABB(-1.21717, -1, -1, 2.43435, 2, 2)
+
+[node name="CSGBox3D" type="CSGBox3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -2.29842, 0)
+use_collision = true
+size = Vector3(20, 1, 20)
+
+[node name="Character" parent="." instance=ExtResource("2_4hslj")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -6, 0, 4)
+
+[node name="Skeleton3D" parent="Character/character_v1/metarig" index="0"]
+bones/4/position = Vector3(-4.14333e-10, 0.776928, -0.0552)
+bones/5/rotation = Quaternion(-0.0473717, 0.0108863, -0.0283856, 0.998415)
+bones/6/rotation = Quaternion(-0.0525217, -0.000474341, -0.0194777, 0.99843)
+bones/10/rotation = Quaternion(0.996204, 0.0384252, 0.0217788, -0.0750146)
+bones/11/rotation = Quaternion(-0.0477524, 0.00407527, -0.0169269, 0.998708)
+bones/12/rotation = Quaternion(0.157968, 0.000527863, -0.0702576, 0.984942)
+bones/13/position = Vector3(0.103884, 0.228977, -0.0340856)
+bones/14/position = Vector3(-0.0991587, 0.219529, 0.0268335)
+bones/16/rotation = Quaternion(0.979688, -0.0171933, 0.0134902, 0.199334)
+bones/17/rotation = Quaternion(0.240421, 0.000503323, -0.0372958, 0.969952)
+bones/19/rotation = Quaternion(0.979688, 0.0171931, -0.0134899, 0.199334)
+bones/20/rotation = Quaternion(0.240421, -0.00050332, 0.0372957, 0.969952)
+
+[node name="CameraPivot" parent="Character" index="5"]
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, 0, 4, 0)
+
+[node name="CameraStateMachine" parent="Character/CameraPivot" index="1" node_paths=PackedStringArray("initial_state")]
+initial_state = NodePath("TopDown")
+
+[node name="CSGBox3D2" type="CSGBox3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 8.35553, 5, 0)
+use_collision = true
+size = Vector3(6, 1, 6)
+
+[connection signal="on_screen_visibility_changed" from="PushableBlock/Play" to="." method="_on_play_on_screen_visibility_changed"]
+[connection signal="on_screen_visibility_changed" from="PushableBlock2/Credits" to="." method="_on_credits_on_screen_visibility_changed"]
+[connection signal="on_screen_visibility_changed" from="PushableBlock3/Quit" to="." method="_on_quit_on_screen_visibility_changed"]
+
+[editable path="PushableBlock2"]
+[editable path="Character"]
+[editable path="Character/character_v1"]
+[editable path="Character/VisibilityComponent"]

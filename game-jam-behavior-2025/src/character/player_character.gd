@@ -10,6 +10,8 @@ const fall_animation: StringName = &"FallCycle"
 @export var dash_duration: float = 0.5
 @export var dash_distance: float = 6.0
 
+@export var can_switch_camera: bool = true
+
 var input_direction: Vector2 = Vector2.ZERO
 var last_valid_input: Vector2 = Vector2.RIGHT
 
@@ -31,6 +33,7 @@ var request_dash: bool = false
 
 
 func _ready() -> void:
+	await get_tree().process_frame
 	finite_state_machine.start_machine(self)
 	top_down_state_machine.start_machine(self)
 	

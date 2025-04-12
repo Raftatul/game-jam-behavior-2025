@@ -1,9 +1,9 @@
-#@tool
-extends Node3D
+@tool
+extends VisibleOnScreenNotifier3D
 
 signal on_screen_visibility_changed(visible:bool)
 
-#@export_tool_button("Place Points") var event = _place_points
+@export_tool_button("Place Points") var event = _place_points
 
 @export var points: Array[Node3D]
 
@@ -22,21 +22,21 @@ func _ready() -> void:
 
 
 func _physics_process(delta: float) -> void:
-	#if not Engine.is_editor_hint():
-		#if self.is_on_screen():
-	state = is_visible_on_screen()
+	if not Engine.is_editor_hint():
+		if self.is_on_screen():
+			state = is_visible_on_screen()
 
 
-#func _place_points() -> void:
-	#for i in range(clamp(points.size(),0,4)):
-		#var point_position : Vector3
-		#var bb : AABB = self.aabb
-		#
-		#point_position.z = bb.position.z + bb.size.z/2
-		#point_position.x = bb.position.x + bb.size.x if i > 1 else bb.position.x
-		#point_position.y = bb.position.y + bb.size.y if i < 1 or i > 2 else bb.position.y
-		#
-		#points[i].position = point_position
+func _place_points() -> void:
+	for i in range(clamp(points.size(),0,4)):
+		var point_position : Vector3
+		var bb : AABB = self.aabb
+		
+		point_position.z = bb.position.z + bb.size.z/2
+		point_position.x = bb.position.x + bb.size.x if i > 1 else bb.position.x
+		point_position.y = bb.position.y + bb.size.y if i < 1 or i > 2 else bb.position.y
+		
+		points[i].position = point_position
 
 
 func is_visible_on_screen() -> bool:

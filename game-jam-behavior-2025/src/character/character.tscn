@@ -29,24 +29,24 @@ shape = SubResource("BoxShape3D_yny20")
 transform = Transform3D(0.9, 0, 0, 0, 0.9, 0, 0, 0, 0.9, 0, 0, 0)
 
 [node name="Skeleton3D" parent="character_v1/metarig" index="0"]
-bones/4/position = Vector3(1.2754e-11, 0.779518, -0.0552)
+bones/4/position = Vector3(-3.9037e-10, 0.776335, -0.0552)
 bones/4/rotation = Quaternion(0.0851639, 1.18776e-07, 1.01523e-08, 0.996367)
-bones/5/rotation = Quaternion(-0.0477411, -0.03894, 0.0284958, 0.997694)
+bones/5/rotation = Quaternion(-0.0477196, -0.0345848, 0.0235204, 0.997985)
 bones/5/scale = Vector3(1, 1, 1)
-bones/6/rotation = Quaternion(-0.052528, -0.000287576, -0.0118087, 0.99855)
+bones/6/rotation = Quaternion(-0.0525276, -0.000302457, -0.0124197, 0.998542)
 bones/6/scale = Vector3(1, 1, 1)
 bones/7/rotation = Quaternion(0.0018179, -1.18802e-07, 2.17452e-10, 0.999998)
 bones/8/rotation = Quaternion(0.103174, 9.06654e-10, -8.42276e-10, 0.994663)
 bones/9/rotation = Quaternion(-0.0513563, 0.000142839, 0.00517193, 0.998667)
-bones/10/rotation = Quaternion(0.997665, -0.0613123, 0.0134121, -0.026939)
-bones/11/rotation = Quaternion(0.0107402, 0.004607, -0.0579065, 0.998254)
-bones/12/rotation = Quaternion(0.0662172, 0.048955, 0.107159, 0.990826)
-bones/13/position = Vector3(0.0905876, 0.291236, -0.0323289)
-bones/14/position = Vector3(-0.112455, 0.281789, 0.0285902)
-bones/16/rotation = Quaternion(0.980973, -0.0161238, 0.0134096, 0.19301)
-bones/17/rotation = Quaternion(0.226677, 0.000505069, -0.0351637, 0.973335)
-bones/19/rotation = Quaternion(0.980973, 0.0161237, -0.0134093, 0.193011)
-bones/20/rotation = Quaternion(0.226677, -0.000505067, 0.0351637, 0.973335)
+bones/10/rotation = Quaternion(0.998029, -0.052608, 0.0141514, -0.0311625)
+bones/11/rotation = Quaternion(0.0236815, 0.00570596, -0.0117898, 0.999634)
+bones/12/rotation = Quaternion(0.0772067, 0.0400665, 0.0726512, 0.993557)
+bones/13/position = Vector3(0.0917079, 0.28599, -0.032477)
+bones/14/position = Vector3(-0.111335, 0.276543, 0.0284421)
+bones/16/rotation = Quaternion(0.97942, -0.0174119, 0.0135066, 0.200627)
+bones/17/rotation = Quaternion(0.243096, 0.000502969, -0.0377108, 0.969269)
+bones/19/rotation = Quaternion(0.97942, 0.0174118, -0.0135063, 0.200627)
+bones/20/rotation = Quaternion(0.243096, -0.000502969, 0.0377107, 0.969269)
 
 [node name="Pivot" type="Marker3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
@@ -76,26 +76,9 @@ metadata/_custom_type_script = "uid://cwho3wtapiyg4"
 script = ExtResource("12_1irux")
 metadata/_custom_type_script = "uid://cwho3wtapiyg4"
 
-[node name="RemoteTransform3D" type="RemoteTransform3D" parent="."]
-remote_path = NodePath("../VisibilityComponent")
-update_rotation = false
-update_scale = false
-
 [node name="VisibilityComponent" parent="." instance=ExtResource("13_omsti")]
-transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 0, 0, 0)
-top_level = true
+aabb = AABB(-0.299132, 0.0257938, -0.299999, 0.598264, 1.76067, 0.599999)
 
-[node name="Marker3D" parent="VisibilityComponent" index="0"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.7649, 0.5)
-
-[node name="Marker3D2" parent="VisibilityComponent" index="1"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.7649, -0.5)
-
-[node name="Marker3D3" parent="VisibilityComponent" index="2"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0.5)
-
-[node name="Marker3D4" parent="VisibilityComponent" index="3"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -0.5)
+[connection signal="on_screen_visibility_changed" from="VisibilityComponent" to="." method="_on_visibility_component_on_screen_visibility_changed"]
 
 [editable path="character_v1"]
-[editable path="VisibilityComponent"]

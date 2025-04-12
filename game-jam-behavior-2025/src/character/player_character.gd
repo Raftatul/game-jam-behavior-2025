@@ -28,7 +28,6 @@ var request_dash: bool = false
 @onready var character_mesh: Node3D = $character_v1
 @onready var camera: Camera3D = $CameraPivot/Camera3D
 @onready var pivot: Marker3D = $Pivot
-@onready var visibility_component: Node3D = $VisibilityComponent
 
 
 func _ready() -> void:
@@ -37,9 +36,6 @@ func _ready() -> void:
 
 
 func _physics_process(delta: float) -> void:
-	if not visibility_component.is_visible_on_screen():
-		kill()
-	
 	input_direction = Vector2(sign(Input.get_axis("ui_left", "ui_right")), sign(Input.get_axis("ui_up", "ui_down")))
 	
 	if input_direction:
@@ -90,3 +86,8 @@ func orient_character(direction: Vector3, duration: float) -> void:
 func apply_root_motion(vel: Vector3, duration: float) -> void:
 	super(vel, duration)
 	orient_character(vel.normalized(), duration)
+
+
+func _on_visibility_component_on_screen_visibility_changed(is_visible: bool) -> void:
+	if not is_visible:
+		kill()

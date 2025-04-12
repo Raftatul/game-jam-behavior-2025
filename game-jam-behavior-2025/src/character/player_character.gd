@@ -33,6 +33,8 @@ var request_dash: bool = false
 func _ready() -> void:
 	finite_state_machine.start_machine(self)
 	top_down_state_machine.start_machine(self)
+	
+	global_position = CheckpointManager.respawn_point
 
 
 func _physics_process(delta: float) -> void:

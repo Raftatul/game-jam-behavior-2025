@@ -1,8 +1,8 @@
 [gd_scene load_steps=10 format=3 uid="uid://buse55bn08t6f"]
 
 [ext_resource type="PackedScene" uid="uid://stq6yyadeyjn" path="res://src/character/character.tscn" id="1_4uxyq"]
-[ext_resource type="Script" path="res://src/levels/world.gd" id="1_qgv8x"]
-[ext_resource type="Script" path="res://src/ldos/kill_zone.gd" id="4_a4ppy"]
+[ext_resource type="Script" uid="uid://dcexpw07mj5rk" path="res://src/levels/world.gd" id="1_qgv8x"]
+[ext_resource type="Script" uid="uid://x2sgtrr65ci7" path="res://src/ldos/kill_zone.gd" id="4_a4ppy"]
 [ext_resource type="PackedScene" uid="uid://b56g4e8vw0hk5" path="res://assets/ressource/palette_filter.tscn" id="5_aqj3v"]
 [ext_resource type="PackedScene" uid="uid://duila407wy3vr" path="res://assets/ressource/asset_enviro/sm_bridge_a_stairs_a.tscn" id="6_rvsp0"]
 

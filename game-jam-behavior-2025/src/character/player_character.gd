@@ -51,14 +51,8 @@ func _physics_process(delta: float) -> void:
 	else:
 		top_down_state_machine.update(delta)
 	
-	#for i in range(get_slide_collision_count()):
-		#if not get_slide_collision(i).get_collider() is MoveableBody:
-			#continue
-		#
-		#var moveable_body: MoveableBody = get_slide_collision(i).get_collider()
-		#if moveable_body:
-			#moveable_body.apply_root_motion((Vector3(last_valid_input.x, 0.0, last_valid_input.y) * 2.0) / move_duration, move_duration)
-	#
+	velocity += get_platform_velocity()
+	
 	super(delta)
 
 

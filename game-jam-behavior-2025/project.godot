@@ -21,3 +21,7 @@ folder_colors={
 "res://assets/": "purple",
 "res://src/": "red"
 }
+
+[rendering]
+
+occlusion_culling/use_occlusion_culling=true

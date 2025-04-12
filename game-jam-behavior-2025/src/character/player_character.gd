@@ -44,10 +44,7 @@ func _ready() -> void:
 
 func _physics_process(delta: float) -> void:
 	if not visibility_component.is_visible_on_screen():
-		if camera_pivot.camera_state_machine.current_state_name == &"2D":
-			finite_state_machine.switch_state(&"Death")
-		else:
-			top_down_state_machine.switch_state(&"Death")
+		kill()
 	
 	input_direction = Vector2(sign(Input.get_axis("ui_left", "ui_right")), sign(Input.get_axis("ui_up", "ui_down")))
 	
@@ -66,6 +63,13 @@ func _physics_process(delta: float) -> void:
 		velocity += get_gravity() * gravity_influence * delta
 	
 	move_and_slide()
+
+
+func kill() -> void:
+	if camera_pivot.camera_state_machine.current_state_name == &"2D":
+		finite_state_machine.switch_state(&"Death")
+	else:
+		top_down_state_machine.switch_state(&"Death")
 
 
 func set_rot(alpha: float, start_ang: float, target_ang: float) -> void:

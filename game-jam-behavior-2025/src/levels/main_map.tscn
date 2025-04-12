@@ -2,8 +2,7 @@
 
 [ext_resource type="PackedScene" uid="uid://stq6yyadeyjn" path="res://src/character/character.tscn" id="1_4uxyq"]
 [ext_resource type="Script" uid="uid://dcexpw07mj5rk" path="res://src/levels/world.gd" id="1_qgv8x"]
-[ext_resource type="MeshLibrary" uid="uid://dnhjeo6e3yltg" path="res://assets/modular_kit/modular_kit.tres" id="3_xbmv0"]
-[ext_resource type="PackedScene" uid="uid://deew70tfogvw5" path="res://src/ldos/visibility_switcher/SwitchingMesh.tscn" id="4_a4ppy"]
+[ext_resource type="Script" uid="uid://x2sgtrr65ci7" path="res://src/ldos/kill_zone.gd" id="4_a4ppy"]
 [ext_resource type="PackedScene" uid="uid://b56g4e8vw0hk5" path="res://assets/ressource/palette_filter.tscn" id="5_aqj3v"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_aqj3v"]
@@ -18,6 +17,9 @@ sky = SubResource("Sky_qgv8x")
 tonemap_mode = 2
 glow_enabled = true
 
+[sub_resource type="BoxShape3D" id="BoxShape3D_xbmv0"]
+size = Vector3(5000, 10, 5000)
+
 [node name="World" type="Node3D"]
 script = ExtResource("1_qgv8x")
 
@@ -29,7 +31,7 @@ transform = Transform3D(0.962289, -0.235583, 0.136014, 2.78059e-08, 0.5, 0.86602
 light_energy = 0.5
 shadow_enabled = true
 
-[node name="CSGBox3D" type="CSGBox3D" parent="."]
+[node name="Ground" type="CSGBox3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -1, -2)
 use_collision = true
 size = Vector3(100, 2, 10)
@@ -37,15 +39,13 @@ size = Vector3(100, 2, 10)
 [node name="Character" parent="." instance=ExtResource("1_4uxyq")]
 floor_constant_speed = true
 
-[node name="GridMap" type="GridMap" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1, 0, -1)
-mesh_library = ExtResource("3_xbmv0")
-data = {
-"cells": PackedInt32Array(65534, 2, 1114112, 2, 2, 1114112, 6, 2, 1048576, 4, 0, 1179648, 65536, 1, 524288, 65540, 65535, 524288, 65537, 0, 524288, 65542, 1, 1179648)
-}
-metadata/_editor_floor_ = Vector3(0, 1, 0)
-
-[node name="SwitchingMesh" parent="." instance=ExtResource("4_a4ppy")]
-transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, -4, 1, 3)
-
 [node name="PaletteFilter" parent="." instance=ExtResource("5_aqj3v")]
+
+[node name="KillZone" type="Area3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -20, 0)
+script = ExtResource("4_a4ppy")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="KillZone"]
+shape = SubResource("BoxShape3D_xbmv0")
+
+[connection signal="body_entered" from="KillZone" to="KillZone" method="_on_body_entered"]

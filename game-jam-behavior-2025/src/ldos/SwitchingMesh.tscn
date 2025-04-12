@@ -1,23 +1,14 @@
-[gd_scene load_steps=4 format=3 uid="uid://deew70tfogvw5"]
+[gd_scene load_steps=3 format=3 uid="uid://deew70tfogvw5"]
 
-[ext_resource type="Script" uid="uid://b3r02lyabad4v" path="res://src/ldos/swichable_object.gd" id="1_msfys"]
-
-[sub_resource type="BoxShape3D" id="BoxShape3D_x4ahr"]
-size = Vector3(1, 1, 0.2)
+[ext_resource type="PackedScene" uid="uid://cuxkeeygt4rw1" path="res://src/ldos/switchable_collision.tscn" id="1_msfys"]
 
 [sub_resource type="BoxMesh" id="BoxMesh_x4ahr"]
 size = Vector3(1, 1, 0.2)
 
 [node name="SwitchingMesh" type="AnimatableBody3D"]
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="." node_paths=PackedStringArray("toggle_meshes")]
-shape = SubResource("BoxShape3D_x4ahr")
-script = ExtResource("1_msfys")
-toggle_meshes = NodePath("../MeshInstance3D")
-
-[node name="Timer" type="Timer" parent="CollisionShape3D"]
-autostart = true
+[node name="SwitchableCollisionShape3D" parent="." instance=ExtResource("1_msfys")]
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="."]
 mesh = SubResource("BoxMesh_x4ahr")
-skeleton = NodePath("../CollisionShape3D")
+skeleton = NodePath("../SwitchableCollisionShape3D")

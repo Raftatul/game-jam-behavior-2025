@@ -2,14 +2,18 @@
 
 [ext_resource type="Script" uid="uid://bupnmwimumxln" path="res://src/components/visibility_component.gd" id="1_c7wis"]
 
-[node name="VisibilityComponent" type="Node3D" node_paths=PackedStringArray("points")]
+[node name="VisibilityComponent" type="VisibleOnScreenNotifier3D" node_paths=PackedStringArray("points")]
 script = ExtResource("1_c7wis")
 points = [NodePath("Marker3D"), NodePath("Marker3D2"), NodePath("Marker3D3"), NodePath("Marker3D4")]
 
 [node name="Marker3D" type="Marker3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1, 1, 0)
 
 [node name="Marker3D2" type="Marker3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1, -1, 0)
 
 [node name="Marker3D3" type="Marker3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1, -1, 0)
 
 [node name="Marker3D4" type="Marker3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1, 1, 0)

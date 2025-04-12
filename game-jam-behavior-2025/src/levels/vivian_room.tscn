@@ -1,8 +1,9 @@
-[gd_scene load_steps=7 format=3 uid="uid://c6k6haam1kgbk"]
+[gd_scene load_steps=10 format=3 uid="uid://c6k6haam1kgbk"]
 
 [ext_resource type="PackedScene" uid="uid://l6t2l73wo01p" path="res://src/ldos/movement/rotator.tscn" id="1_il7l4"]
 [ext_resource type="PackedScene" uid="uid://2vxwbtdextyx" path="res://src/ldos/movement/translator.tscn" id="2_c5uyr"]
 [ext_resource type="PackedScene" uid="uid://deew70tfogvw5" path="res://src/ldos/visibility_switcher/SwitchingMesh.tscn" id="3_gigd5"]
+[ext_resource type="PackedScene" uid="uid://cupd6l1yfd02o" path="res://src/ldos/quantic_folder/quantic_object.tscn" id="4_oggrv"]
 
 [sub_resource type="CylinderMesh" id="CylinderMesh_il7l4"]
 
@@ -14,6 +15,10 @@ _data = {
 point_count = 3
 
 [sub_resource type="BoxMesh" id="BoxMesh_oggrv"]
+
+[sub_resource type="CapsuleMesh" id="CapsuleMesh_l45jm"]
+
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_h1nme"]
 
 [node name="VivianRoom" type="Node3D"]
 
@@ -42,7 +47,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5.00694, 4.22639, -0.0005588
 curve = SubResource("Curve3D_c5uyr")
 
 [node name="Translator" parent="Path3D" instance=ExtResource("2_c5uyr")]
-transform = Transform3D(-0.0181912, -0.0192942, -0.999633, 1.86261e-09, 0.999798, -0.0192974, 0.999818, -0.000351049, -0.0181878, -2.02598, -0.0277371, -0.0400491)
+transform = Transform3D(-0.0181912, -0.0192942, -0.999634, 1.86261e-09, 0.999798, -0.0192974, 0.999818, -0.000351049, -0.0181878, -2.02598, -0.0277371, -0.0400491)
 pause_at_extrimity = true
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="Path3D/Translator"]
@@ -50,3 +55,17 @@ mesh = SubResource("BoxMesh_oggrv")
 
 [node name="SwitchingMesh" parent="." instance=ExtResource("3_gigd5")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 3, 0)
+
+[node name="QuanticObject" parent="." instance=ExtResource("4_oggrv")]
+activated = false
+
+[node name="MeshInstance3D" parent="QuanticObject" index="0"]
+mesh = SubResource("CapsuleMesh_l45jm")
+
+[node name="SwitchableCollisionShape3D" parent="QuanticObject" index="1"]
+shape = SubResource("CapsuleShape3D_h1nme")
+
+[node name="VisibilityComponent" parent="QuanticObject" index="2"]
+aabb = AABB(-1, -1, -0.464278, 2, 2, 0.928555)
+
+[editable path="QuanticObject"]

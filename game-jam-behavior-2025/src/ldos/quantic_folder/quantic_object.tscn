@@ -1,0 +1,22 @@
+[gd_scene load_steps=5 format=3 uid="uid://cupd6l1yfd02o"]
+
+[ext_resource type="Script" uid="uid://ccatwonpn114a" path="res://src/ldos/quantic_folder/quantic_object.gd" id="1_l4fe1"]
+[ext_resource type="PackedScene" uid="uid://c3g55casshl06" path="res://src/components/visibility_component.tscn" id="1_pbt24"]
+[ext_resource type="PackedScene" uid="uid://cuxkeeygt4rw1" path="res://src/components/switchable_collision.tscn" id="2_r5yht"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_l4fe1"]
+size = Vector3(2, 2, 2)
+
+[node name="QuanticObject" type="RigidBody3D"]
+script = ExtResource("1_l4fe1")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+
+[node name="SwitchableCollisionShape3D" parent="." node_paths=PackedStringArray("toggle_meshes") instance=ExtResource("2_r5yht")]
+shape = SubResource("BoxShape3D_l4fe1")
+switch_mode = 1
+toggle_meshes = NodePath("../MeshInstance3D")
+
+[node name="VisibilityComponent" parent="." instance=ExtResource("1_pbt24")]
+
+[connection signal="on_screen_visibility_changed" from="VisibilityComponent" to="." method="_on_visibility_component_on_screen_visibility_changed"]

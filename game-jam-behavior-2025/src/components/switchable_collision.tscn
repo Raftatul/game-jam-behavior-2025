@@ -5,10 +5,9 @@
 [sub_resource type="BoxShape3D" id="BoxShape3D_x4ahr"]
 size = Vector3(1, 1, 0.2)
 
-[node name="SwitchableCollisionShape3D" type="CollisionShape3D" node_paths=PackedStringArray("toggle_meshes")]
+[node name="SwitchableCollisionShape3D" type="CollisionShape3D"]
 shape = SubResource("BoxShape3D_x4ahr")
 script = ExtResource("1_vdwqp")
-toggle_meshes = NodePath("")
 
 [node name="Timer" type="Timer" parent="."]
 autostart = true

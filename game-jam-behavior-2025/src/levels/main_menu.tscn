@@ -42,7 +42,7 @@ size = Vector3(5, 1, 1)
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_mwphm"]
 resource_local_to_scene = true
-size = Vector3(3, 1, 1)
+size = Vector3(3, 1, 4)
 
 [sub_resource type="TextMesh" id="TextMesh_0ukkc"]
 material = SubResource("StandardMaterial3D_0ukkc")
@@ -79,9 +79,10 @@ skeleton = NodePath("../..")
 
 [node name="Play" parent="PushableBlock" instance=ExtResource("3_fxx5w")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.243782, 0)
-aabb = AABB(-1.14724, -1.18918, -1, 2.29449, 2.37835, 2)
+aabb = AABB(-1.01148, -1.18918, -1, 2.02296, 2.37835, 2)
 
 [node name="PushableBlock2" parent="." instance=ExtResource("3_mwphm")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -6, 0, 0)
 
 [node name="CollisionShape3D" parent="PushableBlock2" index="0"]
 shape = SubResource("BoxShape3D_0ukkc")
@@ -102,7 +103,7 @@ skeleton = NodePath("../..")
 
 [node name="Credits" parent="PushableBlock2" instance=ExtResource("3_fxx5w")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.166554, 0)
-aabb = AABB(-2.19007, -1, -1, 4.38013, 2, 2)
+aabb = AABB(-1.98781, -1, -1, 3.97561, 2, 2)
 
 [node name="PushableBlock3" parent="." instance=ExtResource("3_mwphm")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 4)
@@ -114,7 +115,7 @@ skeleton = NodePath("../..")
 
 [node name="Quit" parent="PushableBlock3" instance=ExtResource("3_fxx5w")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.22697, 0)
-aabb = AABB(-1.21717, -1, -1, 2.43435, 2, 2)
+aabb = AABB(-0.985067, -1, -1, 1.97013, 2, 2)
 
 [node name="CSGBox3D" type="CSGBox3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -2.29842, 0)
@@ -122,21 +123,21 @@ use_collision = true
 size = Vector3(20, 1, 20)
 
 [node name="Character" parent="." instance=ExtResource("2_4hslj")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -6, 0, 4)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 3, 0)
 
 [node name="Skeleton3D" parent="Character/character_v1/metarig" index="0"]
-bones/4/position = Vector3(-4.14333e-10, 0.776928, -0.0552)
-bones/5/rotation = Quaternion(-0.0473717, 0.0108863, -0.0283856, 0.998415)
-bones/6/rotation = Quaternion(-0.0525217, -0.000474341, -0.0194777, 0.99843)
-bones/10/rotation = Quaternion(0.996204, 0.0384252, 0.0217788, -0.0750146)
-bones/11/rotation = Quaternion(-0.0477524, 0.00407527, -0.0169269, 0.998708)
-bones/12/rotation = Quaternion(0.157968, 0.000527863, -0.0702576, 0.984942)
-bones/13/position = Vector3(0.103884, 0.228977, -0.0340856)
-bones/14/position = Vector3(-0.0991587, 0.219529, 0.0268335)
-bones/16/rotation = Quaternion(0.979688, -0.0171933, 0.0134902, 0.199334)
-bones/17/rotation = Quaternion(0.240421, 0.000503323, -0.0372958, 0.969952)
-bones/19/rotation = Quaternion(0.979688, 0.0171931, -0.0134899, 0.199334)
-bones/20/rotation = Quaternion(0.240421, -0.00050332, 0.0372957, 0.969952)
+bones/4/position = Vector3(3.28143e-11, 0.779023, -0.0552)
+bones/5/rotation = Quaternion(-0.0477386, -0.0384124, 0.0278931, 0.997731)
+bones/6/rotation = Quaternion(-0.0525278, -0.00029462, -0.012098, 0.998546)
+bones/10/rotation = Quaternion(0.997714, -0.0602583, 0.0135017, -0.0274507)
+bones/11/rotation = Quaternion(0.00714905, 0.00383365, -0.0495556, 0.998738)
+bones/12/rotation = Quaternion(0.0709718, 0.0478772, 0.10214, 0.991079)
+bones/13/position = Vector3(0.0907185, 0.290623, -0.0323462)
+bones/14/position = Vector3(-0.112324, 0.281175, 0.0285729)
+bones/16/rotation = Quaternion(0.980725, -0.0163329, 0.0134254, 0.194247)
+bones/17/rotation = Quaternion(0.229887, 0.00050467, -0.0356617, 0.972564)
+bones/19/rotation = Quaternion(0.980725, 0.0163328, -0.0134251, 0.194248)
+bones/20/rotation = Quaternion(0.229887, -0.000504668, 0.0356616, 0.972564)
 
 [node name="CameraPivot" parent="Character" index="5"]
 transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, 0, 4, 0)

@@ -1,0 +1,56 @@
+[gd_scene load_steps=11 format=3 uid="uid://stq6yyadeyjn"]
+
+[ext_resource type="Script" uid="uid://cfvy05lnoj7uv" path="res://src/character/player_character.gd" id="1_yny20"]
+[ext_resource type="Script" uid="uid://bdji4l0bh2re2" path="res://src/modules/finite_state_machine/state_machine.gd" id="2_2p3op"]
+[ext_resource type="Script" uid="uid://dqf2dv04wdo3i" path="res://src/character/states/player_idle_state.gd" id="3_8mo58"]
+[ext_resource type="Script" uid="uid://cmnib6pvh2w8i" path="res://src/character/states/player_walk_state.gd" id="4_k8eue"]
+[ext_resource type="Script" uid="uid://dkvn5imuc6ehs" path="res://src/character/states/player_death_state.gd" id="5_tntuy"]
+[ext_resource type="Script" uid="uid://co7fdiqk0u4sk" path="res://src/character/states/player_jump_state.gd" id="6_56uj1"]
+[ext_resource type="Script" uid="uid://c65pm7xm5i42n" path="res://src/character/states/player_walk_air.gd" id="7_fi36g"]
+[ext_resource type="Script" uid="uid://bmknk64fxjomu" path="res://src/character/states/player_fall_state.gd" id="8_a5pac"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_yny20"]
+
+[sub_resource type="BoxMesh" id="BoxMesh_2p3op"]
+
+[node name="Character" type="CharacterBody3D"]
+script = ExtResource("1_yny20")
+move_duration = 0.1
+jump_force = 75.0
+metadata/_custom_type_script = "uid://cfvy05lnoj7uv"
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+shape = SubResource("BoxShape3D_yny20")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+mesh = SubResource("BoxMesh_2p3op")
+
+[node name="FiniteStateMachine" type="Node" parent="." node_paths=PackedStringArray("initial_state")]
+script = ExtResource("2_2p3op")
+debug_transition = true
+initial_state = NodePath("Idle")
+metadata/_custom_type_script = "uid://bdji4l0bh2re2"
+
+[node name="Idle" type="Node" parent="FiniteStateMachine"]
+script = ExtResource("3_8mo58")
+metadata/_custom_type_script = "uid://c0w66x5j564rh"
+
+[node name="Walk" type="Node" parent="FiniteStateMachine"]
+script = ExtResource("4_k8eue")
+metadata/_custom_type_script = "uid://c0w66x5j564rh"
+
+[node name="Death" type="Node" parent="FiniteStateMachine"]
+script = ExtResource("5_tntuy")
+metadata/_custom_type_script = "uid://c0w66x5j564rh"
+
+[node name="Jump" type="Node" parent="FiniteStateMachine"]
+script = ExtResource("6_56uj1")
+metadata/_custom_type_script = "uid://c0w66x5j564rh"
+
+[node name="WalkAir" type="Node" parent="FiniteStateMachine"]
+script = ExtResource("7_fi36g")
+metadata/_custom_type_script = "uid://c0w66x5j564rh"
+
+[node name="Fall" type="Node" parent="FiniteStateMachine"]
+script = ExtResource("8_a5pac")
+metadata/_custom_type_script = "uid://c0w66x5j564rh"

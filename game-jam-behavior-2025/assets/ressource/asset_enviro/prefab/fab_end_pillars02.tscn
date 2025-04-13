@@ -1,0 +1,24 @@
+[gd_scene load_steps=4 format=3 uid="uid://c0mdrn7r1756s"]
+
+[ext_resource type="PackedScene" uid="uid://ttgtpnarw7se" path="res://assets/ressource/asset_enviro/sm_arch_a_one_branch.tscn" id="1_eiys4"]
+[ext_resource type="PackedScene" uid="uid://dssri783u1cjk" path="res://assets/ressource/asset_enviro/sm_column_b.tscn" id="2_k2rkm"]
+[ext_resource type="PackedScene" uid="uid://bsn8tadfch64u" path="res://assets/ressource/asset_enviro/sm_column_floating_bottom.tscn" id="3_eiys4"]
+
+[node name="FabEndPillars" type="Node3D"]
+
+[node name="SM_arch_A_one_branch" parent="." instance=ExtResource("1_eiys4")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 20, 0)
+
+[node name="SM_arch_A_one_branch2" parent="." instance=ExtResource("1_eiys4")]
+transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 8, 20, 0)
+
+[node name="SM_arch_A_one_branch3" parent="." instance=ExtResource("1_eiys4")]
+transform = Transform3D(1, 0, 0, 0, -1, -8.74228e-08, 0, 8.74228e-08, -1, 0, -4, 0)
+
+[node name="SM_arch_A_one_branch4" parent="." instance=ExtResource("1_eiys4")]
+transform = Transform3D(-1, 0, -8.74228e-08, -7.64274e-15, -1, 8.74228e-08, -8.74228e-08, 8.74228e-08, 1, 8, -4, 0)
+
+[node name="SM_column_B" parent="." instance=ExtResource("2_k2rkm")]
+
+[node name="SM_column_floating_bottom" parent="." instance=ExtResource("3_eiys4")]
+transform = Transform3D(0.258819, -2.26267e-08, 0.965926, -8.74228e-08, -1, 0, 0.965926, -8.44439e-08, -0.258819, 8, 16, 0)

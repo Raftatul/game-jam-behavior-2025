@@ -1,0 +1,14 @@
+[gd_scene load_steps=3 format=3 uid="uid://ps6ojovo70n3"]
+
+[ext_resource type="PackedScene" uid="uid://tknh5whvqm81" path="res://assets/enviro/main_menu/SM_rock_20m.fbx" id="1_xf76w"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_xf76w"]
+size = Vector3(20, 4, 20)
+
+[node name="SM_rock_20m" instance=ExtResource("1_xf76w")]
+
+[node name="StaticBody3D" type="StaticBody3D" parent="SM_rock_20m_01" index="0"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="SM_rock_20m_01/StaticBody3D" index="0"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.3, -0.5, -0.1)
+shape = SubResource("BoxShape3D_xf76w")

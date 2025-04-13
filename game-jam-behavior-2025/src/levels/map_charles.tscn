@@ -21,7 +21,7 @@
 [ext_resource type="PackedScene" uid="uid://cko1n2ytkm4f2" path="res://assets/enviro/SM_monolith_A_extension.fbx" id="18_n73j7"]
 [ext_resource type="PackedScene" uid="uid://65r8lwa2ne3g" path="res://assets/ressource/asset_enviro/sm_bridge_a_pillar_extension.tscn" id="19_ijv7e"]
 [ext_resource type="PackedScene" uid="uid://djuqwkjv8jilm" path="res://src/ldos/checkpoint.tscn" id="20_ijv7e"]
-[ext_resource type="PackedScene" uid="uid://bm1ss72ovvwpt" path="res://src/ldos/PushableBlock.tscn" id="20_v1xta"]
+[ext_resource type="PackedScene" path="res://src/ldos/PushableBlock.tscn" id="20_v1xta"]
 [ext_resource type="PackedScene" uid="uid://ys5r0ayqsy80" path="res://assets/ressource/asset_enviro/prefab/checkpoint.tscn" id="21_3x0kh"]
 [ext_resource type="PackedScene" uid="uid://logokd87uniq" path="res://assets/ressource/asset_enviro/sm_column_floating_middle.tscn" id="22_jtle7"]
 [ext_resource type="PackedScene" uid="uid://baa608gbi2cdl" path="res://assets/ressource/asset_enviro/sm_bridge_a_stairs_b.tscn" id="23_basso"]
@@ -1106,7 +1106,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 90, -2, -8)
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 90, -9, -8)
 
 [node name="Checkpoint" parent="CP" instance=ExtResource("20_ijv7e")]
-transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, 28.0231, 6, -6)
+transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, 28, 6, -6)
 
 [node name="Checkpoint2" parent="CP" instance=ExtResource("20_ijv7e")]
 transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, 52, 6, 0)
@@ -1120,10 +1120,16 @@ transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, 90, 5, -6)
 transform = Transform3D(2.06632e-07, 0, 1, 0, 1, 0, -1, 0, 2.06632e-07, 111, -5, -6)
 visible = false
 
-[node name="QuanticObject" parent="LDO/SM_bridge_A38" node_paths=PackedStringArray("linked_object", "visibility_node") instance=ExtResource("31_7hvg7")]
+[node name="QuanticObject" parent="LDO/SM_bridge_A38" node_paths=PackedStringArray("linked_object", "visibility_node", "switch_coll_node") instance=ExtResource("31_7hvg7")]
 transform = Transform3D(2.06632e-07, 0, -1, 0, 1, 0, 1, 0, 2.06632e-07, 0, 10, 0)
+collision_layer = 2
 linked_object = NodePath("../../PushableBlock2/QuanticObject2")
 visibility_node = NodePath("../VisibilityComponent")
+switch_coll_node = NodePath("SwitchableCollisionShape3D")
+
+[node name="SwitchableCollisionShape3D" parent="LDO/SM_bridge_A38/QuanticObject" index="0" node_paths=PackedStringArray("toggle_meshes")]
+process_mode = 4
+toggle_meshes = NodePath("../..")
 
 [node name="VisibilityComponent" parent="LDO/SM_bridge_A38" instance=ExtResource("32_mlmr2")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 12, 0)
@@ -1144,9 +1150,13 @@ shape = SubResource("BoxShape3D_mxlf6")
 [node name="CollisionShape3D2" parent="LDO/PushableBlock2/Area3D" index="1"]
 shape = SubResource("BoxShape3D_diwjh")
 
-[node name="QuanticObject2" parent="LDO/PushableBlock2" node_paths=PackedStringArray("linked_object", "visibility_node") instance=ExtResource("31_7hvg7")]
+[node name="QuanticObject2" parent="LDO/PushableBlock2" node_paths=PackedStringArray("linked_object", "visibility_node", "switch_coll_node") instance=ExtResource("31_7hvg7")]
 linked_object = NodePath("../../SM_bridge_A38/QuanticObject")
 visibility_node = NodePath("../VisibilityComponent")
+switch_coll_node = NodePath("SwitchableCollisionShape3D")
+
+[node name="SwitchableCollisionShape3D" parent="LDO/PushableBlock2/QuanticObject2" index="0" node_paths=PackedStringArray("toggle_meshes")]
+toggle_meshes = NodePath("../..")
 
 [node name="VisibilityComponent" parent="LDO/PushableBlock2" instance=ExtResource("32_mlmr2")]
 

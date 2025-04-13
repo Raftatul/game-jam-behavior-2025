@@ -58,6 +58,6 @@ transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -1.036
 transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 2.9628, -9, 0)
 
 [node name="Checkpoint" parent="." instance=ExtResource("7_g4bww")]
-transform = Transform3D(1, 0, -1.06581e-14, 0, 1, 0, 1.06581e-14, 0, 1, 0.533391, 2.3208, 0.00447424)
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 0.166427, 2.3208, 0.107951)
 
 [connection signal="body_entered" from="KillZone" to="KillZone" method="_on_body_entered"]

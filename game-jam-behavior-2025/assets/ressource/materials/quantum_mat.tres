@@ -1,0 +1,10 @@
+[gd_resource type="ShaderMaterial" load_steps=2 format=3 uid="uid://chhqcoul4lskt"]
+
+[ext_resource type="Shader" uid="uid://b58muw5w8q7jc" path="res://assets/ressource/materials/quantum.tres" id="1_f7t7w"]
+
+[resource]
+render_priority = 0
+shader = ExtResource("1_f7t7w")
+shader_parameter/ColorParameter = Color(1, 0, 0, 1)
+shader_parameter/Speed = 0.5
+shader_parameter/Intensity = 5.0

@@ -1,11 +1,12 @@
-[gd_scene load_steps=11 format=3 uid="uid://buse55bn08t6f"]
+[gd_scene load_steps=12 format=3 uid="uid://buse55bn08t6f"]
 
 [ext_resource type="PackedScene" uid="uid://stq6yyadeyjn" path="res://src/character/character.tscn" id="1_4uxyq"]
 [ext_resource type="Script" uid="uid://dcexpw07mj5rk" path="res://src/levels/world.gd" id="1_qgv8x"]
-[ext_resource type="Script" path="res://src/ldos/kill_zone.gd" id="4_a4ppy"]
+[ext_resource type="Script" uid="uid://x2sgtrr65ci7" path="res://src/ldos/kill_zone.gd" id="4_a4ppy"]
 [ext_resource type="PackedScene" uid="uid://b56g4e8vw0hk5" path="res://assets/ressource/palette_filter.tscn" id="5_aqj3v"]
 [ext_resource type="AudioStream" uid="uid://b308uv2ty8grh" path="res://assets/audio/music/SalmonLikeTheFish - Glacier.mp3" id="6_g4bww"]
 [ext_resource type="PackedScene" uid="uid://duila407wy3vr" path="res://assets/ressource/asset_enviro/sm_bridge_a_stairs_a.tscn" id="6_rvsp0"]
+[ext_resource type="PackedScene" uid="uid://djuqwkjv8jilm" path="res://src/ldos/checkpoint.tscn" id="7_g4bww"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_aqj3v"]
 
@@ -53,10 +54,10 @@ shape = SubResource("BoxShape3D_xbmv0")
 [node name="SM_bridge_A_stairs_A" parent="." instance=ExtResource("6_rvsp0")]
 transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -1.03677, -10, 0)
 
-[node name="SM_bridge_A_stairs_A3" parent="." instance=ExtResource("6_rvsp0")]
-transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -1.03677, -1.23796, 11.5223)
-
 [node name="SM_bridge_A_stairs_A2" parent="." instance=ExtResource("6_rvsp0")]
 transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 2.9628, -9, 0)
+
+[node name="Checkpoint" parent="." instance=ExtResource("7_g4bww")]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 0.166427, 2.3208, 0.107951)
 
 [connection signal="body_entered" from="KillZone" to="KillZone" method="_on_body_entered"]

@@ -1,12 +1,9 @@
 [gd_scene load_steps=6 format=3 uid="uid://bm1ss72ovvwpt"]
 
 [ext_resource type="Script" uid="uid://clw1gx5uf03tv" path="res://src/ldos/pushable_block.gd" id="1_ttbxt"]
+[ext_resource type="ArrayMesh" uid="uid://brs5wby1b24nq" path="res://assets/enviro/ldo/M_PushableBox_2x2.res" id="2_b7ea5"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_u8kk7"]
-resource_local_to_scene = true
-size = Vector3(2, 2, 2)
-
-[sub_resource type="BoxMesh" id="BoxMesh_u8kk7"]
 resource_local_to_scene = true
 size = Vector3(2, 2, 2)
 
@@ -26,7 +23,7 @@ apply_gravity = true
 shape = SubResource("BoxShape3D_u8kk7")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="."]
-mesh = SubResource("BoxMesh_u8kk7")
+mesh = ExtResource("2_b7ea5")
 skeleton = NodePath("../CollisionShape3D")
 
 [node name="Area3D" type="Area3D" parent="."]

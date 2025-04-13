@@ -48,7 +48,7 @@ func is_visible_on_screen() -> bool:
 		var result = space_state.intersect_ray(query)
 		
 		if result:
-			if result["collider"] == owner:
+			if result["collider"] == get_parent():
 				return true
 		else:
 			return true

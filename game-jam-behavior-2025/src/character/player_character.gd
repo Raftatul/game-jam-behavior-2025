@@ -39,11 +39,15 @@ var request_dash: bool = false
 @onready var step_1_reverb: AudioStreamPlayer = $Step1Reverb
 @onready var step_sounds_anim: AnimationPlayer = $StepSoundsAnim
 
+@onready var death_player: AnimationPlayer = $CanvasLayer/ColorRect/DeathPlayer
+
 
 func _ready() -> void:
-	await get_tree().process_frame
 	finite_state_machine.start_machine(self)
 	top_down_state_machine.start_machine(self)
+	death_player.play("death", -1, -1.0, true)
+	
+	await get_tree().process_frame
 	
 	global_position = CheckpointManager.respawn_point
 

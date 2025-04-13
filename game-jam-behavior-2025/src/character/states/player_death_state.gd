@@ -24,6 +24,8 @@ func enter(machine: FiniteStateMachine) -> void:
 	player.apply_gravity = false
 	player.velocity = Vector3.ZERO
 	
+	player.death_player.play("death")
+	
 	if player.root_motion_tween:
 		player.root_motion_tween.kill()
 

@@ -1,4 +1,4 @@
-[gd_scene load_steps=78 format=4 uid="uid://ps5dwwq6jx6s"]
+[gd_scene load_steps=81 format=4 uid="uid://ps5dwwq6jx6s"]
 
 [ext_resource type="Script" uid="uid://dcexpw07mj5rk" path="res://src/levels/world.gd" id="1_wihx5"]
 [ext_resource type="PackedScene" uid="uid://stq6yyadeyjn" path="res://src/character/character.tscn" id="2_wgn3o"]
@@ -11,14 +11,14 @@
 [ext_resource type="PackedScene" uid="uid://bq6iawsqsn1iv" path="res://assets/ressource/asset_enviro/sm_column_b_broken_a.tscn" id="9_kej20"]
 [ext_resource type="PackedScene" uid="uid://dssri783u1cjk" path="res://assets/ressource/asset_enviro/sm_column_b.tscn" id="10_qbnk4"]
 [ext_resource type="PackedScene" uid="uid://w2hxqjauv274" path="res://assets/ressource/asset_enviro/sm_arch_a_corner.tscn" id="11_kej20"]
-[ext_resource type="PackedScene" uid="uid://jaqa2hu2vfjh" path="res://assets/ressource/asset_enviro/sm_arch_gap.tscn" id="12_qbnk4"]
+[ext_resource type="PackedScene" path="res://assets/ressource/asset_enviro/sm_arch_gap.tscn" id="12_qbnk4"]
 [ext_resource type="PackedScene" uid="uid://fq66b24id7e" path="res://assets/ressource/asset_enviro/sm_column_b_broken_b.tscn" id="13_0boq1"]
 [ext_resource type="PackedScene" uid="uid://c3jw7ne44mrpw" path="res://assets/ressource/asset_enviro/sm_arch_a_t.tscn" id="14_77yy7"]
 [ext_resource type="PackedScene" uid="uid://dii1f83lc7t2m" path="res://assets/enviro/SM_arch_gap_one_branch.fbx" id="15_qbrm7"]
 [ext_resource type="PackedScene" uid="uid://b6yfceqq27ykv" path="res://assets/enviro/SM_arch_A_broken_A.fbx" id="16_ija7h"]
 [ext_resource type="PackedScene" uid="uid://2vxwbtdextyx" path="res://src/ldos/movement/translator.tscn" id="16_sweyv"]
 [ext_resource type="PackedScene" uid="uid://cewhsug6semvw" path="res://assets/enviro/SM_monolith_A.fbx" id="17_8l1x0"]
-[ext_resource type="Script" uid="uid://x2sgtrr65ci7" path="res://src/ldos/kill_zone.gd" id="17_qbrm7"]
+[ext_resource type="Script" path="res://src/ldos/kill_zone.gd" id="17_qbrm7"]
 [ext_resource type="PackedScene" uid="uid://cko1n2ytkm4f2" path="res://assets/enviro/SM_monolith_A_extension.fbx" id="18_n73j7"]
 [ext_resource type="PackedScene" uid="uid://65r8lwa2ne3g" path="res://assets/ressource/asset_enviro/sm_bridge_a_pillar_extension.tscn" id="19_ijv7e"]
 [ext_resource type="PackedScene" uid="uid://djuqwkjv8jilm" path="res://src/ldos/checkpoint.tscn" id="20_ijv7e"]
@@ -35,6 +35,7 @@
 [ext_resource type="PackedScene" uid="uid://cjwfft8gt4evm" path="res://assets/ressource/asset_enviro/sm_arch_a_straight.tscn" id="29_mhhk4"]
 [ext_resource type="PackedScene" uid="uid://bjhfqciba5bun" path="res://assets/ressource/asset_enviro/sm_monolith_a.tscn" id="30_mhhk4"]
 [ext_resource type="PackedScene" uid="uid://cupd6l1yfd02o" path="res://src/ldos/quantic_folder/quantic_object.tscn" id="31_7hvg7"]
+[ext_resource type="Script" uid="uid://bkjdygtjep2i7" path="res://assets/enviro/End/end_eye_sun_look.gd" id="32_23mya"]
 [ext_resource type="PackedScene" uid="uid://bslvhxx5gvdxx" path="res://src/ldos/quantic_pushable_block.tscn" id="32_kawbd"]
 [ext_resource type="PackedScene" uid="uid://cuxkeeygt4rw1" path="res://src/components/switchable_collision.tscn" id="32_keags"]
 [ext_resource type="PackedScene" uid="uid://c3g55casshl06" path="res://src/components/visibility_component.tscn" id="32_mlmr2"]
@@ -47,9 +48,9 @@
 [ext_resource type="PackedScene" uid="uid://ffywtj52ei5d" path="res://assets/enviro/End/SM_end_eye_sun.fbx" id="45_kj3n6"]
 [ext_resource type="PackedScene" uid="uid://bhpk5bpgyhl1b" path="res://assets/enviro/End/SM_end_terrain_v2.fbx" id="46_kj3n6"]
 [ext_resource type="PackedScene" uid="uid://cnrbwip7le418" path="res://assets/enviro/End/SM_end_eye_sun_ring.fbx" id="46_uhgp5"]
-[ext_resource type="PackedScene" uid="uid://c0mdrn7r1756s" path="res://assets/ressource/asset_enviro/prefab/fab_end_pillars02.tscn" id="48_egrh3"]
-[ext_resource type="PackedScene" uid="uid://br7iogfx58nuy" path="res://assets/ressource/asset_enviro/prefab/fab_end_pillars.tscn" id="49_4ood3"]
-[ext_resource type="PackedScene" uid="uid://bfvd72vcqbmpg" path="res://assets/ressource/asset_enviro/prefab/fab_floatyrocks.tscn" id="50_4ood3"]
+[ext_resource type="PackedScene" path="res://assets/ressource/asset_enviro/prefab/fab_end_pillars02.tscn" id="48_egrh3"]
+[ext_resource type="PackedScene" path="res://assets/ressource/asset_enviro/prefab/fab_end_pillars.tscn" id="49_4ood3"]
+[ext_resource type="PackedScene" path="res://assets/ressource/asset_enviro/prefab/fab_floatyrocks.tscn" id="50_4ood3"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_0pr1y"]
 resource_local_to_scene = true
@@ -62,6 +63,10 @@ size = Vector3(3, 1, 1)
 [sub_resource type="BoxShape3D" id="BoxShape3D_c5w17"]
 resource_local_to_scene = true
 size = Vector3(3, 1, 1)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_essxy"]
+resource_local_to_scene = true
+size = Vector3(1.87134, 1.87598, 1.72754)
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_sw3uu"]
 size = Vector3(84, 31, 1)
@@ -210,6 +215,9 @@ adjustment_saturation = 0.43
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_ijv7e"]
 albedo_color = Color(0, 0, 0, 1)
 metallic_specular = 0.0
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_2ccc0"]
+size = Vector3(2, 2, 2)
 
 [node name="World" type="Node3D"]
 script = ExtResource("1_wihx5")
@@ -1577,6 +1585,7 @@ shape = SubResource("BoxShape3D_c5w17")
 linked_object = NodePath("../../../LDO/SM_bridge_A39/QuanticObject")
 
 [node name="SwitchableCollisionShape3D" parent="Assets/PushableBlock3" index="5"]
+shape = SubResource("BoxShape3D_essxy")
 disable_collision = false
 toggle_state = true
 
@@ -1733,8 +1742,10 @@ transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 229, 1
 [node name="SM_bridge_A_stairs_B22" parent="Assets" instance=ExtResource("23_basso")]
 transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 233, 13, 4)
 
-[node name="SM_end_eye_sun" parent="Assets" instance=ExtResource("45_kj3n6")]
-transform = Transform3D(0.904108, -0.315707, -0.287955, 0.29399, 0.948622, -0.116989, 0.310094, 0.0211152, 0.950471, 297, 55, -118)
+[node name="SM_end_eye_sun" parent="Assets" node_paths=PackedStringArray("trigger") instance=ExtResource("45_kj3n6")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 297, 55, -118)
+script = ExtResource("32_23mya")
+trigger = NodePath("../../StaticBody3D")
 
 [node name="SM_end_eye_sun_ring" parent="Assets" instance=ExtResource("46_uhgp5")]
 transform = Transform3D(0.927395, 0.213311, -0.307305, -0.350036, 0.784611, -0.511724, 0.131958, 0.582138, 0.80231, 297, 55, -118)
@@ -2250,6 +2261,14 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 154, 8, 8)
 
 [node name="SM_column_B_broken_B" parent="." instance=ExtResource("13_0boq1")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 145, -4, 6)
+
+[node name="StaticBody3D" type="Area3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 234.853, 26.9994, 3.74443)
+collision_layer = 0
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="StaticBody3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.5, -0.299999, 0.0999999)
+shape = SubResource("BoxShape3D_2ccc0")
 
 [connection signal="body_entered" from="BaseMap/KillZone" to="BaseMap/KillZone" method="_on_body_entered"]
 

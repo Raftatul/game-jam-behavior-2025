@@ -150,13 +150,8 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4, 3, -2)
 
 [node name="Skeleton3D" parent="Character/character_v1/metarig" index="0"]
 bones/4/position = Vector3(-3.91819e-10, 0.776371, -0.0552)
-bones/4/rotation = Quaternion(0.0851639, 1.18776e-07, 1.01523e-08, 0.996367)
 bones/5/rotation = Quaternion(-0.0477199, -0.034635, 0.0235777, 0.997982)
 bones/6/rotation = Quaternion(-0.0525276, -0.000302247, -0.0124111, 0.998542)
-bones/6/scale = Vector3(1, 1, 1)
-bones/7/rotation = Quaternion(0.0018179, -1.18802e-07, 2.17452e-10, 0.999998)
-bones/8/rotation = Quaternion(0.103174, 9.06654e-10, -8.42276e-10, 0.994663)
-bones/9/rotation = Quaternion(-0.0513563, 0.000142839, 0.00517193, 0.998667)
 bones/10/rotation = Quaternion(0.998025, -0.0527084, 0.0141429, -0.0311138)
 bones/11/rotation = Quaternion(0.0235825, 0.00569944, -0.0122305, 0.999631)
 bones/12/rotation = Quaternion(0.0771225, 0.040132, 0.0729525, 0.993539)

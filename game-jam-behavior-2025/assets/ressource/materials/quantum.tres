@@ -9,6 +9,11 @@ default_input_values = [0, Quaternion(0, 0, 0, 0), 1, Quaternion(0, 0, 0, 0)]
 op_type = 2
 operator = 2
 
+[sub_resource type="VisualShaderNodeFloatParameter" id="VisualShaderNodeFloatParameter_nkquv"]
+parameter_name = "MinIntensity"
+default_value_enabled = true
+default_value = 1.0
+
 [sub_resource type="VisualShaderNodeFresnel" id="VisualShaderNodeFresnel_nkquv"]
 
 [sub_resource type="VisualShaderNodeInput" id="VisualShaderNodeInput_nkquv"]
@@ -16,9 +21,6 @@ input_name = "time"
 
 [sub_resource type="VisualShaderNodeFloatFunc" id="VisualShaderNodeFloatFunc_q0d12"]
 function = 0
-
-[sub_resource type="VisualShaderNodeFloatFunc" id="VisualShaderNodeFloatFunc_0ipbb"]
-function = 12
 
 [sub_resource type="VisualShaderNodeFloatParameter" id="VisualShaderNodeFloatParameter_xs4tl"]
 parameter_name = "Speed"
@@ -29,6 +31,7 @@ default_value = 1.0
 operator = 2
 
 [sub_resource type="VisualShaderNodeRemap" id="VisualShaderNodeRemap_nkquv"]
+default_input_values = [1, -1.0, 2, 1.0, 3, 0.0, 4, 1.0]
 
 [sub_resource type="VisualShaderNodeFloatParameter" id="VisualShaderNodeFloatParameter_q0d12"]
 parameter_name = "Intensity"
@@ -41,6 +44,7 @@ render_mode blend_mix, depth_draw_opaque, cull_back, diffuse_lambert, specular_s
 
 uniform vec4 ColorParameter : source_color = vec4(1.000000, 1.000000, 1.000000, 1.000000);
 uniform float Speed = 1.0;
+uniform float MinIntensity = 1.0;
 uniform float Intensity = 1.0;
 
 
@@ -66,8 +70,8 @@ void fragment() {
 	float n_out4p0 = sin(n_out7p0);
 
 
-// FloatFunc:5
-	float n_out5p0 = abs(n_out4p0);
+// FloatParameter:13
+	float n_out13p0 = MinIntensity;
 
 
 // FloatParameter:9
@@ -76,13 +80,12 @@ void fragment() {
 
 	float n_out8p0;
 // Remap:8
-	float n_in8p1 = 0.00000;
+	float n_in8p1 = -1.00000;
 	float n_in8p2 = 1.00000;
-	float n_in8p3 = 0.00000;
 	{
 		float __input_range = n_in8p2 - n_in8p1;
-		float __output_range = n_out9p0 - n_in8p3;
-		n_out8p0 = n_in8p3 + __output_range * ((n_out5p0 - n_in8p1) / __input_range);
+		float __output_range = n_out9p0 - n_out13p0;
+		n_out8p0 = n_out13p0 + __output_range * ((n_out4p0 - n_in8p1) / __input_range);
 	}
 
 
@@ -101,7 +104,7 @@ void fragment() {
 
 }
 "
-graph_offset = Vector2(-163.381, -93.5512)
+graph_offset = Vector2(-543.744, 275.619)
 nodes/fragment/0/position = Vector2(940, 100)
 nodes/fragment/2/node = SubResource("VisualShaderNodeFresnel_nkquv")
 nodes/fragment/2/position = Vector2(20, 180)
@@ -109,8 +112,6 @@ nodes/fragment/3/node = SubResource("VisualShaderNodeInput_nkquv")
 nodes/fragment/3/position = Vector2(-1200, 260)
 nodes/fragment/4/node = SubResource("VisualShaderNodeFloatFunc_q0d12")
 nodes/fragment/4/position = Vector2(-680, 260)
-nodes/fragment/5/node = SubResource("VisualShaderNodeFloatFunc_0ipbb")
-nodes/fragment/5/position = Vector2(-440, 260)
 nodes/fragment/6/node = SubResource("VisualShaderNodeFloatParameter_xs4tl")
 nodes/fragment/6/position = Vector2(-1200, 400)
 nodes/fragment/7/node = SubResource("VisualShaderNodeFloatOp_ix2b5")
@@ -118,9 +119,11 @@ nodes/fragment/7/position = Vector2(-900, 260)
 nodes/fragment/8/node = SubResource("VisualShaderNodeRemap_nkquv")
 nodes/fragment/8/position = Vector2(-220, 220)
 nodes/fragment/9/node = SubResource("VisualShaderNodeFloatParameter_q0d12")
-nodes/fragment/9/position = Vector2(-600, 500)
+nodes/fragment/9/position = Vector2(-620, 700)
 nodes/fragment/10/node = SubResource("VisualShaderNodeColorParameter_nkquv")
 nodes/fragment/10/position = Vector2(-40, -140)
 nodes/fragment/12/node = SubResource("VisualShaderNodeVectorOp_nkquv")
 nodes/fragment/12/position = Vector2(340, 140)
-nodes/fragment/connections = PackedInt32Array(4, 0, 5, 0, 3, 0, 7, 0, 6, 0, 7, 1, 7, 0, 4, 0, 8, 0, 2, 3, 9, 0, 8, 4, 10, 0, 12, 0, 2, 0, 12, 1, 12, 0, 0, 0, 5, 0, 8, 0, 12, 0, 0, 1)
+nodes/fragment/13/node = SubResource("VisualShaderNodeFloatParameter_nkquv")
+nodes/fragment/13/position = Vector2(-640, 420)
+nodes/fragment/connections = PackedInt32Array(3, 0, 7, 0, 6, 0, 7, 1, 7, 0, 4, 0, 8, 0, 2, 3, 9, 0, 8, 4, 10, 0, 12, 0, 2, 0, 12, 1, 12, 0, 0, 0, 12, 0, 0, 1, 4, 0, 8, 0, 13, 0, 8, 3)

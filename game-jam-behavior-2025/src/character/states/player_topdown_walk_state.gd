@@ -12,6 +12,7 @@ func check_relevance() -> StringName:
 func enter(machine: FiniteStateMachine) -> void:
 	player.step_sounds_anim.play("footsteps")
 	player.apply_gravity = true
+	player.anime_state_machine.travel(player.run_animation)
 	
 	if not (player.root_motion_tween and player.root_motion_tween.is_running()):
 		_move_character()
@@ -27,6 +28,5 @@ func _move_character() -> void:
 	
 	var vel: Vector2 = player.input_direction * (player.GRID_SIZE / player.move_duration)
 	
-	player.anime_state_machine.travel(player.run_animation)
 	player.apply_root_motion(Vector3(vel.x, 0.0, vel.y), player.move_duration)
 	player.root_motion_tween.tween_callback(_move_character)

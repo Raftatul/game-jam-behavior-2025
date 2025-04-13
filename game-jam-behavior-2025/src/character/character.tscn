@@ -121,23 +121,23 @@ shape = SubResource("CapsuleShape3D_ih6im")
 transform = Transform3D(0.9, 0, 0, 0, 0.9, 0, 0, 0, 0.9, 0, 0, 0)
 
 [node name="Skeleton3D" parent="character_v1/metarig" index="0"]
-bones/4/position = Vector3(-2.5262e-10, 0.772931, -0.0552)
+bones/4/position = Vector3(-8.55996e-11, 0.768803, -0.0552)
 bones/4/rotation = Quaternion(0.0851639, 1.18776e-07, 1.01523e-08, 0.996367)
-bones/5/rotation = Quaternion(-0.0476913, -0.0293804, 0.0175756, 0.998275)
-bones/6/rotation = Quaternion(-0.0525271, -0.000321052, -0.0131832, 0.998532)
+bones/5/rotation = Quaternion(-0.0475095, -0.00388422, -0.0115331, 0.998797)
+bones/6/rotation = Quaternion(-0.0525239, -0.000419739, -0.0172356, 0.998471)
 bones/6/scale = Vector3(1, 1, 1)
 bones/7/rotation = Quaternion(0.0018179, -1.18802e-07, 2.17452e-10, 0.999998)
 bones/8/rotation = Quaternion(0.103174, 9.06654e-10, -8.42276e-10, 0.994663)
 bones/9/rotation = Quaternion(-0.0513563, 0.000142839, 0.00517193, 0.998667)
-bones/10/rotation = Quaternion(0.99834, -0.042198, 0.0150333, -0.0362066)
-bones/11/rotation = Quaternion(0.0297373, 0.00585477, 0.0268515, 0.99918)
-bones/12/rotation = Quaternion(0.0823779, 0.0364239, 0.0492777, 0.994715)
-bones/13/position = Vector3(0.0931034, 0.279456, -0.0326613)
-bones/14/position = Vector3(-0.109939, 0.270008, 0.0282578)
-bones/16/rotation = Quaternion(0.977881, -0.0186398, 0.0135977, 0.207883)
-bones/17/rotation = Quaternion(0.258092, 0.000500916, -0.0400372, 0.96529)
-bones/19/rotation = Quaternion(0.977881, 0.0186397, -0.0135973, 0.207883)
-bones/20/rotation = Quaternion(0.258093, -0.000500914, 0.0400371, 0.96529)
+bones/10/rotation = Quaternion(0.997921, 0.0088654, 0.019323, -0.0608389)
+bones/11/rotation = Quaternion(-0.00973796, 0.00148474, 0.0122594, 0.999876)
+bones/12/rotation = Quaternion(0.102657, 0.00928178, -0.0302554, 0.994213)
+bones/13/position = Vector3(0.0999292, 0.247494, -0.0335631)
+bones/14/position = Vector3(-0.103113, 0.238047, 0.027356)
+bones/16/rotation = Quaternion(0.97606, -0.0200379, 0.0136997, 0.216143)
+bones/17/rotation = Quaternion(0.275121, 0.000498424, -0.0426787, 0.960462)
+bones/19/rotation = Quaternion(0.97606, 0.0200378, -0.0136994, 0.216143)
+bones/20/rotation = Quaternion(0.275121, -0.000498422, 0.0426786, 0.960462)
 
 [node name="DashVfx" parent="character_v1" instance=ExtResource("10_ykcix")]
 transform = Transform3D(1.11111, 0, 0, 0, 1.11111, 0, 0, 0, 1.11111, 0, 0.943761, 0)
@@ -156,6 +156,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
 debug_transition = true
 
 [node name="TopDownStateMachine" parent="." instance=ExtResource("4_m366t")]
+debug_transition = true
 
 [node name="CameraPivot" type="Marker3D" parent="." node_paths=PackedStringArray("player")]
 transform = Transform3D(1, 0, 0, 0, 0.984808, 0.173648, 0, -0.173648, 0.984808, 0, 3.53055, 0)
@@ -201,7 +202,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.35, 0.83354, 0)
 libraries = {
 &"": SubResource("AnimationLibrary_7wjtf")
 }
-speed_scale = 2.0
+speed_scale = 4.0
 
 [node name="Dash" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("10_7l6p6")
@@ -217,6 +218,8 @@ stream = ExtResource("13_38jpj")
 
 [node name="Step1Reverb" type="AudioStreamPlayer" parent="."]
 stream = SubResource("AudioStreamRandomizer_6hfyb")
+volume_db = -5.0
+pitch_scale = 4.0
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 layer = 2

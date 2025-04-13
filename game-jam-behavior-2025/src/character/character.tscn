@@ -1,4 +1,4 @@
-[gd_scene load_steps=27 format=3 uid="uid://stq6yyadeyjn"]
+[gd_scene load_steps=31 format=3 uid="uid://stq6yyadeyjn"]
 
 [ext_resource type="Script" uid="uid://cfvy05lnoj7uv" path="res://src/character/player_character.gd" id="1_yny20"]
 [ext_resource type="PackedScene" uid="uid://drknuc7u7hx5e" path="res://assets/character/character_v_1.tscn" id="2_1irux"]
@@ -17,6 +17,8 @@
 [ext_resource type="PackedScene" uid="uid://c3g55casshl06" path="res://src/components/visibility_component.tscn" id="13_omsti"]
 [ext_resource type="AudioStream" uid="uid://d2llqds6n54y7" path="res://assets/audio/sfx/Step1_Reverb.wav" id="15_y5dg0"]
 [ext_resource type="AudioStream" uid="uid://bubeo2exhg1cb" path="res://assets/audio/sfx/Step2_Reverb.wav" id="17_gn7y0"]
+[ext_resource type="Texture2D" uid="uid://c824uc5ptyn0k" path="res://assets/images/Death_screen.png" id="18_7wjtf"]
+[ext_resource type="Animation" uid="uid://nb8q7gptkk7q" path="res://RESET.res" id="19_giy1u"]
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_ih6im"]
 radius = 0.346186
@@ -70,21 +72,6 @@ streams_count = 2
 stream_0/stream = ExtResource("15_y5dg0")
 stream_1/stream = ExtResource("17_gn7y0")
 
-[sub_resource type="Animation" id="Animation_7wjtf"]
-length = 0.001
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath(".:self_modulate")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Color(1, 1, 1, 1)]
-}
-
 [sub_resource type="Animation" id="Animation_ih6im"]
 resource_name = "death"
 tracks/0/type = "value"
@@ -102,8 +89,44 @@ tracks/0/keys = {
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_giy1u"]
 _data = {
-&"RESET": SubResource("Animation_7wjtf"),
+&"RESET": ExtResource("19_giy1u"),
 &"death": SubResource("Animation_ih6im")
+}
+
+[sub_resource type="Animation" id="Animation_giy1u"]
+resource_name = "death"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:self_modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1)]
+}
+
+[sub_resource type="Animation" id="Animation_38jpj"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:self_modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 1)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_4feda"]
+_data = {
+&"RESET": SubResource("Animation_38jpj"),
+&"death": SubResource("Animation_giy1u")
 }
 
 [node name="Character" type="CharacterBody3D" groups=["player"]]
@@ -123,23 +146,23 @@ shape = SubResource("CapsuleShape3D_ih6im")
 transform = Transform3D(0.9, 0, 0, 0, 0.9, 0, 0, 0, 0.9, 0, 0, 0)
 
 [node name="Skeleton3D" parent="character_v1/metarig" index="0"]
-bones/4/position = Vector3(-6.99612e-11, 0.768416, -0.0552)
+bones/4/position = Vector3(1.36176e-11, 0.779497, -0.0552)
 bones/4/rotation = Quaternion(0.0851639, 1.18776e-07, 1.01523e-08, 0.996367)
-bones/5/rotation = Quaternion(-0.0476305, -0.0196808, 0.00649889, 0.99865)
-bones/6/rotation = Quaternion(-0.052526, -0.000358595, -0.0147248, 0.998511)
+bones/5/rotation = Quaternion(-0.0477411, -0.0389311, 0.0284857, 0.997694)
+bones/6/rotation = Quaternion(-0.052528, -0.000287879, -0.0118212, 0.998549)
 bones/6/scale = Vector3(1, 1, 1)
 bones/7/rotation = Quaternion(0.0018179, -1.18802e-07, 2.17452e-10, 0.999998)
 bones/8/rotation = Quaternion(0.103174, 9.06654e-10, -8.42276e-10, 0.994663)
 bones/9/rotation = Quaternion(-0.0513563, 0.000142839, 0.00517193, 0.998667)
-bones/10/rotation = Quaternion(0.998561, -0.0227784, 0.0166717, -0.0455959)
-bones/11/rotation = Quaternion(0.0205343, 0.00502365, 0.0639125, 0.997732)
-bones/12/rotation = Quaternion(0.0597145, 0.0369367, 0.0377166, 0.996819)
-bones/13/position = Vector3(0.0957014, 0.26729, -0.0330046)
-bones/14/position = Vector3(-0.107341, 0.257843, 0.0279145)
-bones/16/rotation = Quaternion(0.975892, -0.0201643, 0.0137088, 0.21689)
-bones/17/rotation = Quaternion(0.276657, 0.00049819, -0.0429171, 0.96001)
-bones/19/rotation = Quaternion(0.975892, 0.0201642, -0.0137085, 0.21689)
-bones/20/rotation = Quaternion(0.276658, -0.000498191, 0.042917, 0.96001)
+bones/10/rotation = Quaternion(0.997666, -0.0612946, 0.0134136, -0.0269476)
+bones/11/rotation = Quaternion(0.0106321, 0.00458399, -0.0576672, 0.998269)
+bones/12/rotation = Quaternion(0.0663602, 0.0489253, 0.10702, 0.990833)
+bones/13/position = Vector3(0.0905932, 0.29121, -0.0323297)
+bones/14/position = Vector3(-0.112449, 0.281762, 0.0285894)
+bones/16/rotation = Quaternion(0.980968, -0.0161274, 0.0134099, 0.193032)
+bones/17/rotation = Quaternion(0.226766, 0.000505057, -0.0351776, 0.973314)
+bones/19/rotation = Quaternion(0.980968, 0.0161273, -0.0134096, 0.193032)
+bones/20/rotation = Quaternion(0.226767, -0.000505056, 0.0351776, 0.973313)
 
 [node name="DashVfx" parent="character_v1" instance=ExtResource("10_ykcix")]
 transform = Transform3D(1.11111, 0, 0, 0, 1.11111, 0, 0, 0, 1.11111, 0, 0.943761, 0)
@@ -226,7 +249,22 @@ pitch_scale = 4.0
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 layer = 2
 
-[node name="ColorRect" type="ColorRect" parent="CanvasLayer"]
+[node name="ColorRect" type="TextureRect" parent="CanvasLayer"]
+self_modulate = Color(1, 1, 1, 0)
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("18_7wjtf")
+expand_mode = 3
+
+[node name="DeathPlayer" type="AnimationPlayer" parent="CanvasLayer/ColorRect"]
+libraries = {
+&"": SubResource("AnimationLibrary_giy1u")
+}
+
+[node name="ColorRect2" type="ColorRect" parent="CanvasLayer"]
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
@@ -234,9 +272,9 @@ grow_horizontal = 2
 grow_vertical = 2
 color = Color(0, 0, 0, 1)
 
-[node name="DeathPlayer" type="AnimationPlayer" parent="CanvasLayer/ColorRect"]
+[node name="FadeScreen" type="AnimationPlayer" parent="CanvasLayer/ColorRect2"]
 libraries = {
-&"": SubResource("AnimationLibrary_giy1u")
+&"": SubResource("AnimationLibrary_4feda")
 }
 
 [connection signal="on_screen_visibility_changed" from="VisibilityComponent" to="." method="_on_visibility_component_on_screen_visibility_changed"]

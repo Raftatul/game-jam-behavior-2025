@@ -41,12 +41,13 @@ var request_dash: bool = false
 @onready var step_sounds_anim: AnimationPlayer = $StepSoundsAnim
 
 @onready var death_player: AnimationPlayer = $CanvasLayer/ColorRect/DeathPlayer
+@onready var fade_screen: AnimationPlayer = $CanvasLayer/ColorRect2/FadeScreen
 
 
 func _ready() -> void:
+	fade_screen.play("death", -1, -1.0, true)
 	finite_state_machine.start_machine(self)
 	top_down_state_machine.start_machine(self)
-	death_player.play("death", -1, -1.0, true)
 	
 	await get_tree().process_frame
 	

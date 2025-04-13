@@ -3,7 +3,7 @@
 [ext_resource type="ArrayMesh" uid="uid://eu432xbmcckw" path="res://assets/vfx/DashMesh.res" id="1_xvhnd"]
 
 [sub_resource type="Curve" id="Curve_eb23b"]
-_data = [Vector2(0, 1), 0.0, 1.00107, 0, 0, Vector2(1, 0), 0.326854, 0.0, 0, 0]
+_data = [Vector2(0, 0.5), 0.0, 1.00107, 0, 0, Vector2(1, 0), 0.326854, 0.0, 0, 0]
 point_count = 2
 
 [node name="DashVfx" type="CPUParticles3D"]
@@ -11,11 +11,7 @@ emitting = false
 amount = 30
 one_shot = true
 mesh = ExtResource("1_xvhnd")
-emission_shape = 6
-emission_ring_axis = Vector3(0, 0, 1)
-emission_ring_height = 0.2
-emission_ring_radius = 0.7
-emission_ring_inner_radius = 0.3
-emission_ring_cone_angle = 90.0
+emission_shape = 3
+emission_box_extents = Vector3(0.3, 0.3, 0.3)
 gravity = Vector3(0, -0.5, 0)
 scale_amount_curve = SubResource("Curve_eb23b")

@@ -1,10 +1,10 @@
 [gd_scene load_steps=17 format=3 uid="uid://b7jkon6s4pmwt"]
 
 [ext_resource type="PackedScene" uid="uid://b56g4e8vw0hk5" path="res://assets/ressource/palette_filter.tscn" id="1_0ukkc"]
-[ext_resource type="Script" uid="uid://h3slrky8kkk3" path="res://src/levels/main_menu.gd" id="1_fldhf"]
+[ext_resource type="Script" path="res://src/levels/main_menu.gd" id="1_fldhf"]
 [ext_resource type="PackedScene" uid="uid://stq6yyadeyjn" path="res://src/character/character.tscn" id="2_4hslj"]
 [ext_resource type="PackedScene" uid="uid://c3g55casshl06" path="res://src/components/visibility_component.tscn" id="3_fxx5w"]
-[ext_resource type="PackedScene" uid="uid://bm1ss72ovvwpt" path="res://src/ldos/PushableBlock.tscn" id="3_mwphm"]
+[ext_resource type="PackedScene" path="res://src/ldos/PushableBlock.tscn" id="3_mwphm"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_fxx5w"]
 

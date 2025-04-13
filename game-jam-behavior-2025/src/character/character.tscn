@@ -110,7 +110,7 @@ debug_transition = true
 [node name="TopDownStateMachine" parent="." instance=ExtResource("4_m366t")]
 
 [node name="CameraPivot" type="Marker3D" parent="." node_paths=PackedStringArray("player")]
-transform = Transform3D(1, 0, 0, 0, 0.984808, 0.173648, 0, -0.173648, 0.984808, 0, 4, 0)
+transform = Transform3D(1, 0, 0, 0, 0.984808, 0.173648, 0, -0.173648, 0.984808, 0, 3.53055, 0)
 script = ExtResource("10_8cpw0")
 player = NodePath("..")
 switch_duration = 1.0

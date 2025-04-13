@@ -55,6 +55,7 @@ mesh = SubResource("BoxMesh_oggrv")
 
 [node name="SwitchingMesh" parent="." instance=ExtResource("3_gigd5")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 3, 0)
+collision_layer = 2
 
 [node name="QuanticObject" parent="." instance=ExtResource("4_oggrv")]
 activated = false

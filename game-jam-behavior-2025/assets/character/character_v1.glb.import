@@ -5436,6 +5436,10 @@ _subresources={
 "mat_cape": {
 "use_external/enabled": true,
 "use_external/path": "uid://dv8l7u2w5fuuq"
+},
+"mat_head": {
+"use_external/enabled": true,
+"use_external/path": "uid://b8g70vsxytwgp"
 }
 }
 }

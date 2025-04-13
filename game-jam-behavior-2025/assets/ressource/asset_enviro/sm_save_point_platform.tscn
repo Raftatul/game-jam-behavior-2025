@@ -1,0 +1,13 @@
+[gd_scene load_steps=3 format=3 uid="uid://dn8hynubon4um"]
+
+[ext_resource type="PackedScene" uid="uid://c5ukge2qgm1uw" path="res://assets/enviro/new_assets/SM_savePoint_platform.fbx" id="1_j31cf"]
+
+[sub_resource type="ConvexPolygonShape3D" id="ConvexPolygonShape3D_5bgur"]
+points = PackedVector3Array(-1, 0, -1, 1, 0, -1, -1, 0, 1, -1, 8, -1, 1, 0, 1, 1, 8, -1, -1, 8, 1, 1, 8, 1)
+
+[node name="SM_savePoint_platform" instance=ExtResource("1_j31cf")]
+
+[node name="StaticBody3D" type="StaticBody3D" parent="SM_savePoint_platform_01" index="0"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="SM_savePoint_platform_01/StaticBody3D" index="0"]
+shape = SubResource("ConvexPolygonShape3D_5bgur")

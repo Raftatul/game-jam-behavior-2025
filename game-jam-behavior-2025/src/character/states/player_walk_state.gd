@@ -15,6 +15,7 @@ func check_relevance() -> StringName:
 
 
 func enter(machine: FiniteStateMachine) -> void:
+	player.step_sounds_anim.play("footsteps")
 	jump_buffered = false
 	player.apply_gravity = true
 	
@@ -25,6 +26,10 @@ func enter(machine: FiniteStateMachine) -> void:
 func update(machine: FiniteStateMachine, delta: float) -> void:
 	if player.request_jump:
 		jump_buffered = true
+
+
+func exit(machine: FiniteStateMachine) -> void:
+	player.step_sounds_anim.stop()
 
 
 func _move_character() -> void:

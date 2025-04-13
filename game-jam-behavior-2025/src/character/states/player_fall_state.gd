@@ -14,3 +14,7 @@ func check_relevance() -> StringName:
 
 func enter(machine: FiniteStateMachine) -> void:
 	player.apply_gravity = true
+
+
+func exit(machine: FiniteStateMachine) -> void:
+	player.jump_land.play()

@@ -32,6 +32,13 @@ var request_dash: bool = false
 @onready var camera: Camera3D = $CameraPivot/Camera3D
 @onready var pivot: Marker3D = $Pivot
 
+@onready var dash: AudioStreamPlayer = $Dash
+@onready var death: AudioStreamPlayer = $Death
+@onready var jump_land: AudioStreamPlayer = $JumpLand
+@onready var jump_start: AudioStreamPlayer = $JumpStart
+@onready var step_1_reverb: AudioStreamPlayer = $Step1Reverb
+@onready var step_sounds_anim: AnimationPlayer = $StepSoundsAnim
+
 
 func _ready() -> void:
 	await get_tree().process_frame

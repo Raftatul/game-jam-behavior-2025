@@ -10,10 +10,15 @@ func check_relevance() -> StringName:
 
 
 func enter(machine: FiniteStateMachine) -> void:
+	player.step_sounds_anim.play("footsteps")
 	player.apply_gravity = true
 	
 	if not (player.root_motion_tween and player.root_motion_tween.is_running()):
 		_move_character()
+
+
+func exit(machine: FiniteStateMachine) -> void:
+	player.step_sounds_anim.stop()
 
 
 func _move_character() -> void:

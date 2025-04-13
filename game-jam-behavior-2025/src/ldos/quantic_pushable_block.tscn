@@ -19,7 +19,7 @@ size = Vector3(3, 1, 1)
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_essxy"]
 resource_local_to_scene = true
-size = Vector3(2, 2, 2)
+size = Vector3(1.87134, 1.87598, 1.72754)
 
 [node name="PushableBlock" instance=ExtResource("1_6gy3h")]
 

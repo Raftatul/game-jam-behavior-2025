@@ -1,0 +1,38 @@
+[gd_scene load_steps=6 format=3 uid="uid://cmxdo6tekluyn"]
+
+[ext_resource type="Texture2D" uid="uid://c8dmf5oub2ugy" path="res://assets/Textures/Eyes.png" id="1_8lvm4"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_xpu18"]
+transparency = 1
+albedo_texture = ExtResource("1_8lvm4")
+emission_enabled = true
+emission_texture = ExtResource("1_8lvm4")
+billboard_mode = 1
+
+[sub_resource type="QuadMesh" id="QuadMesh_tkab5"]
+material = SubResource("StandardMaterial3D_xpu18")
+
+[sub_resource type="Curve" id="Curve_8lvm4"]
+_limits = [0.0, 100.0, 0.0, 1.0]
+_data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(0.994361, 100), 0.0, 0.0, 0, 0]
+point_count = 2
+
+[sub_resource type="Gradient" id="Gradient_8lvm4"]
+colors = PackedColorArray(1, 1, 1, 1, 0, 0, 0, 1)
+
+[node name="EyeVfx" type="Node3D"]
+
+[node name="CPUParticles3D" type="CPUParticles3D" parent="."]
+lifetime = 3.0
+mesh = SubResource("QuadMesh_tkab5")
+emission_shape = 2
+emission_sphere_radius = 3.5
+spread = 180.0
+gravity = Vector3(0, 0, 0)
+initial_velocity_min = 1.0
+initial_velocity_max = 1.0
+damping_min = 5.0
+damping_max = 5.0
+damping_curve = SubResource("Curve_8lvm4")
+color = Color(1, 1, 1, 0)
+color_ramp = SubResource("Gradient_8lvm4")

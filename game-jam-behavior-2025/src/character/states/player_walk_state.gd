@@ -19,6 +19,7 @@ func enter(machine: FiniteStateMachine) -> void:
 	jump_buffered = false
 	player.apply_gravity = true
 	
+	player.anime_state_machine.travel(player.run_animation)
 	if not (player.root_motion_tween and player.root_motion_tween.is_running()):
 		_move_character()
 
@@ -38,6 +39,5 @@ func _move_character() -> void:
 	
 	var vel: Vector3 = Vector3.RIGHT * (player.GRID_SIZE / player.move_duration) * player.input_direction.x
 	
-	player.anime_state_machine.travel(player.run_animation)
 	player.apply_root_motion(vel, player.move_duration)
 	player.root_motion_tween.tween_callback(_move_character)

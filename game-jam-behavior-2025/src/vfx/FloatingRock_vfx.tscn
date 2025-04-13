@@ -12,7 +12,8 @@ _data = [Vector2(0, 1), 0.0, 1.00107, 0, 0, Vector2(1, 0), 0.326854, 0.0, 0, 0]
 point_count = 2
 
 [node name="DashVfx" type="CPUParticles3D"]
-amount = 30
+emitting = false
+amount = 10
 lifetime = 10.0
 one_shot = true
 preprocess = 1.0

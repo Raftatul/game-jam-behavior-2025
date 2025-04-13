@@ -1,11 +1,11 @@
-[gd_scene load_steps=28 format=3 uid="uid://b7jkon6s4pmwt"]
+[gd_scene load_steps=19 format=3 uid="uid://b7jkon6s4pmwt"]
 
 [ext_resource type="PackedScene" uid="uid://b56g4e8vw0hk5" path="res://assets/ressource/palette_filter.tscn" id="1_0ukkc"]
 [ext_resource type="Script" uid="uid://h3slrky8kkk3" path="res://src/levels/main_menu.gd" id="1_fldhf"]
 [ext_resource type="PackedScene" uid="uid://stq6yyadeyjn" path="res://src/character/character.tscn" id="2_4hslj"]
 [ext_resource type="PackedScene" uid="uid://c3g55casshl06" path="res://src/components/visibility_component.tscn" id="3_fxx5w"]
 [ext_resource type="PackedScene" uid="uid://bm1ss72ovvwpt" path="res://src/ldos/PushableBlock.tscn" id="3_mwphm"]
-[ext_resource type="PackedScene" uid="uid://bslvhxx5gvdxx" path="res://src/ldos/quantic_pushable_block.tscn" id="6_0gfcs"]
+[ext_resource type="Script" uid="uid://x2sgtrr65ci7" path="res://src/ldos/kill_zone.gd" id="6_0gfcs"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_fxx5w"]
 
@@ -57,45 +57,8 @@ text = "Quit"
 font_size = 84
 depth = 2.0
 
-[sub_resource type="BoxShape3D" id="BoxShape3D_237ap"]
-resource_local_to_scene = true
-size = Vector3(2, 2, 2)
-
-[sub_resource type="BoxMesh" id="BoxMesh_gm67h"]
-resource_local_to_scene = true
-size = Vector3(2, 2, 2)
-
-[sub_resource type="BoxShape3D" id="BoxShape3D_pcjj0"]
-resource_local_to_scene = true
-size = Vector3(3, 1, 1)
-
-[sub_resource type="BoxShape3D" id="BoxShape3D_hw13d"]
-resource_local_to_scene = true
-size = Vector3(3, 1, 1)
-
-[sub_resource type="BoxShape3D" id="BoxShape3D_essxy"]
-resource_local_to_scene = true
-size = Vector3(2, 2, 2)
-
-[sub_resource type="BoxShape3D" id="BoxShape3D_3k0q2"]
-resource_local_to_scene = true
-size = Vector3(2, 2, 2)
-
-[sub_resource type="BoxMesh" id="BoxMesh_k3jgl"]
-resource_local_to_scene = true
-size = Vector3(2, 2, 2)
-
-[sub_resource type="BoxShape3D" id="BoxShape3D_76r1k"]
-resource_local_to_scene = true
-size = Vector3(3, 1, 1)
-
-[sub_resource type="BoxShape3D" id="BoxShape3D_mvttq"]
-resource_local_to_scene = true
-size = Vector3(3, 1, 1)
-
-[sub_resource type="BoxShape3D" id="BoxShape3D_nprcd"]
-resource_local_to_scene = true
-size = Vector3(2, 2, 2)
+[sub_resource type="BoxShape3D" id="BoxShape3D_0gfcs"]
+size = Vector3(5000, 10, 5000)
 
 [node name="MainMenu" type="Node3D"]
 script = ExtResource("1_fldhf")
@@ -167,23 +130,23 @@ size = Vector3(20, 1, 20)
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 3, 0)
 
 [node name="Skeleton3D" parent="Character/character_v1/metarig" index="0"]
-bones/4/position = Vector3(1.45426e-10, 0.767077, -0.0552)
+bones/4/position = Vector3(-2.14009e-10, 0.771977, -0.0552)
 bones/4/rotation = Quaternion(0.0851639, 1.18776e-07, 1.01523e-08, 0.996367)
-bones/5/rotation = Quaternion(-0.0475677, -0.0110318, -0.00337519, 0.998801)
-bones/6/rotation = Quaternion(-0.0525249, -0.000392021, -0.0160974, 0.99849)
+bones/5/rotation = Quaternion(-0.0476813, -0.0276685, 0.0156204, 0.998357)
+bones/6/rotation = Quaternion(-0.0525269, -0.000327773, -0.0134592, 0.998529)
 bones/6/scale = Vector3(1, 1, 1)
 bones/7/rotation = Quaternion(0.0018179, -1.18802e-07, 2.17452e-10, 0.999998)
 bones/8/rotation = Quaternion(0.103174, 9.06654e-10, -8.42276e-10, 0.994663)
 bones/9/rotation = Quaternion(-0.0513563, 0.000142839, 0.00517193, 0.998667)
-bones/10/rotation = Quaternion(0.998364, -0.00545223, 0.0181262, -0.0539508)
-bones/11/rotation = Quaternion(-0.000185916, 0.00483881, 0.0731123, 0.997312)
-bones/12/rotation = Quaternion(0.0390767, 0.0375456, 0.023971, 0.998243)
-bones/13/position = Vector3(0.0980165, 0.256451, -0.0333104)
-bones/14/position = Vector3(-0.105026, 0.247003, 0.0276087)
-bones/16/rotation = Quaternion(0.975365, -0.0205564, 0.0137371, 0.219206)
-bones/17/rotation = Quaternion(0.282914, 0.000497226, -0.0438877, 0.958141)
-bones/19/rotation = Quaternion(0.975365, 0.0205563, -0.0137368, 0.219206)
-bones/20/rotation = Quaternion(0.282914, -0.000497222, 0.0438875, 0.95814)
+bones/10/rotation = Quaternion(0.998413, -0.038772, 0.015323, -0.037865)
+bones/11/rotation = Quaternion(0.0295484, 0.00570514, 0.0358838, 0.998903)
+bones/12/rotation = Quaternion(0.0811471, 0.0364286, 0.0455438, 0.994994)
+bones/13/position = Vector3(0.0935622, 0.277308, -0.0327219)
+bones/14/position = Vector3(-0.10948, 0.26786, 0.0281972)
+bones/16/rotation = Quaternion(0.977461, -0.0189678, 0.0136217, 0.209821)
+bones/17/rotation = Quaternion(0.262092, 0.000500347, -0.0406576, 0.964186)
+bones/19/rotation = Quaternion(0.977461, 0.0189676, -0.0136214, 0.209821)
+bones/20/rotation = Quaternion(0.262093, -0.000500343, 0.0406575, 0.964186)
 
 [node name="CameraPivot" parent="Character" index="5"]
 transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, 0, 4, 0)
@@ -196,59 +159,19 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 8.35553, 5, 0)
 use_collision = true
 size = Vector3(6, 1, 6)
 
-[node name="PushableBlock4" parent="." instance=ExtResource("6_0gfcs")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -6, 0, 4)
+[node name="KillZone" type="Area3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -20, 0)
+script = ExtResource("6_0gfcs")
 
-[node name="CollisionShape3D" parent="PushableBlock4" index="0"]
-shape = SubResource("BoxShape3D_237ap")
-
-[node name="MeshInstance3D" parent="PushableBlock4" index="1"]
-mesh = SubResource("BoxMesh_gm67h")
-
-[node name="CollisionShape3D" parent="PushableBlock4/Area3D" index="0"]
-shape = SubResource("BoxShape3D_pcjj0")
-
-[node name="CollisionShape3D2" parent="PushableBlock4/Area3D" index="1"]
-shape = SubResource("BoxShape3D_hw13d")
-
-[node name="QuanticObject" parent="PushableBlock4" index="3" node_paths=PackedStringArray("linked_object")]
-linked_object = NodePath("../../PushableBlock5/QuanticObject")
-
-[node name="SwitchableCollisionShape3D" parent="PushableBlock4" index="5"]
-shape = SubResource("BoxShape3D_essxy")
-toggle_state = true
-
-[node name="PushableBlock5" parent="." instance=ExtResource("6_0gfcs")]
-process_mode = 4
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6, 0, 6)
-collision_layer = 2
-
-[node name="CollisionShape3D" parent="PushableBlock5" index="0"]
-shape = SubResource("BoxShape3D_3k0q2")
-
-[node name="MeshInstance3D" parent="PushableBlock5" index="1"]
-visible = false
-mesh = SubResource("BoxMesh_k3jgl")
-
-[node name="CollisionShape3D" parent="PushableBlock5/Area3D" index="0"]
-shape = SubResource("BoxShape3D_76r1k")
-
-[node name="CollisionShape3D2" parent="PushableBlock5/Area3D" index="1"]
-shape = SubResource("BoxShape3D_mvttq")
-
-[node name="QuanticObject" parent="PushableBlock5" index="3" node_paths=PackedStringArray("linked_object")]
-linked_object = NodePath("../../PushableBlock4/QuanticObject")
-
-[node name="SwitchableCollisionShape3D" parent="PushableBlock5" index="5"]
-shape = SubResource("BoxShape3D_nprcd")
+[node name="CollisionShape3D" type="CollisionShape3D" parent="KillZone"]
+shape = SubResource("BoxShape3D_0gfcs")
 
 [connection signal="on_screen_visibility_changed" from="PushableBlock/Play" to="." method="_on_play_on_screen_visibility_changed"]
 [connection signal="on_screen_visibility_changed" from="PushableBlock2/Credits" to="." method="_on_credits_on_screen_visibility_changed"]
 [connection signal="on_screen_visibility_changed" from="PushableBlock3/Quit" to="." method="_on_quit_on_screen_visibility_changed"]
+[connection signal="body_entered" from="KillZone" to="KillZone" method="_on_body_entered"]
 
 [editable path="PushableBlock2"]
 [editable path="Character"]
 [editable path="Character/character_v1"]
 [editable path="Character/VisibilityComponent"]
-[editable path="PushableBlock4"]
-[editable path="PushableBlock5"]

@@ -2,12 +2,15 @@
 
 [ext_resource type="Script" uid="uid://b3r02lyabad4v" path="res://src/ldos/visibility_switcher/swichable_object.gd" id="1_vdwqp"]
 
-[sub_resource type="BoxShape3D" id="BoxShape3D_x4ahr"]
-size = Vector3(1, 1, 0.2)
+[sub_resource type="BoxShape3D" id="BoxShape3D_h8lmo"]
+resource_local_to_scene = true
 
 [node name="SwitchableCollisionShape3D" type="CollisionShape3D"]
-shape = SubResource("BoxShape3D_x4ahr")
+shape = SubResource("BoxShape3D_h8lmo")
 script = ExtResource("1_vdwqp")
+switch_mode = 0
+toggle_state = true
 
 [node name="Timer" type="Timer" parent="."]
+wait_time = 5.0
 autostart = true

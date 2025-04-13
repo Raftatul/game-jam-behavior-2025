@@ -1,5 +1,5 @@
 @tool
-extends RigidBody3D
+extends Node3D
 class_name Quantic_Object
 
 @export var linked_object: Quantic_Object
@@ -9,20 +9,23 @@ class_name Quantic_Object
 
 @export var activated:bool = true:
 	set(value): 
+		if not linked_object or not visibility_node or not switch_coll_node:
+			return
+		
 		if value != activated:
-			if linked_object:
-				linked_object._react()
-			switch_coll_node.switch()
 			activated = value
+			linked_object.react(!activated)
+			react(activated)
 
 
 func _ready() -> void:
-	if Engine.is_editor_hint():
+	if not Engine.is_editor_hint():
 		visibility_node.on_screen_visibility_changed.connect(toggle)
 
-func toggle():
+
+func toggle(is_visible: bool):
 	activated = !activated
 
 
-func _react():
-	switch_coll_node.switch()
+func react(state: bool):
+	switch_coll_node.toggle_state = state

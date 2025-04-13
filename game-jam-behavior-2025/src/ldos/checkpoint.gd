@@ -6,6 +6,7 @@ var player: PlayerCharacter
 @onready var animation_player: AnimationPlayer = $Checkpoint/AnimationPlayer
 @onready var spawn_point_sound: AudioStreamPlayer = $SpawnPointSound
 @onready var mesh_instance_3d: MeshInstance3D = $MeshInstance3D
+@onready var spawn_point: Marker3D = $Area3D/SpawnPoint
 
 var activated:bool = false
 
@@ -19,6 +20,6 @@ func _on_area_3d_body_entered(body: Node3D) -> void:
 	if body is PlayerCharacter and !activated:
 		animation_player.play("enter")
 		spawn_point_sound.play()
-		CheckpointManager.respawn_point = global_position
+		CheckpointManager.respawn_point = spawn_point.global_position
 		activated = true
 		player = body

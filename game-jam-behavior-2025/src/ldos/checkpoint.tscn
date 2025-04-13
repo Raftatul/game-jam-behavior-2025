@@ -113,6 +113,9 @@ transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, 0, -1, 1)
 shape = SubResource("BoxShape3D_8iboj")
 debug_color = Color(0, 0.6, 0.701961, 1)
 
+[node name="SpawnPoint" type="Marker3D" parent="Area3D"]
+transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, 0, 0, 0)
+
 [node name="SpawnPointSound" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("3_sq1ie")
 

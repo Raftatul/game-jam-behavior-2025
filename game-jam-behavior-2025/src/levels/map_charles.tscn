@@ -1,4 +1,4 @@
-[gd_scene load_steps=76 format=4 uid="uid://ps5dwwq6jx6s"]
+[gd_scene load_steps=78 format=4 uid="uid://ps5dwwq6jx6s"]
 
 [ext_resource type="Script" uid="uid://dcexpw07mj5rk" path="res://src/levels/world.gd" id="1_wihx5"]
 [ext_resource type="PackedScene" uid="uid://stq6yyadeyjn" path="res://src/character/character.tscn" id="2_wgn3o"]
@@ -47,6 +47,9 @@
 [ext_resource type="PackedScene" uid="uid://ffywtj52ei5d" path="res://assets/enviro/End/SM_end_eye_sun.fbx" id="45_kj3n6"]
 [ext_resource type="PackedScene" uid="uid://bhpk5bpgyhl1b" path="res://assets/enviro/End/SM_end_terrain_v2.fbx" id="46_kj3n6"]
 [ext_resource type="PackedScene" uid="uid://cnrbwip7le418" path="res://assets/enviro/End/SM_end_eye_sun_ring.fbx" id="46_uhgp5"]
+[ext_resource type="PackedScene" uid="uid://c0mdrn7r1756s" path="res://assets/ressource/asset_enviro/prefab/fab_end_pillars02.tscn" id="48_egrh3"]
+[ext_resource type="PackedScene" uid="uid://br7iogfx58nuy" path="res://assets/ressource/asset_enviro/prefab/fab_end_pillars.tscn" id="49_4ood3"]
+[ext_resource type="PackedScene" uid="uid://bfvd72vcqbmpg" path="res://assets/ressource/asset_enviro/prefab/fab_floatyrocks.tscn" id="50_4ood3"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_0pr1y"]
 resource_local_to_scene = true
@@ -59,10 +62,6 @@ size = Vector3(3, 1, 1)
 [sub_resource type="BoxShape3D" id="BoxShape3D_c5w17"]
 resource_local_to_scene = true
 size = Vector3(3, 1, 1)
-
-[sub_resource type="BoxShape3D" id="BoxShape3D_essxy"]
-resource_local_to_scene = true
-size = Vector3(1.94531, 2, 1.84766)
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_sw3uu"]
 size = Vector3(84, 31, 1)
@@ -681,7 +680,7 @@ transform = Transform3D(2.06632e-07, 0, 1, 0, 1, 0, -1, 0, 2.06632e-07, 167, -3,
 transform = Transform3D(2.06632e-07, 0, 1, 0, 1, 0, -1, 0, 2.06632e-07, 133, -6, 2)
 
 [node name="SM_bridge_A45" parent="Assets" instance=ExtResource("7_ysc0q")]
-transform = Transform3D(2.06632e-07, 0, 1, 0, 1, 0, -1, 0, 2.06632e-07, 137, -6, 2)
+transform = Transform3D(2.06632e-07, 0, 0.970015, 0, 1, 0, -1, 0, 2.00436e-07, 136.884, -6, 2)
 
 [node name="SM_bridge_A35" parent="Assets" instance=ExtResource("7_ysc0q")]
 transform = Transform3D(2.06632e-07, 0, 1, 0, 1, 0, -1, 0, 2.06632e-07, 103, -7, 4)
@@ -1578,7 +1577,6 @@ shape = SubResource("BoxShape3D_c5w17")
 linked_object = NodePath("../../../LDO/SM_bridge_A39/QuanticObject")
 
 [node name="SwitchableCollisionShape3D" parent="Assets/PushableBlock3" index="5"]
-shape = SubResource("BoxShape3D_essxy")
 disable_collision = false
 toggle_state = true
 
@@ -1611,9 +1609,6 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 129, -8, 5)
 
 [node name="SM_column_B15" parent="Assets" instance=ExtResource("10_qbnk4")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 134, -8, 8)
-
-[node name="SM_column_B16" parent="Assets" instance=ExtResource("10_qbnk4")]
-transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 145, -8, 6)
 
 [node name="SM_arch_gap_one_branch2" parent="Assets" instance=ExtResource("42_kqaxw")]
 transform = Transform3D(1, 0, 0, 0, -1, -8.74228e-08, 0, 8.74228e-08, -1, 106, 11, -3)
@@ -1755,7 +1750,7 @@ transform = Transform3D(0, 0, -1, 0, 1, 0, 1, 0, 0, 107, -10, 8)
 
 [node name="StaticBody3D" type="StaticBody3D" parent="Assets"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 179, 11, 6.5)
-collision_layer = 3
+collision_layer = 2
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Assets/StaticBody3D"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 32.5, 5, -1)
@@ -1763,7 +1758,7 @@ shape = SubResource("BoxShape3D_sw3uu")
 
 [node name="StaticBody3D2" type="StaticBody3D" parent="Assets"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 179, 11, 3.5)
-collision_layer = 3
+collision_layer = 2
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Assets/StaticBody3D2"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 32.5, 5, -1)
@@ -1771,7 +1766,7 @@ shape = SubResource("BoxShape3D_sw3uu")
 
 [node name="StaticBody3D3" type="StaticBody3D" parent="Assets"]
 transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 239, 11, 3.5)
-collision_layer = 3
+collision_layer = 2
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Assets/StaticBody3D3"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 32.5, 5, -1)
@@ -1819,10 +1814,13 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 90, 6, -7)
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 126, 12, -7)
 
 [node name="SM_savePoint_platform8" parent="CP" instance=ExtResource("26_otx73")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 158, 2, 2)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 152, 4, -8)
+
+[node name="SM_savePoint_platform9" parent="CP" instance=ExtResource("26_otx73")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 152, -4, -8)
 
 [node name="Checkpoint5" parent="CP" instance=ExtResource("20_ijv7e")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 158, 10, 3)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 152, 12, -7)
 
 [node name="LDO" type="Node" parent="."]
 
@@ -1990,7 +1988,7 @@ pause_duration = 3.0
 transform = Transform3D(1, 4.37113e-08, 4.37113e-08, 4.37113e-08, -4.37114e-08, -1, -4.37113e-08, 1, -4.37114e-08, -4.37115e-08, 1.00001, -10)
 
 [node name="PushableBlock" parent="LDO" instance=ExtResource("32_kawbd")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 104, 5, 4)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 98, 5, 4)
 
 [node name="CollisionShape3D" parent="LDO/PushableBlock" index="0"]
 shape = SubResource("BoxShape3D_keags")
@@ -2180,8 +2178,78 @@ transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 110, -
 [node name="SM_arch_A_one_branch" parent="." instance=ExtResource("24_3x0kh")]
 transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 134, 12, 8)
 
-[node name="SM_arch_A_one_branch2" parent="." instance=ExtResource("24_3x0kh")]
-transform = Transform3D(-1, 0, 8.74228e-08, 0, 1, 0, -8.74228e-08, 0, -1, 145, 12, 6)
+[node name="FabEndPillars" parent="." instance=ExtResource("48_egrh3")]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 173, 0, 0)
+
+[node name="FabEndPillars2" parent="." instance=ExtResource("48_egrh3")]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 177, 4, 0)
+
+[node name="FabEndPillars4" parent="." instance=ExtResource("48_egrh3")]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 185, 12, 0)
+
+[node name="FabEndPillars5" parent="." instance=ExtResource("48_egrh3")]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 189, 16, 0)
+
+[node name="FabEndPillars6" parent="." instance=ExtResource("48_egrh3")]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 193, 19, 0)
+
+[node name="FabEndPillars8" parent="." instance=ExtResource("48_egrh3")]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 201, 21, 0)
+
+[node name="FabEndPillars9" parent="." instance=ExtResource("48_egrh3")]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 209, 21, 0)
+
+[node name="FabEndPillars12" parent="." instance=ExtResource("48_egrh3")]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 217, 21, 0)
+
+[node name="FabEndPillars13" parent="." instance=ExtResource("48_egrh3")]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 221, 21, 0)
+
+[node name="FabEndPillars3" parent="." instance=ExtResource("49_4ood3")]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 181, 9, 0)
+
+[node name="FabEndPillars7" parent="." instance=ExtResource("49_4ood3")]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 197, 21, 0)
+
+[node name="FabEndPillars10" parent="." instance=ExtResource("49_4ood3")]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 205, 21, 0)
+
+[node name="FabEndPillars11" parent="." instance=ExtResource("49_4ood3")]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 213, 21, 0)
+
+[node name="FabFloatyrocks" parent="." instance=ExtResource("50_4ood3")]
+transform = Transform3D(0.5, 0, -0.866025, 0, 1, 0, 0.866025, 0, 0.5, -2, 10, -5)
+floatduration = Vector2(3, 4)
+floatintensity = 0.4
+
+[node name="FabFloatyrocks2" parent="." instance=ExtResource("50_4ood3")]
+transform = Transform3D(0.5, 0, -0.866025, 0, 1, 0, 0.866025, 0, 0.5, 42, 25, -5)
+floatduration = Vector2(3, 4)
+floatintensity = 0.4
+
+[node name="FabFloatyrocks3" parent="." instance=ExtResource("50_4ood3")]
+transform = Transform3D(0.866025, 0, 0.5, 0, 1, 0, -0.5, 0, 0.866025, 65, 8, -17)
+floatduration = Vector2(3, 4)
+floatintensity = 0.4
+
+[node name="FabFloatyrocks4" parent="." instance=ExtResource("50_4ood3")]
+transform = Transform3D(0.866025, 0, 0.5, 0, 1, 0, -0.5, 0, 0.866025, 122, 8, -15)
+floatduration = Vector2(3, 4)
+floatintensity = 0.4
+
+[node name="FabFloatyrocks5" parent="." instance=ExtResource("50_4ood3")]
+transform = Transform3D(-0.866025, 0, -0.5, 0, 1, 0, 0.5, 0, -0.866025, 166, 10, -2)
+floatduration = Vector2(3, 4)
+floatintensity = 0.4
+
+[node name="SM_column_B" parent="." instance=ExtResource("10_qbnk4")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 154, -8, 8)
+
+[node name="SM_column_floating_bottom" parent="." instance=ExtResource("25_3ox3p")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 154, 8, 8)
+
+[node name="SM_column_B_broken_B" parent="." instance=ExtResource("13_0boq1")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 145, -4, 6)
 
 [connection signal="body_entered" from="BaseMap/KillZone" to="BaseMap/KillZone" method="_on_body_entered"]
 

@@ -5,7 +5,7 @@
 [ext_resource type="PackedScene" uid="uid://5ncy1uifwufi" path="res://assets/ressource/asset_enviro/sm_save_point_v_2_eye_lid.tscn" id="3_ex7ex"]
 [ext_resource type="AudioStream" uid="uid://bsodytkrv3c7j" path="res://assets/audio/sfx/SpawnPoint_Sound.wav" id="3_sq1ie"]
 [ext_resource type="PackedScene" uid="uid://b2ihco7wmvbh" path="res://assets/ressource/asset_enviro/sm_save_point_v_2_eye.tscn" id="4_fobn5"]
-[ext_resource type="Material" uid="uid://coccjjwpvh6r7" path="res://assets/enviro/new_asset_2/mat_eye.tres" id="6_61k1a"]
+[ext_resource type="Material" uid="uid://7frtx57v3sum" path="res://assets/enviro/new_asset_2/mat_eye.tres" id="6_61k1a"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_8iboj"]
 

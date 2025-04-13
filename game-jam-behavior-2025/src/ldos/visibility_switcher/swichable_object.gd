@@ -1,5 +1,6 @@
 @tool
 extends CollisionShape3D
+class_name SwitchableCollision
 
 enum SWITCH_MODE {TIMED,PASSIVE}
 
@@ -9,7 +10,7 @@ signal onToggle(blocking:bool)
 @export var switching_interval:float = 5
 @export var use_custom_behavior:bool
 @export var disable_collision:bool = true
-@export var toggle_meshes:MeshInstance3D
+@export var toggle_meshes: Node3D
 
 var toggle_state:bool
 

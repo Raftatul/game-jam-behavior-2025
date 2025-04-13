@@ -1,5 +1,6 @@
 @tool
 extends VisibleOnScreenNotifier3D
+class_name Visibility_Node
 
 signal on_screen_visibility_changed(visible:bool)
 

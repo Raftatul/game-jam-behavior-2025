@@ -9,7 +9,6 @@ size = Vector3(2, 2, 2)
 [node name="QuanticObject" type="RigidBody3D"]
 script = ExtResource("1_l4fe1")
 
-[node name="SwitchableCollisionShape3D" parent="." node_paths=PackedStringArray("toggle_meshes") instance=ExtResource("2_r5yht")]
+[node name="SwitchableCollisionShape3D" parent="." instance=ExtResource("2_r5yht")]
 shape = SubResource("BoxShape3D_l4fe1")
 switch_mode = 1
-toggle_meshes = NodePath("")

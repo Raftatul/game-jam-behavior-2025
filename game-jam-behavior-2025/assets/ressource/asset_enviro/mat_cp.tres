@@ -1,4 +1,4 @@
-[gd_resource type="StandardMaterial3D" load_steps=0 format=3 uid="uid://bawe6rsvpt2rh"]
+[gd_resource type="StandardMaterial3D" format=3 uid="uid://bawe6rsvpt2rh"]
 
 [resource]
 roughness = 0.0

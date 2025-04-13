@@ -1,4 +1,4 @@
-[gd_scene load_steps=66 format=3 uid="uid://ps5dwwq6jx6s"]
+[gd_scene load_steps=71 format=3 uid="uid://ps5dwwq6jx6s"]
 
 [ext_resource type="Script" uid="uid://dcexpw07mj5rk" path="res://src/levels/world.gd" id="1_wihx5"]
 [ext_resource type="PackedScene" uid="uid://stq6yyadeyjn" path="res://src/character/character.tscn" id="2_wgn3o"]
@@ -22,7 +22,7 @@
 [ext_resource type="PackedScene" uid="uid://cko1n2ytkm4f2" path="res://assets/enviro/SM_monolith_A_extension.fbx" id="18_n73j7"]
 [ext_resource type="PackedScene" uid="uid://65r8lwa2ne3g" path="res://assets/ressource/asset_enviro/sm_bridge_a_pillar_extension.tscn" id="19_ijv7e"]
 [ext_resource type="PackedScene" uid="uid://djuqwkjv8jilm" path="res://src/ldos/checkpoint.tscn" id="20_ijv7e"]
-[ext_resource type="PackedScene" path="res://src/ldos/PushableBlock.tscn" id="20_v1xta"]
+[ext_resource type="PackedScene" uid="uid://bm1ss72ovvwpt" path="res://src/ldos/PushableBlock.tscn" id="20_v1xta"]
 [ext_resource type="PackedScene" uid="uid://logokd87uniq" path="res://assets/ressource/asset_enviro/sm_column_floating_middle.tscn" id="22_jtle7"]
 [ext_resource type="PackedScene" uid="uid://baa608gbi2cdl" path="res://assets/ressource/asset_enviro/sm_bridge_a_stairs_b.tscn" id="23_basso"]
 [ext_resource type="PackedScene" uid="uid://ttgtpnarw7se" path="res://assets/ressource/asset_enviro/sm_arch_a_one_branch.tscn" id="24_3x0kh"]
@@ -42,6 +42,11 @@
 [ext_resource type="PackedScene" uid="uid://dgkuatkd8wb0f" path="res://assets/enviro/new_assets/SM_bridge_A_stairs_B.fbx" id="36_a13dy"]
 [ext_resource type="PackedScene" uid="uid://divhug4wejxil" path="res://assets/ressource/asset_enviro/sm_broken_platform_a.tscn" id="40_keags"]
 [ext_resource type="PackedScene" uid="uid://d14qr1cg0dccd" path="res://assets/ressource/asset_enviro/sm_arch_gap_one_branch.tscn" id="42_kqaxw"]
+[ext_resource type="PackedScene" uid="uid://c28v5ecse51lj" path="res://assets/enviro/End/SM_end_terrain.fbx" id="43_wgg5y"]
+[ext_resource type="PackedScene" uid="uid://8axi4munbd2s" path="res://assets/ressource/asset_enviro/sm_large_platform.tscn" id="44_l0s4c"]
+[ext_resource type="PackedScene" uid="uid://ffywtj52ei5d" path="res://assets/enviro/End/SM_end_eye_sun.fbx" id="45_kj3n6"]
+[ext_resource type="PackedScene" uid="uid://bhpk5bpgyhl1b" path="res://assets/enviro/End/SM_end_terrain_v2.fbx" id="46_kj3n6"]
+[ext_resource type="PackedScene" uid="uid://cnrbwip7le418" path="res://assets/enviro/End/SM_end_eye_sun_ring.fbx" id="46_uhgp5"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_0pr1y"]
 resource_local_to_scene = true
@@ -162,9 +167,10 @@ metallic_specular = 0.0
 
 [node name="World" type="Node3D"]
 script = ExtResource("1_wihx5")
+override_pos = true
 
 [node name="Character" parent="." instance=ExtResource("2_wgn3o")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 126, 3, 8)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 156, 8, 4)
 floor_constant_speed = true
 
 [node name="Assets" type="Node" parent="."]
@@ -197,10 +203,10 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 22, -3, -9)
 transform = Transform3D(0.965926, 0.258819, -3.8567e-09, -0.245666, 0.916836, 0.314738, 0.0814602, -0.304014, 0.949178, 15.9294, -9.33469, 6.43211)
 
 [node name="SM_column_B_broken_A6" parent="Assets" instance=ExtResource("9_kej20")]
-transform = Transform3D(-0.982454, -0.134216, 0.129504, -0.161163, 0.960402, -0.227275, -0.0938723, -0.244159, -0.965181, 57.8204, 5.34098, 1.40551)
+transform = Transform3D(-0.982454, -0.134216, 0.129504, -0.161163, 0.960402, -0.227275, -0.0938723, -0.244159, -0.965181, 57.8204, 5.34098, 2.40551)
 
 [node name="SM_column_B7" parent="Assets" instance=ExtResource("10_qbnk4")]
-transform = Transform3D(0.982454, -0.134216, -0.129504, 0.161162, 0.960402, 0.227275, 0.0938722, -0.244159, 0.96518, 59.9678, -10.0255, 5.31205)
+transform = Transform3D(0.982454, -0.134216, -0.129504, 0.161162, 0.960402, 0.227275, 0.0938722, -0.244159, 0.96518, 59.9678, -10.0255, 6.31205)
 
 [node name="SM_arch_A_corner" parent="Assets" instance=ExtResource("11_kej20")]
 transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 14, 17, 3)
@@ -595,6 +601,36 @@ transform = Transform3D(1, 0, -2.50343e-07, 0, 1, 0, 2.50343e-07, 0, 1, 132, -8,
 [node name="SM_bridge_A43" parent="Assets" instance=ExtResource("7_ysc0q")]
 transform = Transform3D(2.06632e-07, 0, 1, 0, 1, 0, -1, 0, 2.06632e-07, 143, -4, 10)
 
+[node name="SM_bridge_A52" parent="Assets" instance=ExtResource("7_ysc0q")]
+transform = Transform3D(2.06632e-07, 0, 1, 0, 1, 0, -1, 0, 2.06632e-07, 155, -3, 4)
+
+[node name="SM_bridge_A53" parent="Assets" instance=ExtResource("7_ysc0q")]
+transform = Transform3D(2.06632e-07, 0, 1, 0, 1, 0, -1, 0, 2.06632e-07, 159, -3, 4)
+
+[node name="SM_bridge_A54" parent="Assets" instance=ExtResource("7_ysc0q")]
+transform = Transform3D(2.06632e-07, 0, 1, 0, 1, 0, -1, 0, 2.06632e-07, 163, -3, 4)
+
+[node name="SM_bridge_A56" parent="Assets" instance=ExtResource("7_ysc0q")]
+transform = Transform3D(2.06632e-07, 0, 1, 0, 1, 0, -1, 0, 2.06632e-07, 199, 11, 4)
+
+[node name="SM_bridge_A57" parent="Assets" instance=ExtResource("7_ysc0q")]
+transform = Transform3D(2.06632e-07, 0, 1, 0, 1, 0, -1, 0, 2.06632e-07, 203, 11, 4)
+
+[node name="SM_bridge_A61" parent="Assets" instance=ExtResource("7_ysc0q")]
+transform = Transform3D(2.06632e-07, 0, 1, 0, 1, 0, -1, 0, 2.06632e-07, 237, 15, 4)
+
+[node name="SM_bridge_A58" parent="Assets" instance=ExtResource("7_ysc0q")]
+transform = Transform3D(2.06632e-07, 0, 1, 0, 1, 0, -1, 0, 2.06632e-07, 207, 11, 4)
+
+[node name="SM_bridge_A59" parent="Assets" instance=ExtResource("7_ysc0q")]
+transform = Transform3D(2.06632e-07, 0, 1, 0, 1, 0, -1, 0, 2.06632e-07, 211, 11, 4)
+
+[node name="SM_bridge_A60" parent="Assets" instance=ExtResource("7_ysc0q")]
+transform = Transform3D(2.06632e-07, 0, 1, 0, 1, 0, -1, 0, 2.06632e-07, 215, 11, 4)
+
+[node name="SM_bridge_A55" parent="Assets" instance=ExtResource("7_ysc0q")]
+transform = Transform3D(2.06632e-07, 0, 1, 0, 1, 0, -1, 0, 2.06632e-07, 167, -3, 4)
+
 [node name="SM_bridge_A44" parent="Assets" instance=ExtResource("7_ysc0q")]
 transform = Transform3D(2.06632e-07, 0, 1, 0, 1, 0, -1, 0, 2.06632e-07, 133, -6, 2)
 
@@ -622,14 +658,20 @@ transform = Transform3D(2.06632e-07, 0, 1, 0, 1, 0, -1, 0, 2.06632e-07, 115, -5,
 [node name="SM_bridge_A40" parent="Assets" instance=ExtResource("7_ysc0q")]
 transform = Transform3D(1, 0, -2.50343e-07, 0, 1, 0, 2.50343e-07, 0, 1, 126, -1, -5)
 
-[node name="SM_bridge_A41" parent="Assets" instance=ExtResource("7_ysc0q")]
-transform = Transform3D(2.06632e-07, 0, 1, 0, 1, 0, -1, 0, 2.06632e-07, 129, -1, -6)
-
 [node name="SM_bridge_A47" parent="Assets" instance=ExtResource("7_ysc0q")]
 transform = Transform3D(2.06632e-07, 0, 1, 0, 1, 0, -1, 0, 2.06632e-07, 133, -1, -6)
 
 [node name="SM_bridge_A48" parent="Assets" instance=ExtResource("7_ysc0q")]
 transform = Transform3D(2.06632e-07, 0, 1, 0, 1, 0, -1, 0, 2.06632e-07, 141, -1, -6)
+
+[node name="SM_bridge_A49" parent="Assets" instance=ExtResource("7_ysc0q")]
+transform = Transform3D(2.06632e-07, 0, 1, 0, 1, 0, -1, 0, 2.06632e-07, 145, -1, -6)
+
+[node name="SM_bridge_A50" parent="Assets" instance=ExtResource("7_ysc0q")]
+transform = Transform3D(2.06632e-07, 0, 1, 0, 1, 0, -1, 0, 2.06632e-07, 149, -1, -6)
+
+[node name="SM_bridge_A51" parent="Assets" instance=ExtResource("7_ysc0q")]
+transform = Transform3D(2.06632e-07, 0, 1, 0, 1, 0, -1, 0, 2.06632e-07, 153, -1, -6)
 
 [node name="SM_bridge_A19" parent="Assets" instance=ExtResource("7_ysc0q")]
 transform = Transform3D(-1.19209e-07, 0, -1, 0, 1, 0, 1, 0, -1.19209e-07, 63, -7, -6)
@@ -890,7 +932,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 126, 17, -25)
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 142, 17, -9)
 
 [node name="pillar_a140" parent="Assets" instance=ExtResource("5_in107")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 142, 17, -25)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 150, 17, -25)
 
 [node name="pillar_a142" parent="Assets" instance=ExtResource("5_in107")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 110, 17, -25)
@@ -998,7 +1040,265 @@ transform = Transform3D(1, 0, 0, 0, -1, 8.74228e-08, 0, -8.74228e-08, -1, 118, 4
 transform = Transform3D(1, 0, 0, 0, -1, 8.74228e-08, 0, -8.74228e-08, -1, 134, 41, -17)
 
 [node name="SM_arch_gap70" parent="Assets" instance=ExtResource("12_qbnk4")]
-transform = Transform3D(1, 0, 0, 0, -1, 8.74228e-08, 0, -8.74228e-08, -1, 142, 41, -17)
+transform = Transform3D(1, 0, 0, 0, -1, 8.74228e-08, 0, -8.74228e-08, -1, 150, 41, -17)
+
+[node name="pillar_a74" parent="Assets" instance=ExtResource("5_in107")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 158, 17, -25)
+
+[node name="pillar_a80" parent="Assets" instance=ExtResource("5_in107")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 174, 17, -25)
+
+[node name="pillar_a141" parent="Assets" instance=ExtResource("5_in107")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 166, 17, -25)
+
+[node name="pillar_a144" parent="Assets" instance=ExtResource("5_in107")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 182, 17, -25)
+
+[node name="pillar_a143" parent="Assets" instance=ExtResource("5_in107")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 142, 17, -17)
+
+[node name="pillar_a87" parent="Assets" instance=ExtResource("5_in107")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 158, 17, -17)
+
+[node name="pillar_a89" parent="Assets" instance=ExtResource("5_in107")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 174, 17, -17)
+
+[node name="pillar_a145" parent="Assets" instance=ExtResource("5_in107")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 166, 17, -17)
+
+[node name="pillar_a146" parent="Assets" instance=ExtResource("5_in107")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 182, 17, -17)
+
+[node name="pillar_a147" parent="Assets" instance=ExtResource("5_in107")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 150, 17, -9)
+
+[node name="pillar_a98" parent="Assets" instance=ExtResource("5_in107")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 158, 17, -9)
+
+[node name="pillar_a105" parent="Assets" instance=ExtResource("5_in107")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 174, 17, -9)
+
+[node name="pillar_a148" parent="Assets" instance=ExtResource("5_in107")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 166, 17, -9)
+
+[node name="pillar_a149" parent="Assets" instance=ExtResource("5_in107")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 182, 17, -9)
+
+[node name="pillar_a150" parent="Assets" instance=ExtResource("5_in107")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 150, -7, -25)
+
+[node name="SM_arch_gap71" parent="Assets" instance=ExtResource("12_qbnk4")]
+transform = Transform3D(1, 0, 0, 0, -1, 8.74228e-08, 0, -8.74228e-08, -1, 150, 17, -17)
+
+[node name="pillar_a110" parent="Assets" instance=ExtResource("5_in107")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 158, -7, -25)
+
+[node name="pillar_a111" parent="Assets" instance=ExtResource("5_in107")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 174, -7, -25)
+
+[node name="pillar_a151" parent="Assets" instance=ExtResource("5_in107")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 166, -7, -25)
+
+[node name="pillar_a152" parent="Assets" instance=ExtResource("5_in107")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 182, -7, -25)
+
+[node name="pillar_a116" parent="Assets" instance=ExtResource("5_in107")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 158, -7, -17)
+
+[node name="pillar_a123" parent="Assets" instance=ExtResource("5_in107")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 174, -7, -17)
+
+[node name="pillar_a153" parent="Assets" instance=ExtResource("5_in107")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 166, -7, -17)
+
+[node name="pillar_a154" parent="Assets" instance=ExtResource("5_in107")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 182, -7, -17)
+
+[node name="pillar_a155" parent="Assets" instance=ExtResource("5_in107")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 150, -7, -9)
+
+[node name="pillar_a124" parent="Assets" instance=ExtResource("5_in107")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 158, -7, -9)
+
+[node name="pillar_a135" parent="Assets" instance=ExtResource("5_in107")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 174, -7, -9)
+
+[node name="pillar_a156" parent="Assets" instance=ExtResource("5_in107")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 166, -7, -9)
+
+[node name="pillar_a157" parent="Assets" instance=ExtResource("5_in107")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 182, -7, -9)
+
+[node name="pillar_a158" parent="Assets" instance=ExtResource("5_in107")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 190, -7, -25)
+
+[node name="SM_arch_gap72" parent="Assets" instance=ExtResource("12_qbnk4")]
+transform = Transform3D(1, 0, 0, 0, -1, 8.74228e-08, 0, -8.74228e-08, -1, 190, 17, -17)
+
+[node name="pillar_a159" parent="Assets" instance=ExtResource("5_in107")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 198, -7, -25)
+
+[node name="pillar_a160" parent="Assets" instance=ExtResource("5_in107")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 214, -7, -25)
+
+[node name="pillar_a161" parent="Assets" instance=ExtResource("5_in107")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 206, -7, -25)
+
+[node name="pillar_a162" parent="Assets" instance=ExtResource("5_in107")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 222, -7, -25)
+
+[node name="pillar_a163" parent="Assets" instance=ExtResource("5_in107")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 198, -7, -17)
+
+[node name="pillar_a164" parent="Assets" instance=ExtResource("5_in107")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 214, -7, -17)
+
+[node name="pillar_a165" parent="Assets" instance=ExtResource("5_in107")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 206, -7, -17)
+
+[node name="pillar_a166" parent="Assets" instance=ExtResource("5_in107")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 222, -7, -17)
+
+[node name="pillar_a167" parent="Assets" instance=ExtResource("5_in107")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 190, -7, -9)
+
+[node name="pillar_a168" parent="Assets" instance=ExtResource("5_in107")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 198, -7, -9)
+
+[node name="pillar_a169" parent="Assets" instance=ExtResource("5_in107")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 214, -7, -9)
+
+[node name="pillar_a170" parent="Assets" instance=ExtResource("5_in107")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 206, -7, -9)
+
+[node name="pillar_a171" parent="Assets" instance=ExtResource("5_in107")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 222, -7, -9)
+
+[node name="pillar_a172" parent="Assets" instance=ExtResource("5_in107")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 190, 17, -25)
+
+[node name="SM_arch_gap73" parent="Assets" instance=ExtResource("12_qbnk4")]
+transform = Transform3D(1, 0, 0, 0, -1, 8.74228e-08, 0, -8.74228e-08, -1, 190, 41, -17)
+
+[node name="pillar_a173" parent="Assets" instance=ExtResource("5_in107")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 198, 17, -25)
+
+[node name="pillar_a174" parent="Assets" instance=ExtResource("5_in107")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 214, 17, -25)
+
+[node name="pillar_a175" parent="Assets" instance=ExtResource("5_in107")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 206, 17, -25)
+
+[node name="pillar_a176" parent="Assets" instance=ExtResource("5_in107")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 222, 17, -25)
+
+[node name="pillar_a177" parent="Assets" instance=ExtResource("5_in107")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 198, 17, -17)
+
+[node name="pillar_a178" parent="Assets" instance=ExtResource("5_in107")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 214, 17, -17)
+
+[node name="pillar_a179" parent="Assets" instance=ExtResource("5_in107")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 206, 17, -17)
+
+[node name="pillar_a180" parent="Assets" instance=ExtResource("5_in107")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 222, 17, -17)
+
+[node name="pillar_a181" parent="Assets" instance=ExtResource("5_in107")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 190, 17, -9)
+
+[node name="pillar_a182" parent="Assets" instance=ExtResource("5_in107")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 198, 17, -9)
+
+[node name="pillar_a183" parent="Assets" instance=ExtResource("5_in107")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 214, 17, -9)
+
+[node name="pillar_a184" parent="Assets" instance=ExtResource("5_in107")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 206, 17, -9)
+
+[node name="pillar_a185" parent="Assets" instance=ExtResource("5_in107")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 222, 17, -9)
+
+[node name="pillar_a186" parent="Assets" instance=ExtResource("5_in107")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 214, 41, -25)
+
+[node name="pillar_a187" parent="Assets" instance=ExtResource("5_in107")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 206, 41, -25)
+
+[node name="pillar_a188" parent="Assets" instance=ExtResource("5_in107")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 222, 41, -25)
+
+[node name="pillar_a189" parent="Assets" instance=ExtResource("5_in107")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 214, 41, -17)
+
+[node name="pillar_a190" parent="Assets" instance=ExtResource("5_in107")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 206, 41, -17)
+
+[node name="pillar_a191" parent="Assets" instance=ExtResource("5_in107")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 222, 41, -17)
+
+[node name="pillar_a192" parent="Assets" instance=ExtResource("5_in107")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 214, 41, -9)
+
+[node name="pillar_a193" parent="Assets" instance=ExtResource("5_in107")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 206, 41, -9)
+
+[node name="pillar_a194" parent="Assets" instance=ExtResource("5_in107")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 222, 41, -9)
+
+[node name="pillar_a195" parent="Assets" instance=ExtResource("5_in107")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 214, 41, -49)
+
+[node name="pillar_a196" parent="Assets" instance=ExtResource("5_in107")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 206, 41, -49)
+
+[node name="pillar_a197" parent="Assets" instance=ExtResource("5_in107")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 222, 41, -49)
+
+[node name="pillar_a198" parent="Assets" instance=ExtResource("5_in107")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 214, 41, -41)
+
+[node name="pillar_a199" parent="Assets" instance=ExtResource("5_in107")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 206, 41, -41)
+
+[node name="pillar_a200" parent="Assets" instance=ExtResource("5_in107")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 222, 41, -41)
+
+[node name="pillar_a201" parent="Assets" instance=ExtResource("5_in107")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 214, 41, -33)
+
+[node name="pillar_a202" parent="Assets" instance=ExtResource("5_in107")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 206, 41, -33)
+
+[node name="pillar_a203" parent="Assets" instance=ExtResource("5_in107")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 222, 41, -33)
+
+[node name="pillar_a204" parent="Assets" instance=ExtResource("5_in107")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 214, 17, -49)
+
+[node name="pillar_a205" parent="Assets" instance=ExtResource("5_in107")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 206, 17, -49)
+
+[node name="pillar_a206" parent="Assets" instance=ExtResource("5_in107")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 222, 17, -49)
+
+[node name="pillar_a207" parent="Assets" instance=ExtResource("5_in107")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 214, 17, -41)
+
+[node name="pillar_a208" parent="Assets" instance=ExtResource("5_in107")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 206, 17, -41)
+
+[node name="pillar_a209" parent="Assets" instance=ExtResource("5_in107")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 222, 17, -41)
+
+[node name="pillar_a210" parent="Assets" instance=ExtResource("5_in107")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 214, 17, -33)
+
+[node name="pillar_a211" parent="Assets" instance=ExtResource("5_in107")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 206, 17, -33)
+
+[node name="pillar_a212" parent="Assets" instance=ExtResource("5_in107")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 222, 17, -33)
 
 [node name="SM_arch_A_T" parent="Assets" instance=ExtResource("14_77yy7")]
 transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 22, 17, -9)
@@ -1195,6 +1495,9 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 132, -8, 5)
 [node name="SM_bridge_A_stairs_B8" parent="Assets" instance=ExtResource("23_basso")]
 transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 139, -6, 10)
 
+[node name="SM_bridge_A_stairs_B20" parent="Assets" instance=ExtResource("23_basso")]
+transform = Transform3D(-4.2222e-08, 0.258819, -0.965926, 1.13133e-08, 0.965926, 0.258819, 1, 0, -4.37114e-08, 156, -8, 10)
+
 [node name="SM_bridge_A_stairs_B11" parent="Assets" instance=ExtResource("23_basso")]
 transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 145, -6, 2)
 
@@ -1203,6 +1506,27 @@ transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 136, -
 
 [node name="SM_bridge_A_stairs_B10" parent="Assets" instance=ExtResource("23_basso")]
 transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 139, -3, 6)
+
+[node name="SM_bridge_A_stairs_B13" parent="Assets" instance=ExtResource("23_basso")]
+transform = Transform3D(1.31134e-07, 0, -1, 0, 1, 0, 1, 0, 1.31134e-07, 171, -3, 4)
+
+[node name="SM_bridge_A_stairs_B14" parent="Assets" instance=ExtResource("23_basso")]
+transform = Transform3D(1.31134e-07, 0, -1, 0, 1, 0, 1, 0, 1.31134e-07, 175, -1, 4)
+
+[node name="SM_bridge_A_stairs_B15" parent="Assets" instance=ExtResource("23_basso")]
+transform = Transform3D(1.31134e-07, 0, -1, 0, 1, 0, 1, 0, 1.31134e-07, 179, 1, 4)
+
+[node name="SM_bridge_A_stairs_B16" parent="Assets" instance=ExtResource("23_basso")]
+transform = Transform3D(1.31134e-07, 0, -1, 0, 1, 0, 1, 0, 1.31134e-07, 183, 3, 4)
+
+[node name="SM_bridge_A_stairs_B17" parent="Assets" instance=ExtResource("23_basso")]
+transform = Transform3D(1.31134e-07, 0, -1, 0, 1, 0, 1, 0, 1.31134e-07, 187, 5, 4)
+
+[node name="SM_bridge_A_stairs_B18" parent="Assets" instance=ExtResource("23_basso")]
+transform = Transform3D(1.31134e-07, 0, -1, 0, 1, 0, 1, 0, 1.31134e-07, 191, 7, 4)
+
+[node name="SM_bridge_A_stairs_B19" parent="Assets" instance=ExtResource("23_basso")]
+transform = Transform3D(1.31134e-07, 0, -1, 0, 1, 0, 1, 0, 1.31134e-07, 195, 9, 4)
 
 [node name="SM_bridge_A_stairs_B3" parent="Assets" instance=ExtResource("23_basso")]
 transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 95, -7, -6)
@@ -1334,7 +1658,6 @@ toggle_state = false
 transform = Transform3D(2.06632e-07, 0, -1, 0, 1, 0, 1, 0, 2.06632e-07, 0, 10, 0)
 visibility_node = NodePath("../VisibilityComponent")
 switch_coll_node = NodePath("../GRP_Export_lvl_1/SM_bridge_A_01/StaticBody3D/SwitchableCollisionShape3D")
-activated = false
 
 [node name="VisibilityComponent" parent="LDO/SM_bridge_A39" instance=ExtResource("32_mlmr2")]
 process_mode = 4
@@ -1462,6 +1785,14 @@ shadow_enabled = true
 spot_range = 92.1739
 spot_angle = 30.7381
 
+[node name="SpotLight3D8" type="SpotLight3D" parent="Lighting"]
+transform = Transform3D(0.871264, -0.238446, 0.429002, -0.0153082, 0.860434, 0.509332, -0.490576, -0.45033, 0.746015, 179.871, 28.0874, 60.4075)
+light_energy = 30.0
+light_indirect_energy = 5.0
+shadow_enabled = true
+spot_range = 92.1739
+spot_angle = 30.7381
+
 [node name="SpotLight3D4" type="SpotLight3D" parent="Lighting"]
 transform = Transform3D(0.860483, 0.270774, -0.431567, -0.0153082, 0.860434, 0.509332, 0.509249, -0.431665, 0.744534, 2, 28, 52)
 light_energy = 30.0
@@ -1493,6 +1824,61 @@ light_volumetric_fog_energy = 5.0
 shadow_enabled = true
 spot_range = 56.0
 spot_angle = 21.8965
+
+[node name="TopSpot4" type="SpotLight3D" parent="Lighting"]
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, 166, 39.4524, 4)
+light_energy = 9.794
+light_volumetric_fog_energy = 5.0
+shadow_enabled = true
+spot_range = 56.0
+spot_angle = 21.8965
+
+[node name="TopSpot5" type="SpotLight3D" parent="Lighting"]
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, 182, 44, 4)
+light_energy = 9.794
+light_volumetric_fog_energy = 5.0
+shadow_enabled = true
+spot_range = 56.0
+spot_angle = 21.8965
+
+[node name="TopSpot6" type="SpotLight3D" parent="Lighting"]
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, 200.785, 40.2011, 4)
+light_energy = 9.794
+light_volumetric_fog_energy = 5.0
+shadow_enabled = true
+spot_range = 56.0
+spot_angle = 21.8965
+
+[node name="TopSpot7" type="SpotLight3D" parent="Lighting"]
+transform = Transform3D(0.342918, -0.827043, 0.44543, -0.700914, 0.0904207, 0.707491, -0.625401, -0.554819, -0.548679, 257, 74, -56)
+light_energy = 50.0
+light_volumetric_fog_energy = 0.5
+shadow_enabled = true
+spot_range = 123.0
+spot_angle = 34.3675
+
+[node name="TopSpot10" type="SpotLight3D" parent="Lighting"]
+transform = Transform3D(0.342918, -0.827043, 0.44543, -0.700914, 0.0904207, 0.707491, -0.625401, -0.554819, -0.548679, 348.353, 128.868, -165)
+light_energy = 500.0
+light_volumetric_fog_energy = 3.456
+spot_range = 247.0
+spot_angle = 23.7162
+
+[node name="TopSpot8" type="SpotLight3D" parent="Lighting"]
+transform = Transform3D(0.395721, 0.892778, 0.215296, -0.884326, 0.433672, -0.172908, -0.247737, -0.121969, 0.961119, 307.226, 35, -21.5613)
+light_energy = 300.0
+light_indirect_energy = 9.756
+light_volumetric_fog_energy = 0.0
+spot_range = 168.776
+spot_angle = 34.3675
+
+[node name="TopSpot9" type="SpotLight3D" parent="Lighting"]
+transform = Transform3D(0.454993, 0.717534, -0.527377, -0.884326, 0.433672, -0.172908, 0.104641, 0.545045, 0.831851, 242.555, 35, -44.7981)
+light_energy = 300.0
+light_indirect_energy = 9.756
+light_volumetric_fog_energy = 0.0
+spot_range = 123.0
+spot_angle = 34.3675
 
 [node name="BaseMap" type="Node" parent="."]
 
@@ -1533,6 +1919,12 @@ skeleton = NodePath("../..")
 [node name="SM_bridge_A_stairs_A" parent="." instance=ExtResource("7_3kfod")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 142, -4, 7)
 
+[node name="SM_bridge_A_stairs_A2" parent="." instance=ExtResource("7_3kfod")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 154, -2, -3)
+
+[node name="SM_bridge_A_stairs_A3" parent="." instance=ExtResource("7_3kfod")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 154, -3, 1)
+
 [node name="SM_broken_platform_A" parent="." instance=ExtResource("40_keags")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 136, 7, 6)
 
@@ -1547,6 +1939,129 @@ transform = Transform3D(1, 0, 0, 0, -1, -8.74228e-08, 0, 8.74228e-08, -1, 106, 1
 
 [node name="SM_column_floating_middle" parent="." instance=ExtResource("22_jtle7")]
 transform = Transform3D(0.993641, 0.112596, 0, -0.112596, 0.993641, 0, 0, 0, 1, 129.15, -2, 2)
+
+[node name="SM_column_B2" parent="." instance=ExtResource("10_qbnk4")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 138, -7, 14)
+
+[node name="SM_column_floating_bottom" parent="." instance=ExtResource("25_3ox3p")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 138, 9, 14)
+
+[node name="SM_column_floating_middle2" parent="." instance=ExtResource("22_jtle7")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 138, 10, 14)
+
+[node name="SM_bridge_A_pillar_extension" parent="." instance=ExtResource("19_ijv7e")]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 175, -4, 4)
+
+[node name="SM_bridge_A_pillar_extension2" parent="." instance=ExtResource("19_ijv7e")]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 179, -3, 4)
+
+[node name="SM_bridge_A_pillar_extension3" parent="." instance=ExtResource("19_ijv7e")]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 183, -1, 4)
+
+[node name="SM_bridge_A_pillar_extension4" parent="." instance=ExtResource("19_ijv7e")]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 183, -5, 4)
+
+[node name="SM_bridge_A_pillar_extension7" parent="." instance=ExtResource("19_ijv7e")]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 187, 1, 4)
+
+[node name="SM_bridge_A_pillar_extension8" parent="." instance=ExtResource("19_ijv7e")]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 187, -3, 4)
+
+[node name="SM_bridge_A_pillar_extension9" parent="." instance=ExtResource("19_ijv7e")]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 191, 3, 4)
+
+[node name="SM_bridge_A_pillar_extension10" parent="." instance=ExtResource("19_ijv7e")]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 191, -1, 4)
+
+[node name="SM_bridge_A_pillar_extension11" parent="." instance=ExtResource("19_ijv7e")]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 195, 5, 4)
+
+[node name="SM_bridge_A_pillar_extension12" parent="." instance=ExtResource("19_ijv7e")]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 195, 1, 4)
+
+[node name="SM_bridge_A_pillar_extension15" parent="." instance=ExtResource("19_ijv7e")]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 195, -3, 4)
+
+[node name="SM_bridge_A_pillar_extension16" parent="." instance=ExtResource("19_ijv7e")]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 199, -1, 4)
+
+[node name="SM_bridge_A_pillar_extension13" parent="." instance=ExtResource("19_ijv7e")]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 199, 7, 4)
+
+[node name="SM_bridge_A_pillar_extension14" parent="." instance=ExtResource("19_ijv7e")]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 199, 3, 4)
+
+[node name="SM_bridge_A_pillar_extension17" parent="." instance=ExtResource("19_ijv7e")]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 203, -1, 4)
+
+[node name="SM_bridge_A_pillar_extension18" parent="." instance=ExtResource("19_ijv7e")]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 203, 7, 4)
+
+[node name="SM_bridge_A_pillar_extension19" parent="." instance=ExtResource("19_ijv7e")]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 203, 3, 4)
+
+[node name="SM_bridge_A_pillar_extension20" parent="." instance=ExtResource("19_ijv7e")]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 207, -1, 4)
+
+[node name="SM_bridge_A_pillar_extension21" parent="." instance=ExtResource("19_ijv7e")]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 207, 7, 4)
+
+[node name="SM_bridge_A_pillar_extension22" parent="." instance=ExtResource("19_ijv7e")]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 207, 3, 4)
+
+[node name="SM_bridge_A_pillar_extension23" parent="." instance=ExtResource("19_ijv7e")]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 211, -1, 4)
+
+[node name="SM_bridge_A_pillar_extension24" parent="." instance=ExtResource("19_ijv7e")]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 211, 7, 4)
+
+[node name="SM_bridge_A_pillar_extension25" parent="." instance=ExtResource("19_ijv7e")]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 211, 3, 4)
+
+[node name="SM_bridge_A_pillar_extension26" parent="." instance=ExtResource("19_ijv7e")]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 215, -1, 4)
+
+[node name="SM_bridge_A_pillar_extension27" parent="." instance=ExtResource("19_ijv7e")]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 215, 7, 4)
+
+[node name="SM_bridge_A_pillar_extension28" parent="." instance=ExtResource("19_ijv7e")]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 215, 3, 4)
+
+[node name="SM_bridge_A_pillar_extension5" parent="." instance=ExtResource("19_ijv7e")]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 179, -7, 4)
+
+[node name="SM_bridge_A_pillar_extension6" parent="." instance=ExtResource("19_ijv7e")]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 175, -8, 4)
+
+[node name="SM_column_B_broken_B" parent="." instance=ExtResource("13_0boq1")]
+transform = Transform3D(0.965926, -0.25, -0.0669873, 0.25, 0.834234, 0.491482, -0.0669873, -0.491482, 0.868308, 170, 5, 11)
+
+[node name="SM_column_B3" parent="." instance=ExtResource("10_qbnk4")]
+transform = Transform3D(0.965926, -0.258819, 0, 0.224144, 0.836516, 0.5, -0.12941, -0.482963, 0.866025, 174.141, -8.08418, 18.5151)
+
+[node name="SM_large_platform" parent="." instance=ExtResource("44_l0s4c")]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 223, 11, 4)
+
+[node name="SM_large_platform2" parent="." instance=ExtResource("44_l0s4c")]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 235, 11, 4)
+
+[node name="SM_bridge_A_stairs_B" parent="." instance=ExtResource("23_basso")]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 229, 11, 4)
+
+[node name="SM_bridge_A_stairs_B2" parent="." instance=ExtResource("23_basso")]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 233, 13, 4)
+
+[node name="SM_end_eye_sun" parent="." instance=ExtResource("45_kj3n6")]
+transform = Transform3D(0.904108, -0.315707, -0.287955, 0.29399, 0.948622, -0.116989, 0.310094, 0.0211152, 0.950471, 297, 55, -118)
+
+[node name="SM_end_eye_sun_ring" parent="." instance=ExtResource("46_uhgp5")]
+transform = Transform3D(0.927395, 0.213311, -0.307305, -0.350036, 0.784611, -0.511724, 0.131958, 0.582138, 0.80231, 297, 55, -118)
+
+[node name="SM_end_terrain_v2" parent="." instance=ExtResource("46_kj3n6")]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 228, 19, 10)
+
+[node name="SM_end_terrain" parent="." instance=ExtResource("43_wgg5y")]
+transform = Transform3D(0, 0, 1, -0.258819, 0.965926, 0, -0.965926, -0.258819, 0, 187, -1, 57)
 
 [connection signal="body_entered" from="BaseMap/KillZone" to="BaseMap/KillZone" method="_on_body_entered"]
 

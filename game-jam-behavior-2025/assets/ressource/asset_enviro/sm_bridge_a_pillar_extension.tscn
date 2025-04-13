@@ -1,11 +1,15 @@
-[gd_scene load_steps=3 format=3 uid="uid://65r8lwa2ne3g"]
+[gd_scene load_steps=4 format=3 uid="uid://65r8lwa2ne3g"]
 
 [ext_resource type="PackedScene" uid="uid://dk3l37p85gpo0" path="res://assets/enviro/SM_bridge_A_pillar_extension.fbx" id="1_c5706"]
+[ext_resource type="Material" uid="uid://r4hqa0bmg8m3" path="res://assets/ressource/asset_enviro/platfrom_mat.tres" id="2_wubcj"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_c5706"]
 size = Vector3(2.00415, 4.00781, 1)
 
 [node name="SM_bridge_A_pillar_extension" instance=ExtResource("1_c5706")]
+
+[node name="SM_bridge_A_pillar_extension_01" parent="GRP_Export_lvl_1" index="0"]
+material_override = ExtResource("2_wubcj")
 
 [node name="StaticBody3D" type="StaticBody3D" parent="GRP_Export_lvl_1/SM_bridge_A_pillar_extension_01" index="0"]
 

@@ -1,6 +1,7 @@
-[gd_scene load_steps=4 format=3 uid="uid://fq66b24id7e"]
+[gd_scene load_steps=5 format=3 uid="uid://fq66b24id7e"]
 
 [ext_resource type="PackedScene" uid="uid://cukhjufuwqvyn" path="res://assets/enviro/SM_column_B_broken_B.fbx" id="1_1d51o"]
+[ext_resource type="Material" uid="uid://r4hqa0bmg8m3" path="res://assets/ressource/asset_enviro/platfrom_mat.tres" id="2_slj0w"]
 
 [sub_resource type="CylinderShape3D" id="CylinderShape3D_1d51o"]
 height = 0.807617
@@ -11,6 +12,9 @@ height = 8.0979
 radius = 0.529785
 
 [node name="SM_column_B_broken_B" instance=ExtResource("1_1d51o")]
+
+[node name="SM_column_B_broken_B_01" parent="." index="0"]
+material_override = ExtResource("2_slj0w")
 
 [node name="StaticBody3D" type="StaticBody3D" parent="SM_column_B_broken_B_01" index="0"]
 

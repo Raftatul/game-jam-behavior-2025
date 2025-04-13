@@ -1,6 +1,7 @@
-[gd_scene load_steps=9 format=3 uid="uid://cmxdo6tekluyn"]
+[gd_scene load_steps=12 format=3 uid="uid://c5ipftf41lccn"]
 
-[ext_resource type="Texture2D" uid="uid://c8dmf5oub2ugy" path="res://assets/Textures/Eyes.png" id="1_8lvm4"]
+[ext_resource type="PackedScene" uid="uid://cmxdo6tekluyn" path="res://assets/vfx/eye_vfx.tscn" id="1_sbreu"]
+[ext_resource type="Texture2D" uid="uid://c8dmf5oub2ugy" path="res://assets/Textures/Eyes.png" id="2_6pb5o"]
 
 [sub_resource type="Curve" id="Curve_8lvm4"]
 _data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(1, 0), 0.0, 0.0, 0, 0]
@@ -17,10 +18,17 @@ point_count = 2
 [sub_resource type="CurveTexture" id="CurveTexture_dfbiv"]
 curve = SubResource("Curve_tkab5")
 
-[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_g5vvd"]
+[sub_resource type="Curve" id="Curve_sbreu"]
+_data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(1, 0), 0.0, 0.0, 0, 0]
+point_count = 2
+
+[sub_resource type="CurveTexture" id="CurveTexture_6pb5o"]
+curve = SubResource("Curve_sbreu")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_sbreu"]
 resource_local_to_scene = true
 emission_shape = 2
-emission_sphere_radius = 2.0
+emission_sphere_radius = 1.0
 spread = 180.0
 initial_velocity_min = 1.0
 initial_velocity_max = 1.0
@@ -28,24 +36,26 @@ gravity = Vector3(0, 0, 0)
 damping_min = 5.0
 damping_max = 5.0
 damping_curve = SubResource("CurveTexture_dfbiv")
+scale_min = 0.0
+scale_max = 0.3
+scale_curve = SubResource("CurveTexture_6pb5o")
 alpha_curve = SubResource("CurveTexture_xpu18")
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_xpu18"]
 transparency = 1
 vertex_color_use_as_albedo = true
-albedo_texture = ExtResource("1_8lvm4")
+albedo_texture = ExtResource("2_6pb5o")
 emission_enabled = true
-emission_texture = ExtResource("1_8lvm4")
+emission_texture = ExtResource("2_6pb5o")
 billboard_mode = 1
 billboard_keep_scale = true
 
-[sub_resource type="QuadMesh" id="QuadMesh_tkab5"]
+[sub_resource type="QuadMesh" id="QuadMesh_jk4mp"]
 resource_local_to_scene = true
 material = SubResource("StandardMaterial3D_xpu18")
 
-[node name="EyeVfx" type="Node3D"]
+[node name="EyeVfx" instance=ExtResource("1_sbreu")]
 
-[node name="GPUParticles3D" type="GPUParticles3D" parent="."]
-lifetime = 3.0
-process_material = SubResource("ParticleProcessMaterial_g5vvd")
-draw_pass_1 = SubResource("QuadMesh_tkab5")
+[node name="GPUParticles3D" parent="." index="0"]
+process_material = SubResource("ParticleProcessMaterial_sbreu")
+draw_pass_1 = SubResource("QuadMesh_jk4mp")

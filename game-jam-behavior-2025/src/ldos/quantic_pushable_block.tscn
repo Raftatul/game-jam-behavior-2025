@@ -1,9 +1,10 @@
-[gd_scene load_steps=9 format=3 uid="uid://bslvhxx5gvdxx"]
+[gd_scene load_steps=10 format=3 uid="uid://bslvhxx5gvdxx"]
 
 [ext_resource type="PackedScene" uid="uid://bm1ss72ovvwpt" path="res://src/ldos/PushableBlock.tscn" id="1_6gy3h"]
 [ext_resource type="PackedScene" uid="uid://cupd6l1yfd02o" path="res://src/ldos/quantic_folder/quantic_object.tscn" id="2_soywf"]
 [ext_resource type="PackedScene" uid="uid://c3g55casshl06" path="res://src/components/visibility_component.tscn" id="3_5j1rf"]
 [ext_resource type="PackedScene" uid="uid://cuxkeeygt4rw1" path="res://src/components/switchable_collision.tscn" id="4_6ln75"]
+[ext_resource type="PackedScene" uid="uid://cmxdo6tekluyn" path="res://assets/vfx/eye_vfx.tscn" id="5_soywf"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_lumnq"]
 resource_local_to_scene = true
@@ -25,6 +26,8 @@ size = Vector3(1.87134, 1.87598, 1.72754)
 
 [node name="CollisionShape3D" parent="." index="0"]
 shape = SubResource("BoxShape3D_lumnq")
+
+[node name="EyeVfx" parent="MeshInstance3D" index="0" instance=ExtResource("5_soywf")]
 
 [node name="CollisionShape3D" parent="Area3D" index="0"]
 shape = SubResource("BoxShape3D_rduf4")

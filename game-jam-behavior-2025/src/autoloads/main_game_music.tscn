@@ -1,0 +1,8 @@
+[gd_scene load_steps=2 format=3 uid="uid://crhpc736w54fi"]
+
+[ext_resource type="AudioStream" uid="uid://b308uv2ty8grh" path="res://assets/audio/music/SalmonLikeTheFish - Glacier.mp3" id="1_volam"]
+
+[node name="MainGameMusic" type="AudioStreamPlayer"]
+stream = ExtResource("1_volam")
+volume_db = 6.0
+autoplay = true

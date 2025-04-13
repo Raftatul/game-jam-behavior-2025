@@ -1,24 +1,39 @@
-[gd_scene load_steps=19 format=3 uid="uid://b7jkon6s4pmwt"]
+[gd_scene load_steps=22 format=3 uid="uid://b7jkon6s4pmwt"]
 
 [ext_resource type="PackedScene" uid="uid://b56g4e8vw0hk5" path="res://assets/ressource/palette_filter.tscn" id="1_0ukkc"]
 [ext_resource type="Script" uid="uid://h3slrky8kkk3" path="res://src/levels/main_menu.gd" id="1_fldhf"]
 [ext_resource type="PackedScene" uid="uid://stq6yyadeyjn" path="res://src/character/character.tscn" id="2_4hslj"]
+[ext_resource type="VoxelGIData" uid="uid://bsajnbc2a7muy" path="res://assets/ressource/baked/main_menu.VoxelGI_data.res" id="2_pcjj0"]
 [ext_resource type="PackedScene" uid="uid://c3g55casshl06" path="res://src/components/visibility_component.tscn" id="3_fxx5w"]
 [ext_resource type="PackedScene" uid="uid://bm1ss72ovvwpt" path="res://src/ldos/PushableBlock.tscn" id="3_mwphm"]
 [ext_resource type="ArrayMesh" uid="uid://7fpef5iox2ga" path="res://assets/enviro/ldo/M_PushableBox_4x2.res" id="5_237ap"]
-[ext_resource type="Script" path="res://src/ldos/kill_zone.gd" id="6_0gfcs"]
+[ext_resource type="Script" uid="uid://x2sgtrr65ci7" path="res://src/ldos/kill_zone.gd" id="6_0gfcs"]
+[ext_resource type="Material" uid="uid://biqskf7ohj1gb" path="res://assets/ressource/water_test.tres" id="9_hw13d"]
 
-[sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_fxx5w"]
+[sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_3k0q2"]
 
-[sub_resource type="Sky" id="Sky_qgv8x"]
-sky_material = SubResource("ProceduralSkyMaterial_fxx5w")
+[sub_resource type="Sky" id="Sky_tjj2t"]
+sky_material = SubResource("ProceduralSkyMaterial_3k0q2")
 
-[sub_resource type="Environment" id="Environment_mwphm"]
+[sub_resource type="Environment" id="Environment_k3jgl"]
 background_mode = 2
-background_energy_multiplier = 0.2
-sky = SubResource("Sky_qgv8x")
+background_energy_multiplier = 0.0
+sky = SubResource("Sky_tjj2t")
 tonemap_mode = 2
+tonemap_exposure = 1.5
+ssao_intensity = 11.26
 glow_enabled = true
+glow_normalized = true
+glow_intensity = 1.68
+glow_bloom = 0.4
+fog_mode = 1
+fog_density = 1.0
+volumetric_fog_enabled = true
+volumetric_fog_albedo = Color(0.525647, 0.251011, 0.6147, 1)
+volumetric_fog_length = 100.0
+volumetric_fog_ambient_inject = 0.44
+adjustment_enabled = true
+adjustment_saturation = 0.43
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_0ukkc"]
 emission_enabled = true
@@ -57,16 +72,34 @@ depth = 2.0
 [sub_resource type="BoxShape3D" id="BoxShape3D_0gfcs"]
 size = Vector3(5000, 10, 5000)
 
+[sub_resource type="PlaneMesh" id="PlaneMesh_76r1k"]
+
 [node name="MainMenu" type="Node3D"]
 script = ExtResource("1_fldhf")
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]
-environment = SubResource("Environment_mwphm")
+environment = SubResource("Environment_k3jgl")
+
+[node name="SpotLight3D" type="SpotLight3D" parent="."]
+transform = Transform3D(0.456492, -0.856477, 0.240961, 0.306681, 0.405697, 0.861021, -0.835201, -0.319151, 0.447863, 7.55086, 50.3885, 25.1234)
+light_energy = 30.0
+light_indirect_energy = 5.0
+shadow_enabled = true
+spot_range = 236.0
+spot_angle = 22.8422
 
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
-transform = Transform3D(0.962289, -0.235583, 0.136014, 2.78059e-08, 0.5, 0.866025, -0.272028, -0.833367, 0.481145, 0, 0, 0)
-light_energy = 0.5
+transform = Transform3D(0.801174, -0.40845, 0.437366, 0.126324, 0.829816, 0.543551, -0.584947, -0.380229, 0.716424, 0, 0, 0)
+light_energy = 0.0
 shadow_enabled = true
+
+[node name="ReflectionProbe" type="ReflectionProbe" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -4.38641, 0)
+size = Vector3(85.8049, 68.3151, 75.3127)
+
+[node name="VoxelGI" type="VoxelGI" parent="."]
+size = Vector3(74.0186, 75.8162, 70.947)
+data = ExtResource("2_pcjj0")
 
 [node name="PaletteFilter" parent="." instance=ExtResource("1_0ukkc")]
 
@@ -74,7 +107,12 @@ shadow_enabled = true
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -4)
 
 [node name="MeshInstance3D2" type="MeshInstance3D" parent="PushableBlock"]
-transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, 0, 0.32464, 0)
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 0.755146, 0, -1, -3.30085e-08, 0, 0.32464, 0)
+mesh = SubResource("TextMesh_fldhf")
+skeleton = NodePath("../..")
+
+[node name="MeshInstance3D3" type="MeshInstance3D" parent="PushableBlock"]
+transform = Transform3D(1, 0, 0, 0, 1, 1.14613e-14, 0, -1.06581e-14, 1.07536, 0, 0.0452009, 2.9783e-15)
 mesh = SubResource("TextMesh_fldhf")
 skeleton = NodePath("../..")
 
@@ -99,7 +137,12 @@ shape = SubResource("BoxShape3D_fxx5w")
 shape = SubResource("BoxShape3D_mwphm")
 
 [node name="MeshInstance3D2" type="MeshInstance3D" parent="PushableBlock2"]
-transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, 0, 0.32464, 0)
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 0.755146, 0, -1, -3.30085e-08, 0, 0.32464, 0)
+mesh = SubResource("TextMesh_0ukkc")
+skeleton = NodePath("../..")
+
+[node name="MeshInstance3D3" type="MeshInstance3D" parent="PushableBlock2"]
+transform = Transform3D(1, 0, 0, 0, 1, 1.14613e-14, 0, -1.06581e-14, 1.07536, 0, 0.0452009, 2.9783e-15)
 mesh = SubResource("TextMesh_0ukkc")
 skeleton = NodePath("../..")
 
@@ -111,7 +154,12 @@ aabb = AABB(-1.98781, -1, -1, 3.97561, 2, 2)
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 4)
 
 [node name="MeshInstance3D2" type="MeshInstance3D" parent="PushableBlock3"]
-transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, 0, 0.32464, 0)
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 0.755146, 0, -1, -3.30085e-08, 0, 0.32464, 0)
+mesh = SubResource("TextMesh_fxx5w")
+skeleton = NodePath("../..")
+
+[node name="MeshInstance3D3" type="MeshInstance3D" parent="PushableBlock3"]
+transform = Transform3D(1, 0, 0, 0, 1, 1.14613e-14, 0, -1.06581e-14, 1.07536, 0, 0.0452009, 2.9783e-15)
 mesh = SubResource("TextMesh_fxx5w")
 skeleton = NodePath("../..")
 
@@ -128,23 +176,23 @@ size = Vector3(20, 1, 20)
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 3, 0)
 
 [node name="Skeleton3D" parent="Character/character_v1/metarig" index="0"]
-bones/4/position = Vector3(-4.22265e-10, 0.777124, -0.0552)
+bones/4/position = Vector3(-3.68808e-10, 0.775802, -0.0552)
 bones/4/rotation = Quaternion(0.0851639, 1.18776e-07, 1.01523e-08, 0.996367)
-bones/5/rotation = Quaternion(-0.0477252, -0.0356669, 0.0247565, 0.997917)
-bones/6/rotation = Quaternion(-0.0525278, -0.000297577, -0.0122193, 0.998545)
+bones/5/rotation = Quaternion(-0.0477158, -0.0338377, 0.0226669, 0.99803)
+bones/6/rotation = Quaternion(-0.0525275, -0.000305587, -0.0125482, 0.998541)
 bones/6/scale = Vector3(1, 1, 1)
 bones/7/rotation = Quaternion(0.0018179, -1.18802e-07, 2.17452e-10, 0.999998)
 bones/8/rotation = Quaternion(0.103174, 9.06654e-10, -8.42276e-10, 0.994663)
 bones/9/rotation = Quaternion(-0.0513563, 0.000142839, 0.00517193, 0.998667)
-bones/10/rotation = Quaternion(0.997947, -0.0547714, 0.0139678, -0.0301133)
-bones/11/rotation = Quaternion(0.0213237, 0.00553739, -0.0216653, 0.999523)
-bones/12/rotation = Quaternion(0.0752002, 0.0416461, 0.0795661, 0.993116)
-bones/13/position = Vector3(0.0914176, 0.287349, -0.0324386)
-bones/14/position = Vector3(-0.111625, 0.277902, 0.0284805)
-bones/16/rotation = Quaternion(0.979783, -0.0171151, 0.0134843, 0.198872)
-bones/17/rotation = Quaternion(0.239465, 0.000503448, -0.0371475, 0.970194)
-bones/19/rotation = Quaternion(0.979783, 0.017115, -0.013484, 0.198872)
-bones/20/rotation = Quaternion(0.239466, -0.000503446, 0.0371475, 0.970194)
+bones/10/rotation = Quaternion(0.998082, -0.0511142, 0.0142781, -0.0318868)
+bones/11/rotation = Quaternion(0.0251545, 0.00580285, -0.00522894, 0.999653)
+bones/12/rotation = Quaternion(0.0784597, 0.0390909, 0.0681648, 0.993816)
+bones/13/position = Vector3(0.0919083, 0.285051, -0.0325034)
+bones/14/position = Vector3(-0.111134, 0.275604, 0.0284157)
+bones/16/rotation = Quaternion(0.979174, -0.0176114, 0.0135215, 0.201805)
+bones/17/rotation = Quaternion(0.245534, 0.000502644, -0.038089, 0.968639)
+bones/19/rotation = Quaternion(0.979174, 0.0176112, -0.0135212, 0.201806)
+bones/20/rotation = Quaternion(0.245534, -0.000502644, 0.0380889, 0.968639)
 
 [node name="CameraPivot" parent="Character" index="5"]
 transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, 0, 4, 0)
@@ -163,6 +211,12 @@ script = ExtResource("6_0gfcs")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="KillZone"]
 shape = SubResource("BoxShape3D_0gfcs")
+
+[node name="water" type="MeshInstance3D" parent="."]
+transform = Transform3D(2513.52, -9.3963e-07, -21.4962, 7.89289e-06, 300, -3.37074e-08, 180.568, -3.37074e-08, 299.229, 0, -9.29934, 0)
+material_override = ExtResource("9_hw13d")
+mesh = SubResource("PlaneMesh_76r1k")
+skeleton = NodePath("../..")
 
 [connection signal="on_screen_visibility_changed" from="PushableBlock/Play" to="." method="_on_play_on_screen_visibility_changed"]
 [connection signal="on_screen_visibility_changed" from="PushableBlock2/Credits" to="." method="_on_credits_on_screen_visibility_changed"]

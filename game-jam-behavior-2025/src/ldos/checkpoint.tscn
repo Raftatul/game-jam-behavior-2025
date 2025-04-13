@@ -1,7 +1,8 @@
-[gd_scene load_steps=4 format=3 uid="uid://djuqwkjv8jilm"]
+[gd_scene load_steps=5 format=3 uid="uid://djuqwkjv8jilm"]
 
 [ext_resource type="Script" uid="uid://dkr17cowymlx6" path="res://src/ldos/checkpoint.gd" id="1_wrhg4"]
 [ext_resource type="PackedScene" uid="uid://ys5r0ayqsy80" path="res://assets/ressource/asset_enviro/prefab/checkpoint.tscn" id="2_lbmst"]
+[ext_resource type="AudioStream" uid="uid://bsodytkrv3c7j" path="res://assets/audio/sfx/SpawnPoint_Sound.wav" id="3_sq1ie"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_8iboj"]
 
@@ -12,12 +13,15 @@ script = ExtResource("1_wrhg4")
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2, 0, 0)
 
 [node name="SM_savePoint_structure_bottom" parent="Checkpoint" index="1"]
-transform = Transform3D(-1.31134e-08, 0, -0.3, 0, 0.3, 0, 0.3, 0, -1.31134e-08, 0, 1, 0)
+transform = Transform3D(-1.086e-06, 0, -0.3, 0, 0.3, 0, 0.3, 0, -1.086e-06, 0, 1, 0)
 
 [node name="Area3D" type="Area3D" parent="."]
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Area3D"]
 shape = SubResource("BoxShape3D_8iboj")
+
+[node name="SpawnPointSound" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("3_sq1ie")
 
 [connection signal="body_entered" from="Area3D" to="." method="_on_area_3d_body_entered"]
 

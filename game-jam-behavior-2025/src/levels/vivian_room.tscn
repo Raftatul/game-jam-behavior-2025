@@ -1,4 +1,4 @@
-[gd_scene load_steps=10 format=3 uid="uid://c6k6haam1kgbk"]
+[gd_scene load_steps=8 format=3 uid="uid://c6k6haam1kgbk"]
 
 [ext_resource type="PackedScene" uid="uid://l6t2l73wo01p" path="res://src/ldos/movement/rotator.tscn" id="1_il7l4"]
 [ext_resource type="PackedScene" uid="uid://2vxwbtdextyx" path="res://src/ldos/movement/translator.tscn" id="2_c5uyr"]
@@ -15,10 +15,6 @@ _data = {
 point_count = 3
 
 [sub_resource type="BoxMesh" id="BoxMesh_oggrv"]
-
-[sub_resource type="CapsuleMesh" id="CapsuleMesh_l45jm"]
-
-[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_h1nme"]
 
 [node name="VivianRoom" type="Node3D"]
 
@@ -58,15 +54,5 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 3, 0)
 collision_layer = 2
 
 [node name="QuanticObject" parent="." instance=ExtResource("4_oggrv")]
-activated = false
-
-[node name="MeshInstance3D" parent="QuanticObject" index="0"]
-mesh = SubResource("CapsuleMesh_l45jm")
-
-[node name="SwitchableCollisionShape3D" parent="QuanticObject" index="1"]
-shape = SubResource("CapsuleShape3D_h1nme")
-
-[node name="VisibilityComponent" parent="QuanticObject" index="2"]
-aabb = AABB(-1, -1, -0.464278, 2, 2, 0.928555)
 
 [editable path="QuanticObject"]

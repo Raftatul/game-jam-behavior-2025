@@ -1,0 +1,31 @@
+[gd_scene load_steps=8 format=3 uid="uid://c14rg8rv23qv3"]
+
+[ext_resource type="Script" uid="uid://d5nq8cqpgmrn" path="res://src/vfx/floating.gd" id="1_jlyma"]
+[ext_resource type="PackedScene" uid="uid://dbob6d0bgqe1w" path="res://assets/enviro/new_asset_2/SM_rock_large_A.fbx" id="1_v5p67"]
+[ext_resource type="PackedScene" uid="uid://bbpqs5c7777gb" path="res://assets/enviro/new_asset_2/SM_rock_large_B.fbx" id="2_jlyma"]
+[ext_resource type="PackedScene" uid="uid://k7a0xk0grslf" path="res://assets/enviro/new_asset_2/SM_rock_medium_A.fbx" id="3_hlspy"]
+[ext_resource type="PackedScene" uid="uid://rig1xslhl5kl" path="res://assets/enviro/new_asset_2/SM_rock_medium_B.fbx" id="4_rlea3"]
+[ext_resource type="PackedScene" uid="uid://71ls02tin55w" path="res://assets/enviro/new_asset_2/SM_rock_small_A.fbx" id="5_54yki"]
+[ext_resource type="PackedScene" uid="uid://l3lg2bmmqy2o" path="res://assets/enviro/new_asset_2/SM_rock_small_B.fbx" id="6_q2135"]
+
+[node name="FloatingRocks" type="Node3D"]
+script = ExtResource("1_jlyma")
+floatintensity = 0.1
+
+[node name="SM_rock_large_A" parent="." instance=ExtResource("1_v5p67")]
+transform = Transform3D(0.61871, 0.785619, 0, -0.785619, 0.61871, 0, 0, 0, 1, -2.36091, 1.19651, 4.76837e-07)
+
+[node name="SM_rock_large_B" parent="." instance=ExtResource("2_jlyma")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.01028, 0, -0.131648)
+
+[node name="SM_rock_medium_A" parent="." instance=ExtResource("3_hlspy")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.443901, -1.63079, 0.738626)
+
+[node name="SM_rock_medium_B" parent="." instance=ExtResource("4_rlea3")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.806003, -0.134478, 1.92575)
+
+[node name="SM_rock_small_A" parent="." instance=ExtResource("5_54yki")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.23036, 1.61427, -1.03322)
+
+[node name="SM_rock_small_B" parent="." instance=ExtResource("6_q2135")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.837932, 1.2039, -2.09818)

@@ -1,4 +1,4 @@
-[gd_scene load_steps=22 format=3 uid="uid://b7jkon6s4pmwt"]
+[gd_scene load_steps=31 format=3 uid="uid://b7jkon6s4pmwt"]
 
 [ext_resource type="PackedScene" uid="uid://b56g4e8vw0hk5" path="res://assets/ressource/palette_filter.tscn" id="1_0ukkc"]
 [ext_resource type="Script" uid="uid://h3slrky8kkk3" path="res://src/levels/main_menu.gd" id="1_fldhf"]
@@ -7,8 +7,16 @@
 [ext_resource type="PackedScene" uid="uid://c3g55casshl06" path="res://src/components/visibility_component.tscn" id="3_fxx5w"]
 [ext_resource type="PackedScene" uid="uid://bm1ss72ovvwpt" path="res://src/ldos/PushableBlock.tscn" id="3_mwphm"]
 [ext_resource type="ArrayMesh" uid="uid://7fpef5iox2ga" path="res://assets/enviro/ldo/M_PushableBox_4x2.res" id="5_237ap"]
-[ext_resource type="Script" uid="uid://x2sgtrr65ci7" path="res://src/ldos/kill_zone.gd" id="6_0gfcs"]
+[ext_resource type="Script" path="res://src/ldos/kill_zone.gd" id="6_0gfcs"]
 [ext_resource type="Material" uid="uid://biqskf7ohj1gb" path="res://assets/ressource/water_test.tres" id="9_hw13d"]
+[ext_resource type="PackedScene" uid="uid://c14rg8rv23qv3" path="res://src/vfx/Floating Rocks.tscn" id="10_76r1k"]
+[ext_resource type="PackedScene" uid="uid://c3kjcodcyfmqb" path="res://assets/ressource/asset_enviro/sm_rock_6m.tscn" id="10_hw13d"]
+[ext_resource type="Script" uid="uid://d5nq8cqpgmrn" path="res://src/vfx/floating.gd" id="10_k3jgl"]
+[ext_resource type="PackedScene" uid="uid://ps6ojovo70n3" path="res://assets/ressource/asset_enviro/sm_rock_20m.tscn" id="11_3k0q2"]
+[ext_resource type="PackedScene" uid="uid://qy6isjhn0qlk" path="res://assets/ressource/asset_enviro/sm_arch_floating.tscn" id="14_mvttq"]
+[ext_resource type="PackedScene" uid="uid://fq66b24id7e" path="res://assets/ressource/asset_enviro/sm_column_b_broken_b.tscn" id="15_0uks7"]
+[ext_resource type="PackedScene" uid="uid://ymcwvgeqfka" path="res://assets/ressource/asset_enviro/prefab/pillar_a.tscn" id="15_nprcd"]
+[ext_resource type="PackedScene" uid="uid://bjhfqciba5bun" path="res://assets/ressource/asset_enviro/sm_monolith_a.tscn" id="17_txhld"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_3k0q2"]
 
@@ -44,6 +52,9 @@ material = SubResource("StandardMaterial3D_0ukkc")
 text = "Play"
 font_size = 84
 depth = 2.0
+
+[sub_resource type="BoxMesh" id="BoxMesh_c7wis"]
+size = Vector3(0.25, 0.25, 0.25)
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_0ukkc"]
 resource_local_to_scene = true
@@ -81,7 +92,7 @@ script = ExtResource("1_fldhf")
 environment = SubResource("Environment_k3jgl")
 
 [node name="SpotLight3D" type="SpotLight3D" parent="."]
-transform = Transform3D(0.456492, -0.856477, 0.240961, 0.306681, 0.405697, 0.861021, -0.835201, -0.319151, 0.447863, 7.55086, 50.3885, 25.1234)
+transform = Transform3D(0.456492, -0.856477, 0.240961, 0.306681, 0.405697, 0.861021, -0.835202, -0.319151, 0.447863, 14.3509, 50.3885, 25.1234)
 light_energy = 30.0
 light_indirect_energy = 5.0
 shadow_enabled = true
@@ -116,9 +127,24 @@ transform = Transform3D(1, 0, 0, 0, 1, 1.14613e-14, 0, -1.06581e-14, 1.07536, 0,
 mesh = SubResource("TextMesh_fldhf")
 skeleton = NodePath("../..")
 
-[node name="Play" parent="PushableBlock" instance=ExtResource("3_fxx5w")]
+[node name="Play" parent="PushableBlock" node_paths=PackedStringArray("points") instance=ExtResource("3_fxx5w")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.243782, 0)
 aabb = AABB(-1.01148, -1.18918, -1, 2.02296, 2.37835, 2)
+points = [NodePath("Marker3D"), NodePath("Marker3D2"), NodePath("Marker3D3"), NodePath("Marker3D4"), NodePath("Marker3D5"), NodePath("Marker3D6")]
+
+[node name="Marker3D5" type="Marker3D" parent="PushableBlock/Play"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.2, -1.2)
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="PushableBlock/Play/Marker3D5"]
+visible = false
+mesh = SubResource("BoxMesh_c7wis")
+
+[node name="Marker3D6" type="Marker3D" parent="PushableBlock/Play"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 4.47035e-08, 1)
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="PushableBlock/Play/Marker3D6"]
+visible = false
+mesh = SubResource("BoxMesh_c7wis")
 
 [node name="PushableBlock2" parent="." instance=ExtResource("3_mwphm")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -6, 0, 0)
@@ -167,43 +193,33 @@ skeleton = NodePath("../..")
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.22697, 0)
 aabb = AABB(-0.985067, -1, -1, 1.97013, 2, 2)
 
-[node name="CSGBox3D" type="CSGBox3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -2.29842, 0)
-use_collision = true
-size = Vector3(20, 1, 20)
-
 [node name="Character" parent="." instance=ExtResource("2_4hslj")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 3, 0)
 
 [node name="Skeleton3D" parent="Character/character_v1/metarig" index="0"]
-bones/4/position = Vector3(-1.37678e-10, 0.77009, -0.0552)
+bones/4/position = Vector3(1.68172e-10, 0.775677, -0.0552)
 bones/4/rotation = Quaternion(0.0851639, 1.18776e-07, 1.01523e-08, 0.996367)
-bones/5/rotation = Quaternion(-0.0476583, -0.0239162, 0.0113352, 0.998513)
-bones/6/rotation = Quaternion(-0.0525265, -0.000342593, -0.0140678, 0.99852)
+bones/5/rotation = Quaternion(-0.0473801, 0.0100561, -0.0274386, 0.998449)
+bones/6/rotation = Quaternion(-0.0525222, -0.000463192, -0.0190199, 0.998439)
 bones/6/scale = Vector3(1, 1, 1)
 bones/7/rotation = Quaternion(0.0018179, -1.18802e-07, 2.17452e-10, 0.999998)
 bones/8/rotation = Quaternion(0.103174, 9.06654e-10, -8.42276e-10, 0.994663)
 bones/9/rotation = Quaternion(-0.0513563, 0.000142839, 0.00517193, 0.998667)
-bones/10/rotation = Quaternion(0.998522, -0.0312603, 0.0159572, -0.0414983)
-bones/11/rotation = Quaternion(0.0269769, 0.00534609, 0.0519863, 0.998269)
-bones/12/rotation = Quaternion(0.0739516, 0.0367127, 0.040468, 0.995764)
-bones/13/position = Vector3(0.0945674, 0.272601, -0.0328547)
-bones/14/position = Vector3(-0.108475, 0.263154, 0.0280644)
-bones/16/rotation = Quaternion(0.976628, -0.0196081, 0.0136685, 0.213604)
-bones/17/rotation = Quaternion(0.269892, 0.000499207, -0.0418676, 0.96198)
-bones/19/rotation = Quaternion(0.976628, 0.019608, -0.0136682, 0.213604)
-bones/20/rotation = Quaternion(0.269893, -0.000499205, 0.0418675, 0.96198)
+bones/10/rotation = Quaternion(0.996329, 0.0367654, 0.0216414, -0.0742203)
+bones/11/rotation = Quaternion(-0.0450117, 0.0155284, -0.00556517, 0.99885)
+bones/12/rotation = Quaternion(0.104446, 0.00124931, -0.0801511, 0.991295)
+bones/13/position = Vector3(0.103661, 0.230018, -0.0340562)
+bones/14/position = Vector3(-0.0993811, 0.220571, 0.0268629)
+bones/16/rotation = Quaternion(0.979115, -0.0176587, 0.013525, 0.202085)
+bones/17/rotation = Quaternion(0.246112, 0.000502566, -0.0381788, 0.968489)
+bones/19/rotation = Quaternion(0.979115, 0.0176586, -0.0135247, 0.202086)
+bones/20/rotation = Quaternion(0.246113, -0.000502565, 0.0381787, 0.968489)
 
 [node name="CameraPivot" parent="Character" index="5"]
 transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, 0, 4, 0)
 
 [node name="CameraStateMachine" parent="Character/CameraPivot" index="1" node_paths=PackedStringArray("initial_state")]
 initial_state = NodePath("TopDown")
-
-[node name="CSGBox3D2" type="CSGBox3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 8.35553, 5, 0)
-use_collision = true
-size = Vector3(6, 1, 6)
 
 [node name="KillZone" type="Area3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -20, 0)
@@ -213,16 +229,92 @@ script = ExtResource("6_0gfcs")
 shape = SubResource("BoxShape3D_0gfcs")
 
 [node name="water" type="MeshInstance3D" parent="."]
-transform = Transform3D(2513.52, -9.3963e-07, -21.4962, 7.89289e-06, 300, -3.37074e-08, 180.568, -3.37074e-08, 299.229, 0, -9.29934, 0)
+transform = Transform3D(2513.52, -9.3963e-07, -21.4962, 7.89289e-06, 300, -3.37074e-08, 180.568, -3.37074e-08, 299.229, 0, -7.29934, 0)
 material_override = ExtResource("9_hw13d")
 mesh = SubResource("PlaneMesh_76r1k")
 skeleton = NodePath("../..")
+
+[node name="SM_rock_20m" parent="." instance=ExtResource("11_3k0q2")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -2, 0)
+
+[node name="FloatingRocks2" parent="." instance=ExtResource("10_76r1k")]
+transform = Transform3D(0.5, 0, -0.866025, 0, 1, 0, 0.866025, 0, 0.5, 10, 2, -14)
+floatintensity = 0.2
+
+[node name="FloatingRocks5" parent="." instance=ExtResource("10_76r1k")]
+transform = Transform3D(0.707107, 0, 0.707107, 0, 1, 0, -0.707107, 0, 0.707107, 2, 8, -14)
+floatintensity = 0.2
+
+[node name="FloatingRocks" parent="." instance=ExtResource("10_76r1k")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -6, 4, -14)
+floatintensity = 0.2
+
+[node name="Flooat" type="Node3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6, 4, 0)
+script = ExtResource("10_k3jgl")
+floatintensity = 0.1
+
+[node name="SM_rock_6m" parent="Flooat" instance=ExtResource("10_hw13d")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -0.2)
+
+[node name="Floater" type="Node3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -13.8, 14.8, -4.6)
+script = ExtResource("10_k3jgl")
+floatintensity = 0.1
+
+[node name="SM_arch_floating" parent="Floater" instance=ExtResource("14_mvttq")]
+transform = Transform3D(0.965926, 0.258819, 0, -0.25, 0.933013, -0.258819, -0.0669873, 0.25, 0.965926, 0, 0, 0)
+
+[node name="SM_column_B_broken_B" parent="Floater" instance=ExtResource("15_0uks7")]
+transform = Transform3D(1, 0, 0, 0, 0.965926, -0.258819, 0, 0.258819, 0.965926, -0.599999, -14, -4)
+
+[node name="Background" type="Node3D" parent="."]
+
+[node name="pillar_a" parent="Background" instance=ExtResource("15_nprcd")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -22, -8, -14)
+
+[node name="pillar_a2" parent="Background" instance=ExtResource("15_nprcd")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -14, -8, -14)
+
+[node name="pillar_a3" parent="Background" instance=ExtResource("15_nprcd")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -6, -8, -14)
+
+[node name="pillar_a4" parent="Background" instance=ExtResource("15_nprcd")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2, -8, -14)
+
+[node name="pillar_a5" parent="Background" instance=ExtResource("15_nprcd")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 10, -8, -14)
+
+[node name="pillar_a6" parent="Background" instance=ExtResource("15_nprcd")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 18, -8, -14)
+
+[node name="pillar_a7" parent="Background" instance=ExtResource("15_nprcd")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -18, -8, -22)
+
+[node name="pillar_a8" parent="Background" instance=ExtResource("15_nprcd")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -10, -8, -22)
+
+[node name="pillar_a9" parent="Background" instance=ExtResource("15_nprcd")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2, -8, -22)
+
+[node name="pillar_a10" parent="Background" instance=ExtResource("15_nprcd")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6, -8, -22)
+
+[node name="pillar_a11" parent="Background" instance=ExtResource("15_nprcd")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 14, -8, -22)
+
+[node name="pillar_a12" parent="Background" instance=ExtResource("15_nprcd")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 22, -8, -22)
+
+[node name="SM_monolith_A" parent="." instance=ExtResource("17_txhld")]
+transform = Transform3D(0.866025, 0, -0.5, 0, 1, 0, 0.5, 0, 0.866025, -20, -8, 2)
 
 [connection signal="on_screen_visibility_changed" from="PushableBlock/Play" to="." method="_on_play_on_screen_visibility_changed"]
 [connection signal="on_screen_visibility_changed" from="PushableBlock2/Credits" to="." method="_on_credits_on_screen_visibility_changed"]
 [connection signal="on_screen_visibility_changed" from="PushableBlock3/Quit" to="." method="_on_quit_on_screen_visibility_changed"]
 [connection signal="body_entered" from="KillZone" to="KillZone" method="_on_body_entered"]
 
+[editable path="PushableBlock/Play"]
 [editable path="PushableBlock2"]
 [editable path="Character"]
 [editable path="Character/character_v1"]

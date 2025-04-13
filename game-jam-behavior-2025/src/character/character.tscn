@@ -106,6 +106,7 @@ _data = {
 }
 
 [node name="Character" type="CharacterBody3D"]
+collision_mask = 3
 script = ExtResource("1_yny20")
 move_duration = 0.25
 jump_force = 27.0
@@ -121,18 +122,23 @@ shape = SubResource("CapsuleShape3D_ih6im")
 transform = Transform3D(0.9, 0, 0, 0, 0.9, 0, 0, 0, 0.9, 0, 0, 0)
 
 [node name="Skeleton3D" parent="character_v1/metarig" index="0"]
-bones/4/position = Vector3(-1.20034e-10, 0.769654, -0.0552)
-bones/5/rotation = Quaternion(-0.0474911, -0.00174829, -0.0139706, 0.998773)
-bones/6/rotation = Quaternion(-0.0525236, -0.000427882, -0.01757, 0.998465)
-bones/10/rotation = Quaternion(0.99774, 0.0131429, 0.0196796, -0.0628941)
-bones/11/rotation = Quaternion(-0.0215369, 0.00163607, 0.00537429, 0.999752)
-bones/12/rotation = Quaternion(0.117935, 0.00759629, -0.0339616, 0.992411)
-bones/13/position = Vector3(0.100501, 0.244818, -0.0336386)
-bones/14/position = Vector3(-0.102542, 0.23537, 0.0272805)
-bones/16/rotation = Quaternion(0.976433, -0.0197559, 0.0136793, 0.214477)
-bones/17/rotation = Quaternion(0.27169, 0.000498939, -0.0421465, 0.961461)
-bones/19/rotation = Quaternion(0.976433, 0.0197557, -0.0136789, 0.214477)
-bones/20/rotation = Quaternion(0.27169, -0.000498938, 0.0421464, 0.961461)
+bones/4/position = Vector3(2.77187e-10, 0.767153, -0.0552)
+bones/4/rotation = Quaternion(0.0851639, 1.18776e-07, 1.01523e-08, 0.996367)
+bones/5/rotation = Quaternion(-0.0475375, -0.00723831, -0.00770518, 0.998814)
+bones/6/rotation = Quaternion(-0.0525244, -0.000406609, -0.0166964, 0.99848)
+bones/6/scale = Vector3(1, 1, 1)
+bones/7/rotation = Quaternion(0.0018179, -1.18802e-07, 2.17452e-10, 0.999998)
+bones/8/rotation = Quaternion(0.103174, 9.06654e-10, -8.42276e-10, 0.994663)
+bones/9/rotation = Quaternion(-0.0513563, 0.000142839, 0.00517193, 0.998667)
+bones/10/rotation = Quaternion(0.998161, 0.00214714, 0.018762, -0.0576086)
+bones/11/rotation = Quaternion(-0.0113626, 0.00576999, 0.069499, 0.997501)
+bones/12/rotation = Quaternion(0.0388953, 0.0350314, 0.00955749, 0.998583)
+bones/13/position = Vector3(0.0990317, 0.251697, -0.0334445)
+bones/14/position = Vector3(-0.104011, 0.24225, 0.0274746)
+bones/16/rotation = Quaternion(0.975382, -0.0205439, 0.0137362, 0.219132)
+bones/17/rotation = Quaternion(0.281993, 0.00049737, -0.0437448, 0.958419)
+bones/19/rotation = Quaternion(0.975382, 0.0205438, -0.0137359, 0.219132)
+bones/20/rotation = Quaternion(0.281993, -0.000497366, 0.0437446, 0.958418)
 
 [node name="DashVfx" parent="character_v1" instance=ExtResource("10_ykcix")]
 transform = Transform3D(1.11111, 0, 0, 0, 1.11111, 0, 0, 0, 1.11111, 0, 0.943761, 0)
@@ -148,10 +154,8 @@ particle_flag_align_y = true
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
 
 [node name="FiniteStateMachine" parent="." instance=ExtResource("3_a5pac")]
-debug_transition = true
 
 [node name="TopDownStateMachine" parent="." instance=ExtResource("4_m366t")]
-debug_transition = true
 
 [node name="CameraPivot" type="Marker3D" parent="." node_paths=PackedStringArray("player")]
 transform = Transform3D(1, 0, 0, 0, 0.984808, 0.173648, 0, -0.173648, 0.984808, 0, 3.53055, 0)

@@ -88,7 +88,7 @@ shadow_mesh = SubResource("ArrayMesh_5xn3v")
 script = ExtResource("1_wrhg4")
 
 [node name="Checkpoint" parent="." instance=ExtResource("2_lbmst")]
-transform = Transform3D(-2.18557e-08, 0, -0.5, 0, 0.5, 0, 0.5, 0, -2.18557e-08, 0, 0.5, -1)
+transform = Transform3D(-2.18557e-08, 0, -0.5, 0, 0.5, 0, 0.5, 0, -2.18557e-08, 0, 0, -1)
 
 [node name="SM_savePoint_structure_bottom" parent="Checkpoint" index="1"]
 transform = Transform3D(-1.086e-06, 0, -0.3, 0, 0.3, 0, 0.3, 0, -1.086e-06, 0, 1, 0)
@@ -98,15 +98,16 @@ visible = false
 visible = false
 
 [node name="SM_savePoint_v2_eyeLid" parent="." instance=ExtResource("3_ex7ex")]
-transform = Transform3D(-2.18557e-08, 0, -0.5, 0, 0.5, 0, 0.5, 0, -2.18557e-08, 0, 0.288444, -1)
+transform = Transform3D(-2.18557e-08, 0, -0.5, 0, 0.5, 0, 0.5, 0, -2.18557e-08, 0, -0.152186, -1)
 
 [node name="SM_savePoint_v2_eye" parent="." instance=ExtResource("4_fobn5")]
-transform = Transform3D(-2.18557e-08, 0, -0.5, 0, 0.5, 0, 0.5, 0, -2.18557e-08, 0, 0.288444, -1)
+transform = Transform3D(-2.18557e-08, 0, -0.5, 0, 0.5, 0, 0.5, 0, -2.18557e-08, 0, -0.152186, -1)
 
 [node name="SM_savePoint_v2_eye" parent="SM_savePoint_v2_eye" index="0"]
 visible = false
 
 [node name="Area3D" type="Area3D" parent="."]
+transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, 0, -1, 1)
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Area3D"]
 shape = SubResource("BoxShape3D_8iboj")
@@ -116,7 +117,7 @@ debug_color = Color(0, 0.6, 0.701961, 1)
 stream = ExtResource("3_sq1ie")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="."]
-transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, 0, 2.28844, -1)
+transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, 0, 1.84781, -1)
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="MeshInstance3D"]
 transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 0, 0, 0)

@@ -31,6 +31,7 @@ var request_dash: bool = false
 @onready var character_mesh: Node3D = $character_v1
 @onready var camera: Camera3D = $CameraPivot/Camera3D
 @onready var pivot: Marker3D = $Pivot
+@onready var dash_vfx: CPUParticles3D = $character_v1/DashVfx
 
 @onready var dash: AudioStreamPlayer = $Dash
 @onready var death: AudioStreamPlayer = $Death

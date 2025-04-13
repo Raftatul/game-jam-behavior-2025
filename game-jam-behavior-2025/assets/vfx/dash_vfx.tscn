@@ -1,9 +1,0 @@
-[gd_scene load_steps=2 format=3 uid="uid://dh6exp4jt814p"]
-
-[sub_resource type="QuadMesh" id="QuadMesh_pbxdc"]
-
-[node name="DashVfx" type="Node3D"]
-
-[node name="CPUParticles3D" type="CPUParticles3D" parent="."]
-mesh = SubResource("QuadMesh_pbxdc")
-gravity = Vector3(0, 0, 0)

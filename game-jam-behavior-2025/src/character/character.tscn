@@ -7,6 +7,7 @@
 [ext_resource type="PackedScene" uid="uid://c1dwc3kx6ba8c" path="res://src/character/character_top_down_state_machine.tscn" id="4_m366t"]
 [ext_resource type="AudioStream" uid="uid://jj6m1au1hs3l" path="res://assets/audio/sfx/Dash.wav" id="10_7l6p6"]
 [ext_resource type="Script" uid="uid://dmtt0c2xadp2d" path="res://src/character/camera/camera_pivot.gd" id="10_8cpw0"]
+[ext_resource type="PackedScene" uid="uid://dh6exp4jt814p" path="res://src/vfx/dash_vfx.tscn" id="10_ykcix"]
 [ext_resource type="Script" uid="uid://0sl55afsirix" path="res://src/character/camera/states/camera_2d_state.gd" id="11_1irux"]
 [ext_resource type="AudioStream" uid="uid://y2ceyrh7h2sy" path="res://assets/audio/sfx/Death.wav" id="11_7wjtf"]
 [ext_resource type="Script" uid="uid://cew1815m2eqft" path="res://src/character/camera/states/camera_topdown_state.gd" id="12_1irux"]
@@ -136,6 +137,16 @@ bones/16/rotation = Quaternion(0.978922, -0.0178148, 0.0135366, 0.203008)
 bones/17/rotation = Quaternion(0.248019, 0.000502308, -0.0384745, 0.967991)
 bones/19/rotation = Quaternion(0.978922, 0.0178147, -0.0135363, 0.203008)
 bones/20/rotation = Quaternion(0.24802, -0.000502306, 0.0384745, 0.967991)
+
+[node name="DashVfx" parent="character_v1" instance=ExtResource("10_ykcix")]
+transform = Transform3D(1.11111, 0, 0, 0, 1.11111, 0, 0, 0, 1.11111, 0, 0.943761, 0)
+amount = 15
+particle_flag_align_y = true
+
+[node name="DashVfx" parent="character_v1/DashVfx" instance=ExtResource("10_ykcix")]
+transform = Transform3D(1.11111, 0, 0, 0, 1.11111, 0, 0, 0, 1.11111, 0, 0.943761, 0)
+amount = 15
+particle_flag_align_y = true
 
 [node name="Pivot" type="Marker3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)

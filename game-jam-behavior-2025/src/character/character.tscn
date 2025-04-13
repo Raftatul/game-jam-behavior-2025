@@ -1,4 +1,4 @@
-[gd_scene load_steps=25 format=3 uid="uid://stq6yyadeyjn"]
+[gd_scene load_steps=26 format=3 uid="uid://stq6yyadeyjn"]
 
 [ext_resource type="Script" uid="uid://cfvy05lnoj7uv" path="res://src/character/player_character.gd" id="1_yny20"]
 [ext_resource type="PackedScene" uid="uid://drknuc7u7hx5e" path="res://assets/character/character_v_1.tscn" id="2_1irux"]
@@ -17,8 +17,9 @@
 [ext_resource type="AudioStream" uid="uid://d2llqds6n54y7" path="res://assets/audio/sfx/Step1_Reverb.wav" id="15_y5dg0"]
 [ext_resource type="AudioStream" uid="uid://bubeo2exhg1cb" path="res://assets/audio/sfx/Step2_Reverb.wav" id="17_gn7y0"]
 
-[sub_resource type="BoxShape3D" id="BoxShape3D_yny20"]
-size = Vector3(0.6, 1.78723, 0.6)
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_ih6im"]
+radius = 0.346186
+height = 1.80536
 
 [sub_resource type="Curve" id="Curve_m366t"]
 _data = [Vector2(0, 0), 0.0, 0.0, 0, 0, Vector2(0.75, 1.05), 0.0, 0.0, 0, 0, Vector2(1, 1), 0.0, 0.0, 0, 0]
@@ -68,21 +69,6 @@ streams_count = 2
 stream_0/stream = ExtResource("15_y5dg0")
 stream_1/stream = ExtResource("17_gn7y0")
 
-[sub_resource type="Animation" id="Animation_ih6im"]
-resource_name = "death"
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath(".:self_modulate")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0, 1),
-"transitions": PackedFloat32Array(1, 1),
-"update": 0,
-"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1)]
-}
-
 [sub_resource type="Animation" id="Animation_7wjtf"]
 length = 0.001
 tracks/0/type = "value"
@@ -96,6 +82,21 @@ tracks/0/keys = {
 "transitions": PackedFloat32Array(1),
 "update": 0,
 "values": [Color(1, 1, 1, 1)]
+}
+
+[sub_resource type="Animation" id="Animation_ih6im"]
+resource_name = "death"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:self_modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1)]
 }
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_giy1u"]
@@ -114,29 +115,29 @@ metadata/_custom_type_script = "uid://cfvy05lnoj7uv"
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.893616, 0)
-shape = SubResource("BoxShape3D_yny20")
+shape = SubResource("CapsuleShape3D_ih6im")
 
 [node name="character_v1" parent="." instance=ExtResource("2_1irux")]
 transform = Transform3D(0.9, 0, 0, 0, 0.9, 0, 0, 0, 0.9, 0, 0, 0)
 
 [node name="Skeleton3D" parent="character_v1/metarig" index="0"]
-bones/4/position = Vector3(1.85255e-10, 0.775255, -0.0552)
+bones/4/position = Vector3(-3.58873e-10, 0.775557, -0.0552)
 bones/4/rotation = Quaternion(0.0851639, 1.18776e-07, 1.01523e-08, 0.996367)
-bones/5/rotation = Quaternion(-0.0473851, 0.00955409, -0.0268659, 0.99847)
-bones/6/rotation = Quaternion(-0.0525222, -0.000462136, -0.0189765, 0.998439)
+bones/5/rotation = Quaternion(-0.047391, 0.00896012, -0.0261884, 0.998493)
+bones/6/rotation = Quaternion(-0.052522, -0.000467217, -0.0191852, 0.998435)
 bones/6/scale = Vector3(1, 1, 1)
 bones/7/rotation = Quaternion(0.0018179, -1.18802e-07, 2.17452e-10, 0.999998)
 bones/8/rotation = Quaternion(0.103174, 9.06654e-10, -8.42276e-10, 0.994663)
 bones/9/rotation = Quaternion(-0.0513563, 0.000142839, 0.00517193, 0.998667)
-bones/10/rotation = Quaternion(0.996403, 0.0357617, 0.0215583, -0.0737398)
-bones/11/rotation = Quaternion(-0.0449927, 0.0157084, -0.0037847, 0.998857)
-bones/12/rotation = Quaternion(0.0998396, 0.00163785, -0.0778581, 0.991951)
-bones/13/position = Vector3(0.103527, 0.230648, -0.0340384)
-bones/14/position = Vector3(-0.0995156, 0.221201, 0.0268807)
-bones/16/rotation = Quaternion(0.978922, -0.0178148, 0.0135366, 0.203008)
-bones/17/rotation = Quaternion(0.248019, 0.000502308, -0.0384745, 0.967991)
-bones/19/rotation = Quaternion(0.978922, 0.0178147, -0.0135363, 0.203008)
-bones/20/rotation = Quaternion(0.24802, -0.000502306, 0.0384745, 0.967991)
+bones/10/rotation = Quaternion(0.996489, 0.0345738, 0.02146, -0.0731711)
+bones/11/rotation = Quaternion(-0.0483175, 0.00298882, -0.0158497, 0.998702)
+bones/12/rotation = Quaternion(0.157157, 0.00113268, -0.06162, 0.985649)
+bones/13/position = Vector3(0.103368, 0.231393, -0.0340174)
+bones/14/position = Vector3(-0.0996748, 0.221946, 0.0269017)
+bones/16/rotation = Quaternion(0.97906, -0.0177032, 0.0135283, 0.202348)
+bones/17/rotation = Quaternion(0.246656, 0.000502493, -0.0382631, 0.968347)
+bones/19/rotation = Quaternion(0.97906, 0.0177031, -0.013528, 0.202349)
+bones/20/rotation = Quaternion(0.246657, -0.000502491, 0.038263, 0.968347)
 
 [node name="DashVfx" parent="character_v1" instance=ExtResource("10_ykcix")]
 transform = Transform3D(1.11111, 0, 0, 0, 1.11111, 0, 0, 0, 1.11111, 0, 0.943761, 0)

@@ -1,15 +1,23 @@
-[gd_scene load_steps=3 format=3 uid="uid://deew70tfogvw5"]
+[gd_scene load_steps=4 format=3 uid="uid://deew70tfogvw5"]
 
 [ext_resource type="PackedScene" uid="uid://cuxkeeygt4rw1" path="res://src/components/switchable_collision.tscn" id="1_msfys"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_rmmcu"]
+resource_local_to_scene = true
 
 [sub_resource type="BoxMesh" id="BoxMesh_x4ahr"]
 size = Vector3(1, 1, 0.2)
 
 [node name="SwitchingMesh" type="AnimatableBody3D"]
+process_mode = 4
+collision_layer = 2
 
 [node name="SwitchableCollisionShape3D" parent="." node_paths=PackedStringArray("toggle_meshes") instance=ExtResource("1_msfys")]
+shape = SubResource("BoxShape3D_rmmcu")
 toggle_meshes = NodePath("../MeshInstance3D")
+toggle_state = false
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+visible = false
 mesh = SubResource("BoxMesh_x4ahr")
 skeleton = NodePath("../SwitchableCollisionShape3D")

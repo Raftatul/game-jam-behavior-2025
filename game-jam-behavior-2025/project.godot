@@ -28,6 +28,10 @@ MainGameMusic="*res://src/autoloads/main_game_music.tscn"
 
 window/size/mode=4
 
+[editor_plugins]
+
+enabled=PackedStringArray("res://addons/node_filtering/plugin.cfg")
+
 [file_customization]
 
 folder_colors={

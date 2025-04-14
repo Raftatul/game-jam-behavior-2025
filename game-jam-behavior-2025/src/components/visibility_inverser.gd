@@ -11,4 +11,4 @@ func _ready() -> void:
 
 func _on_visibility_changed() -> void:
 	if target:
-		visible = target.visible
+		visible = !target.visible

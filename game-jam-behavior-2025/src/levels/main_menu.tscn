@@ -128,6 +128,8 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 4.47035e-08, 1)
 visible = false
 mesh = SubResource("BoxMesh_c7wis")
 
+[node name="EyeVfx" parent="PushableBlock" instance=ExtResource("7_8f7ip")]
+
 [node name="PushableBlock3" parent="." instance=ExtResource("3_mwphm")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2, 0, 2)
 
@@ -144,6 +146,8 @@ skeleton = NodePath("../..")
 [node name="Quit" parent="PushableBlock3" instance=ExtResource("3_fxx5w")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.22697, 0)
 aabb = AABB(-0.985067, -1, -1, 1.97013, 2, 2)
+
+[node name="EyeVfx" parent="PushableBlock3" instance=ExtResource("7_8f7ip")]
 
 [node name="Character" parent="." instance=ExtResource("2_4hslj")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4, 3, -2)

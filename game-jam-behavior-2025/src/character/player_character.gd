@@ -49,7 +49,7 @@ func _ready() -> void:
 	finite_state_machine.start_machine(self)
 	top_down_state_machine.start_machine(self)
 	
-	#await get_tree().process_frame
+	await get_tree().process_frame
 	
 	global_position = CheckpointManager.respawn_point
 

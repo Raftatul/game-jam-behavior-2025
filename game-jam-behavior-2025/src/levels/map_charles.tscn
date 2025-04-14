@@ -11,14 +11,14 @@
 [ext_resource type="PackedScene" uid="uid://bq6iawsqsn1iv" path="res://assets/ressource/asset_enviro/sm_column_b_broken_a.tscn" id="9_kej20"]
 [ext_resource type="PackedScene" uid="uid://dssri783u1cjk" path="res://assets/ressource/asset_enviro/sm_column_b.tscn" id="10_qbnk4"]
 [ext_resource type="PackedScene" uid="uid://w2hxqjauv274" path="res://assets/ressource/asset_enviro/sm_arch_a_corner.tscn" id="11_kej20"]
-[ext_resource type="PackedScene" path="res://assets/ressource/asset_enviro/sm_arch_gap.tscn" id="12_qbnk4"]
+[ext_resource type="PackedScene" uid="uid://jaqa2hu2vfjh" path="res://assets/ressource/asset_enviro/sm_arch_gap.tscn" id="12_qbnk4"]
 [ext_resource type="PackedScene" uid="uid://fq66b24id7e" path="res://assets/ressource/asset_enviro/sm_column_b_broken_b.tscn" id="13_0boq1"]
 [ext_resource type="PackedScene" uid="uid://c3jw7ne44mrpw" path="res://assets/ressource/asset_enviro/sm_arch_a_t.tscn" id="14_77yy7"]
 [ext_resource type="PackedScene" uid="uid://dii1f83lc7t2m" path="res://assets/enviro/SM_arch_gap_one_branch.fbx" id="15_qbrm7"]
 [ext_resource type="PackedScene" uid="uid://b6yfceqq27ykv" path="res://assets/enviro/SM_arch_A_broken_A.fbx" id="16_ija7h"]
 [ext_resource type="PackedScene" uid="uid://2vxwbtdextyx" path="res://src/ldos/movement/translator.tscn" id="16_sweyv"]
 [ext_resource type="PackedScene" uid="uid://cewhsug6semvw" path="res://assets/enviro/SM_monolith_A.fbx" id="17_8l1x0"]
-[ext_resource type="Script" path="res://src/ldos/kill_zone.gd" id="17_qbrm7"]
+[ext_resource type="Script" uid="uid://x2sgtrr65ci7" path="res://src/ldos/kill_zone.gd" id="17_qbrm7"]
 [ext_resource type="PackedScene" uid="uid://cko1n2ytkm4f2" path="res://assets/enviro/SM_monolith_A_extension.fbx" id="18_n73j7"]
 [ext_resource type="PackedScene" uid="uid://65r8lwa2ne3g" path="res://assets/ressource/asset_enviro/sm_bridge_a_pillar_extension.tscn" id="19_ijv7e"]
 [ext_resource type="PackedScene" uid="uid://djuqwkjv8jilm" path="res://src/ldos/checkpoint.tscn" id="20_ijv7e"]
@@ -40,7 +40,7 @@
 [ext_resource type="PackedScene" uid="uid://cuxkeeygt4rw1" path="res://src/components/switchable_collision.tscn" id="32_keags"]
 [ext_resource type="PackedScene" uid="uid://c3g55casshl06" path="res://src/components/visibility_component.tscn" id="32_mlmr2"]
 [ext_resource type="Material" uid="uid://chhqcoul4lskt" path="res://assets/ressource/materials/quantum_mat.tres" id="35_c5w17"]
-[ext_resource type="Script" path="res://src/components/visibility_inverser.gd" id="36_egrh3"]
+[ext_resource type="Script" uid="uid://ddvxd6maeje4y" path="res://src/components/visibility_inverser.gd" id="36_egrh3"]
 [ext_resource type="PackedScene" uid="uid://divhug4wejxil" path="res://assets/ressource/asset_enviro/sm_broken_platform_a.tscn" id="40_keags"]
 [ext_resource type="PackedScene" uid="uid://d14qr1cg0dccd" path="res://assets/ressource/asset_enviro/sm_arch_gap_one_branch.tscn" id="42_kqaxw"]
 [ext_resource type="PackedScene" uid="uid://c28v5ecse51lj" path="res://assets/enviro/End/SM_end_terrain.fbx" id="43_wgg5y"]
@@ -48,9 +48,9 @@
 [ext_resource type="PackedScene" uid="uid://ffywtj52ei5d" path="res://assets/enviro/End/SM_end_eye_sun.fbx" id="45_kj3n6"]
 [ext_resource type="PackedScene" uid="uid://bhpk5bpgyhl1b" path="res://assets/enviro/End/SM_end_terrain_v2.fbx" id="46_kj3n6"]
 [ext_resource type="PackedScene" uid="uid://cnrbwip7le418" path="res://assets/enviro/End/SM_end_eye_sun_ring.fbx" id="46_uhgp5"]
-[ext_resource type="PackedScene" path="res://assets/ressource/asset_enviro/prefab/fab_end_pillars02.tscn" id="48_egrh3"]
-[ext_resource type="PackedScene" path="res://assets/ressource/asset_enviro/prefab/fab_end_pillars.tscn" id="49_4ood3"]
-[ext_resource type="PackedScene" path="res://assets/ressource/asset_enviro/prefab/fab_floatyrocks.tscn" id="50_4ood3"]
+[ext_resource type="PackedScene" uid="uid://c0mdrn7r1756s" path="res://assets/ressource/asset_enviro/prefab/fab_end_pillars02.tscn" id="48_egrh3"]
+[ext_resource type="PackedScene" uid="uid://br7iogfx58nuy" path="res://assets/ressource/asset_enviro/prefab/fab_end_pillars.tscn" id="49_4ood3"]
+[ext_resource type="PackedScene" uid="uid://bfvd72vcqbmpg" path="res://assets/ressource/asset_enviro/prefab/fab_floatyrocks.tscn" id="50_4ood3"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_0pr1y"]
 resource_local_to_scene = true
@@ -221,9 +221,10 @@ size = Vector3(2, 2, 2)
 
 [node name="World" type="Node3D"]
 script = ExtResource("1_wihx5")
+override_pos = true
 
 [node name="Character" parent="." instance=ExtResource("2_wgn3o")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 100, 8, 4)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 155.902, 9.70121, 4)
 floor_constant_speed = true
 
 [node name="Assets" type="Node" parent="."]
@@ -1746,6 +1747,7 @@ transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 233, 1
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 297, 55, -118)
 script = ExtResource("32_23mya")
 trigger = NodePath("../../StaticBody3D")
+lerp_speed = 0.05
 
 [node name="SM_end_eye_sun_ring" parent="Assets" instance=ExtResource("46_uhgp5")]
 transform = Transform3D(0.927395, 0.213311, -0.307305, -0.350036, 0.784611, -0.511724, 0.131958, 0.582138, 0.80231, 297, 55, -118)

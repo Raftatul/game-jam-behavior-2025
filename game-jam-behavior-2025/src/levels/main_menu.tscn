@@ -1,4 +1,4 @@
-[gd_scene load_steps=27 format=3 uid="uid://b7jkon6s4pmwt"]
+[gd_scene load_steps=25 format=3 uid="uid://b7jkon6s4pmwt"]
 
 [ext_resource type="PackedScene" uid="uid://b56g4e8vw0hk5" path="res://assets/ressource/palette_filter.tscn" id="1_0ukkc"]
 [ext_resource type="Script" uid="uid://h3slrky8kkk3" path="res://src/levels/main_menu.gd" id="1_fldhf"]
@@ -7,7 +7,8 @@
 [ext_resource type="PackedScene" uid="uid://c3g55casshl06" path="res://src/components/visibility_component.tscn" id="3_fxx5w"]
 [ext_resource type="PackedScene" uid="uid://bm1ss72ovvwpt" path="res://src/ldos/PushableBlock.tscn" id="3_mwphm"]
 [ext_resource type="FontFile" uid="uid://lk43dejdpjvn" path="res://assets/fonts/cocogoose-pro.semilight.ttf" id="5_txhld"]
-[ext_resource type="Script" path="res://src/ldos/kill_zone.gd" id="6_0gfcs"]
+[ext_resource type="Script" uid="uid://x2sgtrr65ci7" path="res://src/ldos/kill_zone.gd" id="6_0gfcs"]
+[ext_resource type="PackedScene" uid="uid://cmxdo6tekluyn" path="res://assets/vfx/eye_vfx.tscn" id="7_8f7ip"]
 [ext_resource type="Material" uid="uid://biqskf7ohj1gb" path="res://assets/ressource/water_test.tres" id="9_hw13d"]
 [ext_resource type="PackedScene" uid="uid://c14rg8rv23qv3" path="res://src/vfx/Floating Rocks.tscn" id="10_76r1k"]
 [ext_resource type="PackedScene" uid="uid://c3kjcodcyfmqb" path="res://assets/ressource/asset_enviro/sm_rock_6m.tscn" id="10_hw13d"]

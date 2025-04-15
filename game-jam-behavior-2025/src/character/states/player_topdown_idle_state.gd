@@ -12,4 +12,3 @@ func check_relevance() -> StringName:
 func enter(_machine: FiniteStateMachine) -> void:
 	player.anime_state_machine.travel(player.idle_animation)
 	player.apply_gravity = true
-	player.step_sounds_anim.stop()

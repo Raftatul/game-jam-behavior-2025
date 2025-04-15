@@ -36,7 +36,13 @@ func _move_character(forcer_move: bool = false) -> void:
 	):
 		return
 
-	var vel: Vector2 = player.last_valid_input * (player.GRID_SIZE / player.move_duration)
+	var dir: Vector2 = player.last_valid_input.round()
+	dir.x = dir.x if abs(dir.x) == abs(dir.y) else dir.x
+	dir.y = 0.0 if abs(dir.x) == abs(dir.y) else dir.y
+
+	print(dir)
+
+	var vel: Vector2 = dir * (player.GRID_SIZE / player.move_duration)
 
 	player.apply_root_motion(Vector3(vel.x, 0.0, vel.y), player.move_duration)
 	player.root_motion_tween.tween_callback(_move_character)

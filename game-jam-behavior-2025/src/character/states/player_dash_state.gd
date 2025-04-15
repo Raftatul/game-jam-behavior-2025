@@ -13,7 +13,7 @@ func check_relevance() -> StringName:
 	return ""
 
 
-func enter(machine: FiniteStateMachine) -> void:
+func enter(_machine: FiniteStateMachine) -> void:
 	player.dash_vfx.lifetime = player.dash_duration * 2
 	player.dash_vfx.emitting = true
 	player.dash.play()
@@ -22,5 +22,5 @@ func enter(machine: FiniteStateMachine) -> void:
 	player.apply_root_motion(Vector3(vel.x, 0.0, vel.y if use_depth else 0.0), player.dash_duration)
 
 
-func exit(machine: FiniteStateMachine) -> void:
+func exit(_machine: FiniteStateMachine) -> void:
 	player.dash_vfx.emitting = false

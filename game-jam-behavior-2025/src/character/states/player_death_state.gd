@@ -18,7 +18,7 @@ func check_relevance() -> StringName:
 	return ""
 
 
-func enter(machine: FiniteStateMachine) -> void:
+func enter(_machine: FiniteStateMachine) -> void:
 	player.death.play()
 	timer.start()
 	player.apply_gravity = false

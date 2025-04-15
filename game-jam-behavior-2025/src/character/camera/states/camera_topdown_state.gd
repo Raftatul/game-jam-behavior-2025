@@ -7,5 +7,5 @@ func check_relevance() -> StringName:
 	return ""
 
 
-func enter(machine: FiniteStateMachine) -> void:
+func enter(_machine: FiniteStateMachine) -> void:
 	camera.switch_to_topdown()

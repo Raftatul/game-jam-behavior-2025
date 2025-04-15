@@ -9,7 +9,7 @@ func check_relevance() -> StringName:
 	return ""
 
 
-func enter(machine: FiniteStateMachine) -> void:
+func enter(_machine: FiniteStateMachine) -> void:
 	player.step_sounds_anim.play("footsteps")
 	player.apply_gravity = true
 	player.anime_state_machine.travel(player.run_animation)
@@ -18,7 +18,7 @@ func enter(machine: FiniteStateMachine) -> void:
 		_move_character()
 
 
-func exit(machine: FiniteStateMachine) -> void:
+func exit(_machine: FiniteStateMachine) -> void:
 	player.step_sounds_anim.stop()
 
 

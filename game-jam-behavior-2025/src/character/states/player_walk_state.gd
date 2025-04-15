@@ -1,6 +1,5 @@
 class_name PlayerWalkState extends PlayerState
 
-
 var jump_buffered: bool = false
 
 
@@ -14,30 +13,36 @@ func check_relevance() -> StringName:
 	return ""
 
 
-func enter(machine: FiniteStateMachine) -> void:
+func enter(_machine: FiniteStateMachine) -> void:
 	player.step_sounds_anim.play("footsteps")
 	jump_buffered = false
 	player.apply_gravity = true
-	
+
 	player.anime_state_machine.travel(player.run_animation)
 	if not (player.root_motion_tween and player.root_motion_tween.is_running()):
 		_move_character()
 
 
-func update(machine: FiniteStateMachine, delta: float) -> void:
+func update(_machine: FiniteStateMachine, _delta: float) -> void:
 	if player.request_jump:
 		jump_buffered = true
 
 
-func exit(machine: FiniteStateMachine) -> void:
+func exit(_machine: FiniteStateMachine) -> void:
 	player.step_sounds_anim.stop()
 
 
 func _move_character() -> void:
-	if player.input_direction.x == 0.0 or jump_buffered or player.finite_state_machine.current_state_name == &"Death":
+	if (
+		player.input_direction.x == 0.0
+		or jump_buffered
+		or player.finite_state_machine.current_state_name == &"Death"
+	):
 		return
-	
-	var vel: Vector3 = Vector3.RIGHT * (player.GRID_SIZE / player.move_duration) * player.input_direction.x
-	
+
+	var vel: Vector3 = (
+		Vector3.RIGHT * (player.GRID_SIZE / player.move_duration) * player.input_direction.x
+	)
+
 	player.apply_root_motion(vel, player.move_duration)
 	player.root_motion_tween.tween_callback(_move_character)

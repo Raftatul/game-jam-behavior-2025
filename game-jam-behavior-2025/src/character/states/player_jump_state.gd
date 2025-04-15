@@ -5,7 +5,7 @@ func check_relevance() -> StringName:
 	return &"Fall"
 
 
-func enter(machine: FiniteStateMachine) -> void:
+func enter(_machine: FiniteStateMachine) -> void:
 	player.jump_start.play()
 	player.anime_state_machine.travel(player.fall_animation)
 	player.velocity.y += player.jump_force

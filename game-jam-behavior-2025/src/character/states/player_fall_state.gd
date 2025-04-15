@@ -12,9 +12,9 @@ func check_relevance() -> StringName:
 	return ""
 
 
-func enter(machine: FiniteStateMachine) -> void:
+func enter(_machine: FiniteStateMachine) -> void:
 	player.apply_gravity = true
 
 
-func exit(machine: FiniteStateMachine) -> void:
+func exit(_machine: FiniteStateMachine) -> void:
 	player.jump_land.play()

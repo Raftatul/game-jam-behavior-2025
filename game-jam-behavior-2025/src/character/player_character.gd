@@ -76,6 +76,12 @@ func _physics_process(delta: float) -> void:
 	super(delta)
 
 
+func get_last_valid_input_direction() -> Vector3:
+	return Vector3(last_valid_input.x, 0.0, last_valid_input.y).rotated(
+		Vector3.UP, global_rotation.y
+	)
+
+
 func kill() -> void:
 	camera_pivot.switch_tween.kill()
 
@@ -98,7 +104,6 @@ func orient_character(direction: Vector3, duration: float) -> void:
 	orient_tween = create_tween()
 
 	orient_tween.tween_method(set_rot.bind(current_ang, target_ang), 0.0, 1.0, duration)
-	#orient_tween.tween_property(character_mesh, "rotation:y", target_ang, duration)
 
 
 func apply_root_motion(vel: Vector3, duration: float) -> void:

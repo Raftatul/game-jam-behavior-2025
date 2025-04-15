@@ -93,21 +93,6 @@ _data = {
 &"death": SubResource("Animation_ih6im")
 }
 
-[sub_resource type="Animation" id="Animation_giy1u"]
-resource_name = "death"
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath(".:self_modulate")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0, 1),
-"transitions": PackedFloat32Array(1, 1),
-"update": 0,
-"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1)]
-}
-
 [sub_resource type="Animation" id="Animation_38jpj"]
 length = 0.001
 tracks/0/type = "value"
@@ -121,6 +106,21 @@ tracks/0/keys = {
 "transitions": PackedFloat32Array(1),
 "update": 0,
 "values": [Color(1, 1, 1, 1)]
+}
+
+[sub_resource type="Animation" id="Animation_giy1u"]
+resource_name = "death"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:self_modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1)]
 }
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_4feda"]
@@ -146,23 +146,23 @@ shape = SubResource("CapsuleShape3D_ih6im")
 transform = Transform3D(0.9, 0, 0, 0, 0.9, 0, 0, 0, 0.9, 0, 0, 0)
 
 [node name="Skeleton3D" parent="character_v1/metarig" index="0"]
-bones/4/position = Vector3(1.36176e-11, 0.779497, -0.0552)
+bones/4/position = Vector3(-2.30755e-10, 0.778922, -0.0552)
 bones/4/rotation = Quaternion(0.0851639, 1.18776e-07, 1.01523e-08, 0.996367)
-bones/5/rotation = Quaternion(-0.0477411, -0.0389311, 0.0284857, 0.997694)
-bones/6/rotation = Quaternion(-0.052528, -0.000287879, -0.0118212, 0.998549)
+bones/5/rotation = Quaternion(-0.0473365, 0.0142941, -0.0322726, 0.998255)
+bones/6/rotation = Quaternion(-0.0525216, -0.000478166, -0.0196348, 0.998427)
 bones/6/scale = Vector3(1, 1, 1)
 bones/7/rotation = Quaternion(0.0018179, -1.18802e-07, 2.17452e-10, 0.999998)
 bones/8/rotation = Quaternion(0.103174, 9.06654e-10, -8.42276e-10, 0.994663)
 bones/9/rotation = Quaternion(-0.0513563, 0.000142839, 0.00517193, 0.998667)
-bones/10/rotation = Quaternion(0.997666, -0.0612946, 0.0134136, -0.0269476)
-bones/11/rotation = Quaternion(0.0106321, 0.00458399, -0.0576672, 0.998269)
-bones/12/rotation = Quaternion(0.0663602, 0.0489253, 0.10702, 0.990833)
-bones/13/position = Vector3(0.0905932, 0.29121, -0.0323297)
-bones/14/position = Vector3(-0.112449, 0.281762, 0.0285894)
-bones/16/rotation = Quaternion(0.980968, -0.0161274, 0.0134099, 0.193032)
-bones/17/rotation = Quaternion(0.226766, 0.000505057, -0.0351776, 0.973314)
-bones/19/rotation = Quaternion(0.980968, 0.0161273, -0.0134096, 0.193032)
-bones/20/rotation = Quaternion(0.226767, -0.000505056, 0.0351776, 0.973313)
+bones/10/rotation = Quaternion(0.995655, 0.0452356, 0.0223417, -0.0782719)
+bones/11/rotation = Quaternion(-0.0453347, 0.0107251, -0.0178347, 0.998755)
+bones/12/rotation = Quaternion(0.156625, -8.19601e-05, -0.090649, 0.98349)
+bones/13/position = Vector3(0.104703, 0.225141, -0.0341938)
+bones/14/position = Vector3(-0.0983394, 0.215693, 0.0267253)
+bones/16/rotation = Quaternion(0.980899, -0.016186, 0.0134143, 0.193379)
+bones/17/rotation = Quaternion(0.228086, 0.000504896, -0.0353824, 0.972998)
+bones/19/rotation = Quaternion(0.980899, 0.0161859, -0.013414, 0.193379)
+bones/20/rotation = Quaternion(0.228087, -0.000504894, 0.0353823, 0.972998)
 
 [node name="DashVfx" parent="character_v1" instance=ExtResource("10_ykcix")]
 transform = Transform3D(1.11111, 0, 0, 0, 1.11111, 0, 0, 0, 1.11111, 0, 0.943761, 0)
@@ -181,7 +181,15 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
 
 [node name="FiniteStateMachine" parent="." instance=ExtResource("3_a5pac")]
 
+[node name="RotateTowardInput" parent="FiniteStateMachine" index="6" node_paths=PackedStringArray("target_node")]
+target_node = NodePath("../../character_v1")
+rotation_duration = 0.1
+
 [node name="TopDownStateMachine" parent="." instance=ExtResource("4_m366t")]
+
+[node name="RotateTowardInput" parent="TopDownStateMachine" index="4" node_paths=PackedStringArray("target_node")]
+target_node = NodePath("../../character_v1")
+rotation_duration = 0.1
 
 [node name="CameraPivot" type="Marker3D" parent="." node_paths=PackedStringArray("player")]
 transform = Transform3D(1, 0, 0, 0, 0.984808, 0.173648, 0, -0.173648, 0.984808, 0, 3.53055, 0)
@@ -280,4 +288,6 @@ libraries = {
 [connection signal="on_screen_visibility_changed" from="VisibilityComponent" to="." method="_on_visibility_component_on_screen_visibility_changed"]
 
 [editable path="character_v1"]
+[editable path="FiniteStateMachine"]
+[editable path="TopDownStateMachine"]
 [editable path="VisibilityComponent"]

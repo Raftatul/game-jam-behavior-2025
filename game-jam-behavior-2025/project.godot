@@ -24,10 +24,6 @@ boot_splash/minimum_display_time=5000
 CheckpointManager="*res://src/autoloads/checkpoint_manager.gd"
 MainGameMusic="*res://src/autoloads/main_game_music.tscn"
 
-[display]
-
-window/size/mode=4
-
 [editor_plugins]
 
 enabled=PackedStringArray("res://addons/format_on_save/plugin.cfg", "res://addons/node_filtering/plugin.cfg")

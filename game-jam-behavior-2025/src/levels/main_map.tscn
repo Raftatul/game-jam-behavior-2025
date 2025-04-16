@@ -2,11 +2,11 @@
 
 [ext_resource type="PackedScene" uid="uid://stq6yyadeyjn" path="res://src/character/character.tscn" id="1_4uxyq"]
 [ext_resource type="Script" uid="uid://dcexpw07mj5rk" path="res://src/levels/world.gd" id="1_qgv8x"]
-[ext_resource type="Script" path="res://src/ldos/kill_zone.gd" id="4_a4ppy"]
-[ext_resource type="PackedScene" uid="uid://b56g4e8vw0hk5" path="res://assets/ressource/palette_filter.tscn" id="5_aqj3v"]
+[ext_resource type="CompressedTexture3D" uid="uid://x0r2yedtytwe" path="res://assets/Textures/lut.png" id="2_g4bww"]
+[ext_resource type="Script" uid="uid://x2sgtrr65ci7" path="res://src/ldos/kill_zone.gd" id="4_a4ppy"]
 [ext_resource type="AudioStream" uid="uid://b308uv2ty8grh" path="res://assets/audio/music/SalmonLikeTheFish - Glacier.mp3" id="6_g4bww"]
 [ext_resource type="PackedScene" uid="uid://duila407wy3vr" path="res://assets/ressource/asset_enviro/sm_bridge_a_stairs_a.tscn" id="6_rvsp0"]
-[ext_resource type="PackedScene" uid="uid://djuqwkjv8jilm" path="res://src/ldos/checkpoint.tscn" id="7_g4bww"]
+[ext_resource type="PackedScene" uid="uid://8axi4munbd2s" path="res://assets/ressource/asset_enviro/sm_large_platform.tscn" id="7_g4bww"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_aqj3v"]
 
@@ -19,6 +19,8 @@ background_energy_multiplier = 0.2
 sky = SubResource("Sky_rvsp0")
 tonemap_mode = 2
 glow_enabled = true
+adjustment_enabled = true
+adjustment_color_correction = ExtResource("2_g4bww")
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_xbmv0"]
 size = Vector3(5000, 10, 5000)
@@ -42,8 +44,6 @@ shadow_enabled = true
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4, 4, 0)
 floor_constant_speed = true
 
-[node name="PaletteFilter" parent="." instance=ExtResource("5_aqj3v")]
-
 [node name="KillZone" type="Area3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -20, 0)
 script = ExtResource("4_a4ppy")
@@ -51,13 +51,18 @@ script = ExtResource("4_a4ppy")
 [node name="CollisionShape3D" type="CollisionShape3D" parent="KillZone"]
 shape = SubResource("BoxShape3D_xbmv0")
 
-[node name="SM_bridge_A_stairs_A" parent="." instance=ExtResource("6_rvsp0")]
+[node name="Level" type="Node3D" parent="."]
+
+[node name="SM_bridge_A_stairs_A" parent="Level" instance=ExtResource("6_rvsp0")]
 transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -1.03677, -10, 0)
 
-[node name="SM_bridge_A_stairs_A2" parent="." instance=ExtResource("6_rvsp0")]
+[node name="SM_bridge_A_stairs_A2" parent="Level" instance=ExtResource("6_rvsp0")]
 transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 2.9628, -9, 0)
 
-[node name="Checkpoint" parent="." instance=ExtResource("7_g4bww")]
-transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 0.166427, 2.3208, 0.107951)
+[node name="SM_bridge_A_stairs_A3" parent="Level" instance=ExtResource("6_rvsp0")]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 6.9628, -8, 0)
+
+[node name="SM_large_platform" parent="Level" instance=ExtResource("7_g4bww")]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 15, -7, 0)
 
 [connection signal="body_entered" from="KillZone" to="KillZone" method="_on_body_entered"]

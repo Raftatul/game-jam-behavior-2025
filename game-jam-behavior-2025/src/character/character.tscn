@@ -186,7 +186,6 @@ target_node = NodePath("../../character_v1")
 rotation_duration = 0.05
 
 [node name="TopDownStateMachine" parent="." instance=ExtResource("4_m366t")]
-debug_transition = true
 
 [node name="RotateTowardInput" parent="TopDownStateMachine" index="4" node_paths=PackedStringArray("target_node")]
 target_node = NodePath("../../character_v1")

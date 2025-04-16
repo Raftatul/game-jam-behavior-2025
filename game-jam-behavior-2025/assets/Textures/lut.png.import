@@ -1,0 +1,26 @@
+[remap]
+
+importer="3d_texture"
+type="CompressedTexture3D"
+uid="uid://x0r2yedtytwe"
+path="res://.godot/imported/lut.png-240e4d3df1a8dd71fed4856e54c9ae9e.ctex3d"
+metadata={
+"vram_texture": false
+}
+
+[deps]
+
+source_file="res://assets/Textures/lut.png"
+dest_files=["res://.godot/imported/lut.png-240e4d3df1a8dd71fed4856e54c9ae9e.ctex3d"]
+
+[params]
+
+compress/mode=0
+compress/high_quality=false
+compress/lossy_quality=0.7
+compress/hdr_compression=1
+compress/channel_pack=0
+mipmaps/generate=false
+mipmaps/limit=-1
+slices/horizontal=16
+slices/vertical=1

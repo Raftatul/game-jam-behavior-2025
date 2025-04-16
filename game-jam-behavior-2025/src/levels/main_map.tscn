@@ -44,25 +44,6 @@ shadow_enabled = true
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4, 4, 0)
 floor_constant_speed = true
 
-[node name="Skeleton3D" parent="Character/character_v1/metarig" index="0"]
-bones/4/position = Vector3(-6.30062e-16, 0.800791, -0.0552)
-bones/4/rotation = Quaternion(0.0851639, 1.30282e-07, 1.11358e-08, 0.996367)
-bones/5/rotation = Quaternion(-0.046798, 8.98161e-10, -1.22804e-08, 0.998904)
-bones/6/rotation = Quaternion(-0.0525317, -8.48087e-09, -1.33861e-08, 0.998619)
-bones/6/scale = Vector3(1, 1, 1)
-bones/7/rotation = Quaternion(0.00181786, -2.3075e-07, 2.83099e-11, 0.999998)
-bones/8/rotation = Quaternion(0.103174, 3.29046e-08, -1.87873e-08, 0.994663)
-bones/9/rotation = Quaternion(-0.0513563, 0.000142914, 0.00517193, 0.998667)
-bones/10/rotation = Quaternion(0.99946, -7.73427e-09, 2.02746e-08, -0.0328473)
-bones/11/rotation = Quaternion(0.021305, -1.43214e-09, 5.4183e-09, 0.999773)
-bones/12/rotation = Quaternion(0.0767429, -2.01883e-13, 1.94073e-08, 0.997051)
-bones/13/position = Vector3(0.0502373, 0.236905, -0.0127991)
-bones/14/position = Vector3(-0.0502372, 0.236905, -0.0127992)
-bones/16/rotation = Quaternion(0.993225, -0.00304807, 0.0123432, 0.115511)
-bones/17/rotation = Quaternion(0.0655982, 0.000517707, -0.010176, 0.997794)
-bones/19/rotation = Quaternion(0.993225, 0.00304821, -0.0123429, 0.115512)
-bones/20/rotation = Quaternion(0.0656003, -0.000517706, 0.0101764, 0.997794)
-
 [node name="KillZone" type="Area3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -20, 0)
 script = ExtResource("4_a4ppy")
@@ -85,9 +66,3 @@ transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 6.9628
 transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 15, -7, 0)
 
 [connection signal="body_entered" from="KillZone" to="KillZone" method="_on_body_entered"]
-
-[editable path="Character"]
-[editable path="Character/character_v1"]
-[editable path="Character/FiniteStateMachine"]
-[editable path="Character/TopDownStateMachine"]
-[editable path="Character/VisibilityComponent"]
